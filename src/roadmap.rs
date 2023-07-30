@@ -27,16 +27,17 @@ impl Ord for Period {
             (Q1, Q1) => Ordering::Equal,
             (Q1, _) => Ordering::Less,
             (Q2, Q2) => Ordering::Equal,
-            (Q2, Q1) | (Q2, Q3) | (Q2, Q4) => Ordering::Greater,
+            (Q2, Q1) => Ordering::Greater,
             (Q2, _) => Ordering::Less,
             (Q3, Q3) => Ordering::Equal,
-            (Q3, Q4) => Ordering::Greater,
+            (Q3, Q1) | (Q3, Q2) => Ordering::Greater,
             (Q3, _) => Ordering::Less,
             (Q4, Q4) => Ordering::Equal,
             (Q4, _) => Ordering::Greater,
         }
     }
 }
+
 
 impl PartialOrd for Period {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
