@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <title>MoKa Reads - Your Coffee-Themed Education Platform</title>
+    <style>
+        /* CSS for general layout and styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f3ee;
+            color: #333;
+        }
+        header {
+            background-color: #ad795b;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            padding: 40px 0;
+            text-align: center;
+        }
+        footer {
+            background-color: #ad795b;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* CSS for navigation bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ad795b;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: #ad795b;
+            border-top: 2px solid #f6f3ee;
+        }
+        nav ul ul li {
+            display: block;
+            width: 180px;
+        }
+        nav a:hover {
+            color: #333333;
+        }
+
+        .dropdown-caret {
+            margin-left: 5px;
+        }
+
+        /* CSS for the latest published resources section */
+        .latest-resources-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .latest-resources-section h2 {
+            font-size: 28px;
+            color: #ad795b;
+            margin-bottom: 20px;
+        }
+        .resources-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .resource-card {
+            background-color: #f6f3ee;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .resource-card a {
+            color: #ad795b;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .resource-card a:hover {
+            color: #874c28;
+        }
+        .news {
+            background-color: #ad795b;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        .news h2 {
+            margin-bottom: 20px;
+        }
+        /* CSS for the supported languages section */
+        .supported-languages-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .supported-languages-section h2 {
+            font-size: 28px;
+            color: #ad795b;
+            margin-bottom: 20px;
+        }
+        .supported-languages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .language-card {
+            background-color: #f6f3ee;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .language-card:hover {
+            transform: translateY(-5px);
+        }
+        .language-icon {
+            font-size: 40px;
+            color: #ad795b;
+            margin-bottom: 10px;
+        }
+        .language-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .language-description {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* CSS for mobile responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+            .section {
+                padding: 20px 0;
+            }
+            .coffee-cup {
+                width: 80px;
+                height: 80px;
+            }
+            .coffee-handle {
+                width: 8px;
+                height: 50px;
+                left: 35px;
+                bottom: 35px;
+            }
+            .coffee-steam {
+                width: 40px;
+                height: 24px;
+                top: 5px;
+                left: 20px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+        .open-source-section {
+            background-color: #fff;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            font-family: "Montserrat", sans-serif;
+        }
+        .open-source-section h2 {
+            font-size: 28px;
+            color: #ad795b;
+            margin-bottom: 20px;
+        }
+        .open-source-section p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .open-source-section ul {
+            text-align: center;
+            margin-top: 20px;
+            padding-left: 0;
+        }
+        .open-source-section ul li {
+            list-style: none;
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        .open-source-section ul li:before {
+            content: "\f138"; /* Font Awesome arrow icon (fa-arrow-right) */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ad795b;
+        }
+        /* CSS for the news section */
+        .news-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .news-section h2 {
+            font-size: 28px;
+            color: #ad795b;
+            margin-bottom: 20px;
+        }
+        .news-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .news-card {
+            background-color: #f6f3ee;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .news-card img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .news-card a {
+            color: #ad795b;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .news-card a:hover {
+            color: #874c28;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>MoKa Reads</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#mission"><i class="fas fa-clipboard-check"></i> Mission</a></li>
+        <li><a href="#licenses"><i class="fas fa-certificate"></i> Licenses</a></li>
+        <li>
+            <a href="#resources">
+                <i class="fas fa-book"></i> Resources <i class="fas fa-caret-down dropdown-caret"></i>
+            </a>
+            <ul>
+                <li><a href="#how-to-guides"><i class="fas fa-info-circle"></i> How to Guides</a></li>
+                <li><a href="#articles"><i class="fas fa-newspaper"></i> Articles</a></li>
+                <li><a href="#cheatsheets"><i class="fas fa-list-alt"></i> Cheatsheets</a></li>
+            </ul>
+        </li>
+        <li><a href="#shop"><i class="devicon-github-original"></i> Github</a></li>
+        <li><a href="#online-courses"><i class="fas fa-graduation-cap"></i> Online Courses</a></li>
+        <li><a href="#shop"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <!-- Open-Source Education Section -->
+    <section class="open-source-section">
+        <h2>Open-Source Education and Programming</h2>
+        <p>
+            At MoKa Reads, we are passionate about open-source education, especially in the realm of programming. Embracing open-source principles in programming education enables a collaborative learning environment where aspiring developers and seasoned coders alike can learn from, contribute to, and improve each other's work.
+        </p>
+        <p>
+            By supporting open-source programming projects, we believe in empowering educators and learners to explore new technologies, exchange ideas, and build real-world projects together. As a result, our platform fosters innovation, creativity, and a strong sense of community within the programming education landscape.
+        </p>
+        <p>
+            Additionally, our commitment to open-source extends to our publications. By making educational resources open and accessible, we aim to enrich the programming community with high-quality content while providing a platform for aspiring authors to share their knowledge and expertise.
+        </p>
+        <h3>Benefits of Open-Source Education in Programming:</h3>
+        <ul>
+            <li>Enhanced collaboration and knowledge sharing among programmers.</li>
+            <li>Opportunities to learn from real-world, industry-standard projects.</li>
+            <li>Exposure to diverse perspectives and problem-solving approaches.</li>
+            <li>Community-driven support and feedback for continuous improvement.</li>
+            <li>Empowerment to create and publish educational content for the community.</li>
+        </ul>
+    </section>
+    <!-- Latest Published Resources Section -->
+    <section class="latest-resources-section">
+        <h2>Latest Published Resources</h2>
+        <div class="resources-container">
+            <div class="resource-card">
+                <h3>Article: Introduction to Machine Learning</h3>
+                <p>
+                    Dive into the fascinating world of machine learning and its applications. Check out our latest article to get started. Read more <a href="#">here</a>.
+                </p>
+            </div>
+            <div class="resource-card">
+                <h3>Cheatsheet: JavaScript DOM Manipulation</h3>
+                <p>
+                    Need a quick reference for DOM manipulation in JavaScript? Our handy cheatsheet covers all the essentials. Download it <a href="#">here</a>.
+                </p>
+            </div>
+            <!-- Add more resource cards as needed -->
+        </div>
+    </section>
+
+    <!-- News on Publications Section -->
+    <section class="news-section">
+        <h2>News on Publications</h2>
+        <div class="news-container">
+            <div class="news-card">
+                <img src="image1.jpg" alt="Publication Image 1">
+                <p>
+                    Exciting new article on "Introduction to Python for Beginners" now available! Learn the fundamentals of Python programming with our step-by-step guide. Check it out <a href="#">here</a>.
+                </p>
+            </div>
+            <div class="news-card">
+                <img src="image2.jpg" alt="Publication Image 2">
+                <p>
+                    📢 Announcing our latest eBook "Web Development with JavaScript." Discover the secrets of building modern web applications using JavaScript. Get your copy <a href="#">here</a>.
+                </p>
+            </div>
+            <!-- Add more news cards as needed -->
+        </div>
+    </section>
+    <!-- Supported Languages Section -->
+    <section class="supported-languages-section">
+        <h2>Languages in Focus</h2>
+        <div class="supported-languages-container">
+            <div class="language-card">
+                <i class="language-icon devicon-kotlin-plain"></i>
+                <div class="language-name">Kotlin</div>
+                <div class="language-description">
+                    Kotlin is a modern, concise, and expressive language used for Android app development and other backend applications.
+                </div>
+            </div>
+            <div class="language-card">
+                <i class="language-icon devicon-rust-plain"></i>
+                <div class="language-name">Rust</div>
+                <div class="language-description">
+                    Rust is a systems programming language known for its safety features, low-level control, and high performance.
+                </div>
+            </div>
+            <div class="language-card">
+                <i class="language-icon devicon-c-plain"></i>
+                <div class="language-name">C</div>
+                <div class="language-description">
+                    C is a versatile and powerful language widely used for system programming, embedded systems, and high-performance applications.
+                </div>
+            </div>
+            <div class="language-card">
+                <i class="language-icon devicon-cplusplus-plain"></i>
+                <div class="language-name">C++</div>
+                <div class="language-description">
+                    C++ is an extension of C with additional object-oriented features, widely used for game development and high-performance applications.
+                </div>
+            </div>
+            <div class="language-card">
+                <i class="language-icon devicon-zig-original"></i>
+                <div class="language-name">Zig</div>
+                <div class="language-description">
+                    Zig is a modern and easy-to-use language designed for performance, safety, and readability, suitable for systems and game development.
+                </div>
+            </div>
+            <div class="language-card">
+                <i class="language-icon devicon-python-plain"></i>
+                <div class="language-name">Python</div>
+                <div class="language-description">
+                    Python is a powerful, high-level programming language known for its simplicity and readability. It is widely used in web development, data science, automation, and more.
+                </div>
+            </div>
+            <div class="language-card">
+                <i class="language-icon devicon-swift-plain"></i>
+                <div class="language-name">Swift</div>
+                <div class="language-description">
+                    Swift is Apple's programming language used for iOS, macOS, watchOS, and tvOS app development. It is designed for safety, performance, and ease of use.
+                </div>
+            </div>
+            <div class="language-card">
+                <i class="language-icon devicon-go-original-wordmark"></i>
+                <div class="language-name">Go</div>
+                <div class="language-description">
+                    Go (or Golang) is a modern, efficient, and statically typed language developed by Google. It is widely used in web services and backend development.
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2023 MoKa Reads. All rights reserved.</p>
+</footer>
+</body>
+</html>

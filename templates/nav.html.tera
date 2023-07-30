@@ -1,0 +1,23 @@
+<nav>
+    <!-- Hamburger Menu Icon -->
+    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+    <input type="checkbox" id="menu-toggle" style="display: none;">
+    <ul>
+        <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/mission"><i class="fas fa-clipboard-check"></i> Mission</a></li>
+        <li><a href="/licenses"><i class="fas fa-certificate"></i> Licenses</a></li>
+        <li>
+            <a>
+                <i class="fas fa-book"></i> Resources <i class="fas fa-caret-down dropdown-caret"></i>
+            </a>
+            <ul>
+                <li><a href="/how-to-guides"><i class="fas fa-info-circle"></i> How to Guides</a></li>
+                <li><a href="/articles"><i class="fas fa-newspaper"></i> Articles</a></li>
+                <li><a href="/cheatsheets"><i class="fas fa-list-alt"></i> Cheatsheets</a></li>
+            </ul>
+        </li>
+        <li><a href="https://github.com/Moka-Reads"><i class="devicon-github-original"></i> Github</a></li>
+        <li><a href="/"><i class="fas fa-graduation-cap"></i> Online Courses</a></li>
+        <li><a href="https://mokareads.sell.app"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+    </ul>
+</nav>

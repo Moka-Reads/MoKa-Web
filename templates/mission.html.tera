@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap">
+    <title>MoKa Reads | Mission</title>
+    <meta name="description" content="An Opensource Education Platform">
+    {% include "style" %}
+</head>
+
+<body>
+
+    <header>
+        <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads Mission</h1>
+    </header>
+    {% include "nav" %}
+
+    <div class="container">
+        <!-- Mission and About sections -->
+
+        <section class="mission-section">
+            <div class="mission-card">
+                <h2>Mission</h2>
+                <p>At MoKa Reads, our mission is to provide accessible and high-quality education to everyone, making
+                    learning new skills and technologies a delightful experience. We believe in the power of open-source
+                    education and its potential to transform lives. By embracing open-source principles, we can
+                    contribute to and benefit from the collective knowledge of the community, fostering innovation and
+                    growth.</p>
+                <p>We draw inspiration from the late Aaron Swartz, a visionary technologist, and open access activist.
+                    Aaron's passionate advocacy for making knowledge available to all has had a profound impact on the
+                    world of information sharing and open education. His dedication to open access and information
+                    freedom continues to fuel our mission at MoKa Reads.</p>
+                <p>Education is not meant to be confined; it should be preserved and open, with the doors wide open for
+                    exploration and learning. At MoKa Reads, we envision a future where education knows no boundaries,
+                    where knowledge is accessible to learners from all walks of life, empowering them to pursue their
+                    passions and reach their full potential.</p>
+                <p>We believe that building a vibrant community and fostering collaboration can make a tremendous impact
+                    on innovation and positively transform people's lives. MoKa Reads is more than just an educational
+                    platform; it is a collaborative space where learners from diverse backgrounds can come together,
+                    share their knowledge, and empower others to grow.</p>
+                <p>Open education, to us, is not just about access to resources; it's about the spirit of sharing,
+                    connecting, and empowering one another. Through MoKa Reads, we aspire to open doors to a world of
+                    knowledge, where learners can explore new horizons, expand their skillsets, and embark on a journey
+                    of continuous growth and self-discovery.</p>
+                <p class="mission-meaning"><strong>MKR:</strong> MKR stands for "Mustafif Khan Reference Library." MKR
+                    is a tribute to my first programming project, which aimed to centralize STEM materials for students.
+                    The MKR project was built on the principles of openness and sharing knowledge, which now serve as
+                    the foundation for MoKa Reads.</p>
+                <p class="mission-meaning">As an avid espresso enthusiast, I also find inspiration in my favorite
+                    espresso drink, the Mocha. Just like the harmonious blend of coffee and chocolate in a Mocha, MoKa
+                    Reads aims to blend the joy of learning with the rich flavors of knowledge.</p>
+            </div>
+
+            <div class="mission-about">
+                <div class="mission-card">
+                    <h2>About the Founder</h2>
+                    <img src="/assets/headshot.jpg" alt="Founder Image">
+                    <p>Hello there; it's a pleasure to introduce myself to you. My name is Mustafif Khan, and I am the
+                        founder of MoKa Reads, of which I am extremely proud. I was initially drawn to programming due
+                        to my
+                        fascination with web development. However, as time has passed, my interest has evolved, and I
+                        have
+                        expanded my knowledge to include systems programming. I am excited about the challenges
+                        presented by
+                        Rust, C, C++, and Zig.</p>
+
+                    <p>I am passionate about creating efficient and elegant code, which has culminated in the
+                        publication
+                        of my latest book, "Rust for C++ Programmers." This book is designed to bridge the gap between
+                        two
+                        powerful programming languages and introduce fellow programmers to Rust's unique capabilities
+                        and
+                        paradigms.</p>
+
+                    <p>I firmly believe that education can transform lives and foster innovation. As an independent
+                        publisher and author based in Canada, I am delighted to be working on MoKa Reads. This
+                        open-source
+                        education platform enables me to share my knowledge and expertise with a broad audience.</p>
+
+                    <p>My pursuits in both programming and poetry allow me to explore the complexities of life and human
+                        experiences. I hope my work will inspire others to embark on their own journeys of
+                        self-discovery
+                        and growth. Thank you for taking the time to get to know me a little better.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fancier Roadmap Section -->
+        <section class="roadmap-section">
+            <h2>Roadmap</h2>
+            <div class="timeline">
+                {% for item in roadmap %}
+
+                <div class="timeline-item">
+                    <div class="date">{{item.period}} {{item.year}}</div>
+                    <div class="content">
+                        <p>{{item.description}}</p>
+                    </div>
+                </div>
+
+                {%endfor%}
+
+            </div>
+
+        </section>
+    </div>
+
+
+
+
+
+    {% include "footer" %}
+</body>
+
+</html>
