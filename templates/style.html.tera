@@ -158,7 +158,7 @@
 
     .supported-languages-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
     }
 
@@ -315,151 +315,161 @@
     }
 
     /* CSS for the fancier roadmap design */
-        .roadmap-section {
-            background-color: #f6f3ee;
-            padding: 50px;
-            text-align: center;
-        }
+    .roadmap-section {
+        background-color: #f6f3ee;
+        padding: 50px;
+        text-align: center;
+    }
 
-        .roadmap-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #ad795b;
-        }
+    .roadmap-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #ad795b;
+    }
 
-        .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    .timeline {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-        .timeline-item {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 40px;
-        }
+    .timeline-item {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 40px;
+    }
 
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 20px;
-            height: 20px;
-            background-color: #ad795b;
-            border-radius: 50%;
-            transform: translateY(-50%);
-            z-index: 1;
-        }
+    .timeline-item:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        background-color: #ad795b;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+    }
 
-        .timeline-item .date {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #ad795b;
-            margin-bottom: 10px;
-        }
+    .timeline-item .date {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #ad795b;
+        margin-bottom: 10px;
+    }
 
-        .timeline-item .content {
-            background-color: #ad795b;
-            color: #fff;
-            padding: 15px;
-            border-radius: 8px;
-        }
+    .timeline-item .content {
+        background-color: #ad795b;
+        color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+    }
 
-        .timeline-item .content p {
-            margin: 10px 0;
-        }
-                .mission-section {
-            padding: 50px;
-            text-align: center;
-        }
+    .timeline-item .content p {
+        margin: 10px 0;
+    }
 
-        .mission-section {
-            padding: 50px;
-            text-align: center;
-            background-color: #f6f3ee;
-        }
+    .mission-section {
+        padding: 50px;
+        text-align: center;
+    }
 
-        .mission-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #ad795b;
-        }
+    .mission-section {
+        padding: 50px;
+        text-align: center;
+        background-color: #f6f3ee;
+    }
 
-        .mission-card {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    .mission-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #ad795b;
+    }
 
-        .mission-card p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #4a4a4a;
-            margin-bottom: 20px;
-        }
+    .mission-card {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        .mission-meaning {
-            font-size: 1.1rem;
-            font-style: italic;
-            color: #6c757d;
-        }
+    .mission-card p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #4a4a4a;
+        margin-bottom: 20px;
+    }
 
-        .mission-about {
-            margin-top: 50px;
-        }
+    .mission-meaning {
+        font-size: 1.1rem;
+        font-style: italic;
+        color: #6c757d;
+    }
 
-        .mission-about img {
-            max-width: 200px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-                .license-section {
-            padding: 50px;
-            text-align: center;
-            background-color: #f6f3ee;
-        }
+    .mission-about {
+        margin-top: 50px;
+    }
 
-        .license-card {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    .mission-about img {
+        max-width: 200px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
 
-        .license-card h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #ad795b;
-        }
+    .license-section {
+        padding: 50px;
+        text-align: center;
+        background-color: #f6f3ee;
+    }
 
-        .license-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #ad795b;
-        }
+    .license-card {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        .license-card p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #4a4a4a;
-            margin-bottom: 20px;
-        }
+    .license-card h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #ad795b;
+    }
 
-        /* Style for license titles */
-        .license-type {
-            font-size: 1.3rem;
-            color: #ad795b;
-            font-weight: bold;
-        }
+    .license-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: #ad795b;
+    }
 
-        /* Style for license descriptions */
-        .license-description {
-            font-size: 1.1rem;
-        }
+    .license-card p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #4a4a4a;
+        margin-bottom: 20px;
+    }
+
+    /* Style for license titles */
+    .license-type {
+        font-size: 1.3rem;
+        color: #ad795b;
+        font-weight: bold;
+    }
+
+    /* Style for license descriptions */
+    .license-description {
+        font-size: 1.1rem;
+    }
+
+    .center-container {
+        display: flex;
+        justify-content: center;
+        /* Horizontally center the content */
+        align-items: center;
+        /* Vertically center the content */
+    }
 </style>

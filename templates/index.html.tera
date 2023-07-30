@@ -19,6 +19,8 @@
     {% include "nav" %}
     <div class="container">
         <!-- Open-Source Education Section -->
+
+
         <section class="open-source-section">
             <h2>Open-Source Education and Programming</h2>
             <p>
@@ -46,7 +48,13 @@
                 <li>Community-driven support and feedback for continuous improvement.</li>
                 <li>Empowerment to create and publish educational content for the community.</li>
             </ul>
+            <br>
+            <div class="center-container">
+                {% include "zoho" %}
+            </div>
+
         </section>
+
         <!-- Latest Published Resources Section -->
         <section class="latest-resources-section">
             <h2>Latest Published Resources</h2>
@@ -160,6 +168,8 @@
             </div>
         </section>
     </div>
+
+
 
     {% include "footer" %}
 </body>
