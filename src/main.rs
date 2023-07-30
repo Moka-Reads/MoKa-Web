@@ -4,7 +4,6 @@ use rocket_dyn_templates::{context, Template};
 
 pub mod db;
 pub mod handles;
-pub mod resources;
 mod roadmap;
 
 use handles::*;
