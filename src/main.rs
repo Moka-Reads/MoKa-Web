@@ -2,7 +2,6 @@ use rocket::{get, launch, routes};
 use rocket::fs::FileServer;
 use rocket_dyn_templates::{context, Template};
 
-pub mod db;
 pub mod handles;
 mod roadmap;
 
