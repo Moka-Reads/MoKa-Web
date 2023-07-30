@@ -1,41 +1,39 @@
-use std::cmp::Ordering;
+use crate::db::connect;
 use mongodb::bson::doc;
 use mongodb::bson::oid::ObjectId;
-use serde::{Deserialize, Serialize};
 use mongodb::error::Result;
+use serde::{Deserialize, Serialize};
+use std::cmp::Ordering;
 use tokio::fs::read_to_string;
-use crate::db::connect;
-
 #[derive(Debug, Deserialize, Serialize, Clone, Eq, PartialEq)]
-pub struct RoadmapItem{
+pub struct RoadmapItem {
     pub year: u32,
     pub period: Period,
-    pub description: String
+    pub description: String,
 }
 
 #[derive(Debug, Deserialize, Serialize, Copy, Clone, Eq, PartialEq)]
-pub enum Period{
+pub enum Period {
     Q1,
     Q2,
     Q3,
-    Q4
+    Q4,
 }
 
 impl Ord for Period {
     fn cmp(&self, other: &Self) -> Ordering {
-        // Define the custom ordering for the Period enum
-        // The ordering will be Q1 < Q2 < Q3 < Q4
+        use Period::*;
         match (self, other) {
-            (Period::Q1, Period::Q1) => Ordering::Equal,
-            (Period::Q1, _) => Ordering::Less,
-            (Period::Q2, Period::Q2) => Ordering::Equal,
-            (Period::Q2, Period::Q1) => Ordering::Greater,
-            (Period::Q2, _) => Ordering::Less,
-            (Period::Q3, Period::Q3) => Ordering::Equal,
-            (Period::Q3, (Period::Q1 | Period::Q2)) => Ordering::Greater,
-            (Period::Q3, _) => Ordering::Less,
-            (Period::Q4, Period::Q4) => Ordering::Equal,
-            (Period::Q4, _) => Ordering::Greater,
+            (Q1, Q1) => Ordering::Equal,
+            (Q1, _) => Ordering::Less,
+            (Q2, Q2) => Ordering::Equal,
+            (Q2, Q1) | (Q2, Q3) | (Q2, Q4) => Ordering::Greater,
+            (Q2, _) => Ordering::Less,
+            (Q3, Q3) => Ordering::Equal,
+            (Q3, Q4) => Ordering::Greater,
+            (Q3, _) => Ordering::Less,
+            (Q4, Q4) => Ordering::Equal,
+            (Q4, _) => Ordering::Greater,
         }
     }
 }
@@ -48,14 +46,14 @@ impl PartialOrd for Period {
 
 impl Ord for RoadmapItem {
     fn cmp(&self, other: &Self) -> Ordering {
-        // First, compare the periods
-        let period_ordering = self.period.cmp(&other.period);
-        if period_ordering != Ordering::Equal {
-            return period_ordering;
+        // First, compare the years
+        let year_ordering = self.year.cmp(&other.year);
+        if year_ordering != Ordering::Equal {
+            return year_ordering;
         }
 
-        // If the periods are the same, compare the years
-        self.year.cmp(&other.year)
+        // If the years are the same, compare the periods
+        self.period.cmp(&other.period)
     }
 }
 
@@ -66,12 +64,12 @@ impl PartialOrd for RoadmapItem {
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone, Ord, PartialOrd, Eq, PartialEq)]
-pub struct Roadmap{
-    pub map_items: Vec<RoadmapItem>
+pub struct Roadmap {
+    pub map_items: Vec<RoadmapItem>,
 }
 
 impl Roadmap {
-    pub async fn new() -> Self{
+    pub async fn new() -> Self {
         let str = read_to_string("roadmap.toml").await.unwrap();
         toml::from_str(&str).unwrap()
     }
