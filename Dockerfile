@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y git
 WORKDIR /home/resources
 
 # Clone the repository into /home/resources
-RUN git clone git@github.com:Moka-Reads/Moka-Resources.git .
+RUN git clone https://github.com/Moka-Reads/Moka-Resources.git .
 
 # Move back to the /home directory
 WORKDIR /home
