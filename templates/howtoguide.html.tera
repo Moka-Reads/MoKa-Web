@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap">
+    <title>MoKa Reads | Guides</title>
+    <meta name="description" content="An Opensource Education Platform">
+    {% include "style" %}
+</head>
+
+
+<body>
+
+    <header>
+        <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads How To Guides</h1>
+    </header>
+
+    {%include "nav"%}
+    <div class="guides-container">
+        <div class="guide-card">
+            <a href="#">
+                <i class="fas fa-book-open"></i>
+                <h2>Guide Title 1</h2>
+            </a>
+        </div>
+        <div class="guide-card">
+            <a href="#">
+                <i class="fas fa-book-open"></i>
+                <h2>Guide Title 2</h2>
+            </a>
+        </div>
+        <div class="guide-card">
+            <a href="#">
+                <i class="fas fa-book-open"></i>
+                <h2>Guide Title 3</h2>
+            </a>
+        </div>
+        <!-- Add more guide cards here -->
+    </div>
+
+    {%
+    include "footer"
+    %}
+
+</body>
+
+</html>

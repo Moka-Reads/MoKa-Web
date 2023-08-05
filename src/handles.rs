@@ -53,6 +53,15 @@ pub async fn article_(slug: &str) -> Template{
     })
 }
 
+#[get("/guides")]
+pub async fn guides() -> Template{
+    let files = Files::new().await.unwrap();
+    let guides = files.guides();
+    Template::render("howtoguide", context! {
+
+    })
+}
+
 #[get("/guides/<repo>")]
 pub async fn guide_(repo: &str) -> Redirect{
     let files = Files::new().await.unwrap();

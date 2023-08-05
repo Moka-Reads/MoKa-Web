@@ -1,7 +1,9 @@
 use rocket::response::Redirect;
 use rocket::uri;
 use rocket::http::uri::Absolute;
+use serde::{Deserialize, Serialize};
 
+#[derive(Debug, Deserialize, Serialize)]
 pub struct Guide{
     pub repo_name: String
 }

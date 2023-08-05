@@ -32,10 +32,14 @@
     }
 
     footer {
+        position:sticky;
+        left: 0;
+        bottom: 0;
+        width: 100%;
         background-color: #ad795b;
         color: #fff;
+        padding: 10px;
         text-align: center;
-        padding: 10px 0;
     }
 
     /* CSS for navigation bar */
@@ -596,7 +600,7 @@
         max-width: 800px;
         margin: 20px auto;
     }
-    
+
     .language-group {
         margin-bottom: 30px;
         background-color: #fff;
@@ -604,7 +608,7 @@
         border-radius: 4px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    
+
     .language-group h2 {
         font-size: 24px;
         font-weight: bold;
@@ -612,23 +616,23 @@
         align-items: center;
         margin-bottom: 15px;
     }
-    
+
     .language-group i {
         font-size: 28px;
         margin-right: 10px;
         color: #ad795b;
     }
-    
+
     .language-group ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
     }
-    
+
     .language-group li {
         margin-bottom: 5px;
     }
-    
+
     .language-group li a {
         display: inline-block;
         padding: 5px 10px;
@@ -637,21 +641,58 @@
         text-decoration: none;
         border-radius: 4px;
     }
-    
+
     .language-group li a:hover {
         background-color: #923d15;
     }
-    
+
     /* Horizontal grid layout for cheatsheets */
     .cheatsheets-grid {
         display: flex;
         flex-wrap: wrap;
     }
-    
+
     .cheatsheets-grid li {
         margin-right: 10px;
     }
 
+    .guides-container {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
+    .guide-card {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+        width: 200px;
+        text-align: center;
+    }
 
+    .guide-card a {
+        text-decoration: none;
+    }
+
+    .guide-card i {
+        font-size: 48px;
+        color: #ad795b;
+    }
+
+    .guide-card h2 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #ad795b;
+        margin-top: 10px;
+    }
+
+    .guide-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+        transition: box-shadow 0.3s, transform 0.3s;
+    }
 </style>

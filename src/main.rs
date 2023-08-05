@@ -15,6 +15,6 @@ use handles::*;
 fn rocket() -> _ {
     rocket::build()
         .attach(Template::fairing())
-        .mount("/", routes![index, mission, licenses, license_handle, article_home, article_, cheatsheet_home])
+        .mount("/", routes![index, mission, licenses, license_handle, article_home, article_, cheatsheet_home, guides, guide_])
         .mount("/assets", FileServer::from("assets"))
 }
