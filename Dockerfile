@@ -5,13 +5,10 @@ FROM rust:latest
 RUN apt-get update && apt-get install -y git
 
 # Set the working directory to /home/resources
-WORKDIR /home/resources
+WORKDIR /home
 
 # Clone the repository into /home/resources
-RUN git clone https://github.com/Moka-Reads/Moka-Resources.git .
-
-# Move back to the /home directory
-WORKDIR /home
+RUN git clone https://github.com/Moka-Reads/Moka-Resources.git resources
 
 # Build your Rust application
 RUN cargo build --release
