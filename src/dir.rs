@@ -18,7 +18,7 @@ pub struct Files{
 }
 async fn get_files(folder: &str) -> Result<Vec<String>>{
     let mut entries = Vec::new();
-    let path = Path::new("resources").join(folder);
+    let path = Path::new("./resources").join(folder);
     for entry in WalkDir::new(path){
         let entry = entry?;
         let path = entry.path();
@@ -39,7 +39,7 @@ async fn get_files(folder: &str) -> Result<Vec<String>>{
 fn get_dir_names(folder: &str) -> Result<Vec<String>>{
     let mut entries = Vec::new();
 
-    let path = Path::new("resources").join(folder);
+    let path = Path::new("./resources").join(folder);
     for entry in WalkDir::new(path){
         let entry = entry?;
         let path = entry.path();
