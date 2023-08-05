@@ -1,10 +1,11 @@
 # Use the Rust base image
 FROM rust:latest
 
+RUN apt-get update && apt-get install git
 # Set the working directory to /home/resources
 WORKDIR /home
 
-COPY . .
+RUN git clone https://github.com/Moka-Reads/MoKa-Web.git .
 
 # Build your Rust application
 RUN cargo build --release
