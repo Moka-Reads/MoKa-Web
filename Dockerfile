@@ -1,14 +1,8 @@
 # Use the Rust base image
 FROM rust:latest
 
-# Install git
-RUN apt-get update && apt-get install -y git
-
 # Set the working directory to /home/resources
 WORKDIR /home
-
-# Clone the repository into /home/resources
-RUN git clone https://github.com/Moka-Reads/Moka-Resources.git resources
 
 COPY . .
 
