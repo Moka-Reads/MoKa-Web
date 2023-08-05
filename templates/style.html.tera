@@ -494,7 +494,7 @@
     }
 
     .title {
-        font-size: 24px;
+        font-size: 22px;
         margin-bottom: 10px;
         font-family: 'Russo One';
     }
@@ -591,4 +591,67 @@
     .article-content .language-icon {
         font-size: 100px;
     }
+
+    .cheatsheets-container {
+        max-width: 800px;
+        margin: 20px auto;
+    }
+    
+    .language-group {
+        margin-bottom: 30px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .language-group h2 {
+        font-size: 24px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .language-group i {
+        font-size: 28px;
+        margin-right: 10px;
+        color: #ad795b;
+    }
+    
+    .language-group ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .language-group li {
+        margin-bottom: 5px;
+    }
+    
+    .language-group li a {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #ad795b;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+    
+    .language-group li a:hover {
+        background-color: #923d15;
+    }
+    
+    /* Horizontal grid layout for cheatsheets */
+    .cheatsheets-grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .cheatsheets-grid li {
+        margin-right: 10px;
+    }
+
+
+
 </style>

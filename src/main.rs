@@ -6,6 +6,8 @@ pub mod handles;
 mod roadmap;
 pub mod dir;
 pub mod article;
+pub mod cheatsheet;
+pub mod guide;
 
 use handles::*;
 
@@ -13,6 +15,6 @@ use handles::*;
 fn rocket() -> _ {
     rocket::build()
         .attach(Template::fairing())
-        .mount("/", routes![index, mission, licenses, license_handle, article_home, article_])
+        .mount("/", routes![index, mission, licenses, license_handle, article_home, article_, cheatsheet_home])
         .mount("/assets", FileServer::from("assets"))
 }

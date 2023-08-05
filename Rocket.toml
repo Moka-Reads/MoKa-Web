@@ -3,7 +3,7 @@ template_dir = "templates"
 
 [debug]
 address = "127.0.0.1"
-port = 8080
+port = 3030
 keep_alive = 5
 cli_colors = true
 log_level = "normal"

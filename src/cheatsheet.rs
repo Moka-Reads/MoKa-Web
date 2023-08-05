@@ -1,18 +1,17 @@
+use std::collections::HashMap;
+use pulldown_cmark::{html, Options, Parser};
 use serde::{Deserialize, Serialize};
-use pulldown_cmark::{Parser, Options, html};
 
-#[derive(Debug, Serialize, Deserialize)]
-pub struct Article {
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Cheatsheet{
     title: String,
-    author: String,
     pub slug: String,
+    lang: String,
     icon: String,
-    date: String,
-    tags: String,
     content: String,
 }
 
-impl Article {
+impl Cheatsheet{
     pub fn new(markdown: &str) -> Self{
         // Parse the metadata block
         let meta_prefix = "---";
@@ -20,12 +19,12 @@ impl Article {
 
         let mut title = String::new();
         let mut slug = String::new();
-        let mut author = String::new();
+
         let mut content = String::new();
+        let mut lang = String::new();
 
         let mut is_metadata = false;
-        let mut date = String::new();
-        let mut tags = Vec::new();
+
         let mut icon = String::new();
 
         for line in markdown.lines() {
@@ -41,10 +40,8 @@ impl Article {
                                 title = value.trim().to_string();
                                 slug = value.trim().replace(" ", "_");
                             },
-                            "author" => author = value.trim().to_string(),
+                            "lang" => lang = value.trim().to_lowercase(),
                             "icon" => icon = value.trim().to_string(),
-                            "date" => date = value.trim().to_string(),
-                            "tags" => tags = value.trim().split(',').map(|tag| tag.trim().to_string()).collect(),
                             _ => (),
                         }
                     }
@@ -62,12 +59,46 @@ impl Article {
 
         Self {
             title,
-            author,
             slug,
+            lang,
             icon,
-            date,
-            tags: tags.join(","),
             content: html_output,
         }
     }
+}
+
+
+#[derive(Debug,Clone, Eq, PartialEq, Ord, PartialOrd, Deserialize, Serialize)]
+pub enum Language{
+    Kotlin,
+    Rust,
+    C,
+    CPP,
+    Zig,
+    Python,
+    Swift,
+    Go,
+    Other,
+}
+
+impl Language{
+    pub fn from_str(s: &str) -> Language{
+        match s{
+            "kotlin" => Language::Kotlin,
+            "rust" => Language::Rust,
+            "c" => Language::C,
+            "c++" => Language::CPP,
+            "zig" => Language::Zig,
+            "python" => Language::Python,
+            "swift" => Language::Swift,
+            "go" => Language::Go,
+            _ => Language::Other
+        }
+    }
+}
+
+pub fn sort_the_cheats(lang: Language, cheatsheets: &Vec<Cheatsheet>) -> Vec<&Cheatsheet>{
+    cheatsheets.iter().filter(|x|{
+        Language::from_str(&x.lang) == lang
+    }).collect()
 }

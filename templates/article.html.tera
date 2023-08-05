@@ -28,6 +28,7 @@
             <section class="open-source-section">
                 <i class="language-icon {{article.icon}}"></i>
                 <h1 class="title">{{article.title}}</h1>
+                <h2>By: {{article.author}}</h2>
                 <p class="tags"> Tags: {{article.tags}}</p>
                 <p class="publish-date">Published On: {{article.date}}</p>
                 <div class="article-content">

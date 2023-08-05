@@ -32,7 +32,7 @@
         <div class="article">
             <i class="icon-container {{article.icon}}"></i>
 
-            <div class="title"><a class="link" href="/articles/{{article.slug}}">{{ article.title }}</a></div>
+            <div class="title"><a class="link" href="/articles/{{article.slug}}">{{ article.title }} by {{article.author}}</a></div>
             <div class="tags">Tags: {{article.tags}}</div>
             <div class="publish-date">Published on {{article.date}}</div>
         </div>
