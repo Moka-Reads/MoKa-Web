@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install git
 WORKDIR /home
 
 RUN git clone https://github.com/Moka-Reads/MoKa-Web.git .
+RUN git submodule update --init --recursive
+
 
 # Build your Rust application
 RUN cargo build --release
