@@ -10,6 +10,8 @@ WORKDIR /home
 # Clone the repository into /home/resources
 RUN git clone https://github.com/Moka-Reads/Moka-Resources.git resources
 
+COPY . .
+
 # Build your Rust application
 RUN cargo build --release
 
