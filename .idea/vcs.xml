@@ -2,5 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/resources" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/resources/Moka-Articles" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/resources/Moka-Cheatsheets" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/resources/Moka-Guides" vcs="Git" />
   </component>
 </project>

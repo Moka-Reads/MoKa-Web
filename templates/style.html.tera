@@ -472,4 +472,123 @@
         align-items: center;
         /* Vertically center the content */
     }
+
+    .articles-container {
+        max-width: 600px;
+        margin: 20px auto;
+    }
+
+    .article {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px;
+        width: 45%;
+        position: relative;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .article:hover {
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-family: 'Russo One';
+    }
+
+    .tags {
+        color: #888;
+        font-size: 16px;
+        font-family: 'Times New Roman', Times, serif;
+        margin-bottom: 5px;
+    }
+
+    .publish-date {
+        color: #555;
+        font-size: 16px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .link {
+        color: #ad795b;
+        text-decoration: none;
+    }
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+    .icon-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 65px;
+        color: #ad795b;
+    }
+
+    .search-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    #searchInput {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .article-content {
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    .article-content h1 {
+        font-size: 28px;
+        font-family: 'Times New Roman';
+        color: #ad795b;
+        margin-bottom: 10px;
+    }
+
+    .article-content h2 {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .article-content p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .article-content ul {
+        margin: 0;
+        padding: 0 20px;
+        list-style-type: disc;
+    }
+
+    .article-content pre {
+        background-color: #282c34;
+        border-radius: 5px;
+        padding: 20px;
+        font-size: 14px;
+        line-height: 1.4;
+        overflow-x: auto;
+    }
+
+    .article-content code {
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        color: #fff;
+    }
+
+    .article-content .language-icon {
+        font-size: 100px;
+    }
 </style>

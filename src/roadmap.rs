@@ -1,4 +1,3 @@
-use mongodb::bson::doc;
 use serde::{Deserialize, Serialize};
 use std::cmp::Ordering;
 use tokio::fs::read_to_string;
