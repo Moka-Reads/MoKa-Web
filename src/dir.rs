@@ -27,7 +27,6 @@ async fn get_files(folder: &str) -> Result<Vec<String>>{
                 let content = read_to_string(entry.path()).await?;
                 entries.push(content)
             }
-
         }
 
 
