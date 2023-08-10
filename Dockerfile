@@ -14,6 +14,7 @@ RUN git clone https://github.com/Moka-Reads/Moka-Resources.git resources
 RUN cd resources && git clone https://github.com/Moka-Reads/Moka-Articles.git
 RUN cd resources && git clone https://github.com/Moka-Reads/Moka-Cheatsheets.git
 RUN cd resources && git clone https://github.com/Moka-Reads/Moka-Guides.git
+RUN cd resources && git submodule update --init 
 # Build your Rust application
 RUN cargo build --release
 
