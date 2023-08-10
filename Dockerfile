@@ -20,7 +20,6 @@ FROM chef AS builder
 COPY --from=planner /home/recipe.json recipe.json
 # Build dependencies - this is the caching Docker layer!
 RUN cargo chef cook --release --recipe-path recipe.json
-COPY . .
 # Build your Rust application
 RUN cargo build --release
 
