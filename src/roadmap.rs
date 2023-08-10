@@ -70,6 +70,6 @@ impl Roadmap {
         toml::from_str(&str).unwrap()
     }
     pub fn sort(&mut self) {
-        self.map_items.sort_by(|a, b| a.cmp(b))
+        self.map_items.sort()
     }
 }

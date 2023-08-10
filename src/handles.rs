@@ -1,6 +1,6 @@
 use crate::dir::Files;
 use crate::roadmap::Roadmap;
-use mokareads_core::resources::cheatsheet::{get_lang_map, Cheatsheet, Language};
+use mokareads_core::resources::cheatsheet::{get_lang_map, Language};
 use rocket::get;
 use rocket::response::Redirect;
 use rocket_dyn_templates::{context, Template};
@@ -62,7 +62,7 @@ pub async fn article_(slug: &str) -> Template {
 #[get("/guides")]
 pub async fn guides() -> Template {
     let files = Files::new().await.unwrap();
-    let guides = files.guides();
+    let _guides = files.guides();
     Template::render("howtoguide", context! {})
 }
 

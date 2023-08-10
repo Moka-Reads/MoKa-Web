@@ -21,11 +21,10 @@ async fn get_files(folder: &str) -> Result<Vec<String>> {
     for entry in WalkDir::new(path) {
         let entry = entry?;
         let path = entry.path();
-        if path.is_file() {
-            if path.to_str().unwrap().contains("md") {
-                let content = read_to_string(entry.path()).await?;
+
+        if path.is_file() && path.to_str().unwrap().contains("md"){
+            let content = read_to_string(entry.path()).await?;
                 entries.push(content)
-            }
         }
     }
     Ok(entries)
