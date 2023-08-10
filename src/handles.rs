@@ -1,12 +1,9 @@
+use crate::dir::Files;
+use crate::roadmap::Roadmap;
+use mokareads_core::resources::cheatsheet::{get_lang_map, Cheatsheet, Language};
 use rocket::get;
 use rocket::response::Redirect;
 use rocket_dyn_templates::{context, Template};
-use crate::article::Article;
-use crate::cheatsheet::Language::*;
-use crate::cheatsheet::sort_the_cheats;
-use crate::dir::Files;
-use crate::roadmap::Roadmap;
-
 
 #[get("/")]
 pub fn index() -> Template {
@@ -14,56 +11,63 @@ pub fn index() -> Template {
 }
 
 #[get("/mission")]
-pub async fn mission() -> Template{
+pub async fn mission() -> Template {
     let mut rmap = Roadmap::new().await;
     rmap.sort();
-    Template::render("mission", context! {
-        roadmap: rmap.map_items
-    })
+    Template::render(
+        "mission",
+        context! {
+            roadmap: rmap.map_items
+        },
+    )
 }
 
 #[get("/licenses")]
-pub fn licenses() -> Template{
+pub fn licenses() -> Template {
     Template::render("license_home", context! {})
 }
 
 #[get("/licenses/<lic>")]
-pub fn license_handle(lic: &str) -> Template{
+pub fn license_handle(lic: &str) -> Template {
     Template::render("license", context! {license: lic})
 }
 
 #[get("/articles")]
-pub async fn article_home() -> Template{
+pub async fn article_home() -> Template {
     let files = Files::new().await.unwrap();
     let articles = files.articles();
-    Template::render("articles_home", context! {
-        articles: articles
-    })
+    Template::render(
+        "articles_home",
+        context! {
+            articles: articles
+        },
+    )
 }
 
 #[get("/articles/<slug>")]
-pub async fn article_(slug: &str) -> Template{
+pub async fn article_(slug: &str) -> Template {
     let files = Files::new().await.unwrap();
     let articles = files.articles();
 
     let article = articles.iter().find(|x| x.slug == slug.trim());
 
-    Template::render("article", context! {
-        article: article.unwrap()
-    })
+    Template::render(
+        "article",
+        context! {
+            article: article.unwrap()
+        },
+    )
 }
 
 #[get("/guides")]
-pub async fn guides() -> Template{
+pub async fn guides() -> Template {
     let files = Files::new().await.unwrap();
     let guides = files.guides();
-    Template::render("howtoguide", context! {
-
-    })
+    Template::render("howtoguide", context! {})
 }
 
 #[get("/guides/<repo>")]
-pub async fn guide_(repo: &str) -> Redirect{
+pub async fn guide_(repo: &str) -> Redirect {
     let files = Files::new().await.unwrap();
     let guides = files.guides();
 
@@ -72,30 +76,58 @@ pub async fn guide_(repo: &str) -> Redirect{
 }
 
 #[get("/cheatsheets")]
-pub async fn cheatsheet_home() -> Template{
+pub async fn cheatsheet_home() -> Template {
     let files = Files::new().await.unwrap();
     let cheatsheets = files.cheatsheets();
+    let lang_map = get_lang_map(&cheatsheets);
 
-    let kotlin = sort_the_cheats(Kotlin, &cheatsheets);
-    let rust = sort_the_cheats(Rust, &cheatsheets);
-    let python = sort_the_cheats(Python, &cheatsheets);
-    let c = sort_the_cheats(C, &cheatsheets);
-    let cpp = sort_the_cheats(CPP, &cheatsheets);
-    let zig = sort_the_cheats(Zig, &cheatsheets);
-    let swift = sort_the_cheats(Swift, &cheatsheets);
-    let go = sort_the_cheats(Go, &cheatsheets);
-    let other = sort_the_cheats(Other, &cheatsheets);
+    let kotlin = lang_map
+        .get(&Language::Kotlin)
+        .unwrap_or(&Vec::new())
+        .clone();
+    let rust = lang_map.get(&Language::Rust).unwrap_or(&Vec::new()).clone();
+    let python = lang_map
+        .get(&Language::Python)
+        .unwrap_or(&Vec::new())
+        .clone();
+    let c = lang_map.get(&Language::C).unwrap_or(&Vec::new()).clone();
+    let cpp = lang_map.get(&Language::CPP).unwrap_or(&Vec::new()).clone();
+    let zig = lang_map.get(&Language::Zig).unwrap_or(&Vec::new()).clone();
+    let swift = lang_map
+        .get(&Language::Swift)
+        .unwrap_or(&Vec::new())
+        .clone();
+    let go = lang_map.get(&Language::Go).unwrap_or(&Vec::new()).clone();
+    let other = lang_map
+        .get(&Language::Other)
+        .unwrap_or(&Vec::new())
+        .clone();
 
+    Template::render(
+        "cheatsheet_home",
+        context! {
+            rust: rust,
+            kotlin: kotlin,
+            python: python,
+            c: c,
+            cpp: cpp,
+            zig: zig,
+            swift: swift,
+            go: go,
+            other: other,
+        },
+    )
+}
 
-    Template::render("cheatsheet_home", context! {
-        rust: rust,
-        kotlin: kotlin,
-        python: python,
-        c: c,
-        cpp: cpp,
-        zig: zig,
-        swift: swift,
-        go: go,
-        other: other,
-    })
+#[get("/cheatsheets/<slug>")]
+pub async fn cheatsheet_(slug: &str) -> Template {
+    let files = Files::new().await.unwrap();
+    let cheatsheets = files.cheatsheets();
+    let cheatsheet = cheatsheets.iter().find(|x| x.slug == slug.trim()).unwrap();
+    Template::render(
+        "cheatsheet",
+        context! {
+            cheatsheet: cheatsheet
+        },
+    )
 }

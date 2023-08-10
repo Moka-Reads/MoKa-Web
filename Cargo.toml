@@ -9,8 +9,9 @@ edition = "2021"
 pulldown-cmark = "0.9.3"
 rocket = "0.5.0-rc.3"
 rocket_dyn_templates = { version = "0.1.0-rc.3", features = ["tera"] }
-serde = { version = "1.0.178", features = ["derive"] }
-serde_yaml = "0.9.25"
+serde = { version = "1", features = ["derive"] }
+serde_yaml = "0.9"
 tokio = { version = "1.29.1", features = ["full"] }
 toml = "0.7.6"
 walkdir = "2.3.3"
+mokareads-core = {version = "0.1", git = "https://github.com/Moka-Reads/MokaReads-Core"}

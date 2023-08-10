@@ -510,6 +510,13 @@
         margin-bottom: 5px;
     }
 
+    .description{
+        font-size:16px;
+        font-family: 'Times New Roman', Times, serif;
+        margin-bottom: 5px;
+
+    }
+
     .publish-date {
         color: #555;
         font-size: 16px;
@@ -547,13 +554,22 @@
         border-radius: 4px;
     }
 
+        .cheatsheet-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            font-family: "Montserrat", sans-serif;
+        }
+
     .article-content {
         margin-top: 20px;
         text-align: left;
     }
 
     .article-content h1 {
-        font-size: 28px;
+        font-size: 32px;
         font-family: 'Times New Roman';
         color: #ad795b;
         margin-bottom: 10px;
@@ -561,8 +577,14 @@
 
     .article-content h2 {
         font-size: 22px;
+        font-family: 'Times New Roman';
         font-weight: bold;
         margin-bottom: 5px;
+    }
+
+    .article-content h3{
+    color: #ad795b;
+    font-family: 'Times New Roman';
     }
 
     .article-content p {
@@ -578,7 +600,7 @@
     }
 
     .article-content pre {
-        background-color: #282c34;
+        background-color: lightgrey;
         border-radius: 5px;
         padding: 20px;
         font-size: 14px;
@@ -589,11 +611,14 @@
     .article-content code {
         font-family: 'Courier New', monospace;
         font-size: 14px;
-        color: #fff;
     }
 
     .article-content .language-icon {
         font-size: 100px;
+    }
+
+    .article-content li{
+        font-family: 'Times New Roman', Times, serif;
     }
 
     .cheatsheets-container {
@@ -654,6 +679,7 @@
 
     .cheatsheets-grid li {
         margin-right: 10px;
+        font-size: 18px;
     }
 
     .guides-container {

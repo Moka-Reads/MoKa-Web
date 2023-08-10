@@ -30,11 +30,12 @@
         {% for article in articles%}
 
         <div class="article">
-            <i class="icon-container {{article.icon}}"></i>
+            <i class="icon-container {{article.metadata.icon}}"></i>
 
-            <div class="title"><a class="link" href="/articles/{{article.slug}}">{{ article.title }} by {{article.author}}</a></div>
-            <div class="tags">Tags: {{article.tags}}</div>
-            <div class="publish-date">Published on {{article.date}}</div>
+            <div class="title"><a class="link" href="/articles/{{article.slug}}">{{ article.metadata.title }} by {{article.metadata.author}}</a></div>
+            <div class="description">Description: {{article.metadata.description}}</div>
+            <div class="publish-date">Published on {{article.metadata.date}}</div>
+            <div class="tags">Tags: {{article.metadata.tags}}</div>
         </div>
         {%endfor%}
     </div>

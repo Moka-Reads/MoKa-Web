@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css">
+    <title>MoKa Reads | {{cheatsheet.metadata.title}} </title>
+    <meta name="description" content="An Opensource Education Platform">
+    {% include "style" %}
+</head>
+
+
+<body>
+
+    <header>
+        <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads Cheatsheets</h1>
+    </header>
+
+    {% include "nav" %}
+
+    <div class="container">
+
+        <div class="article-content">
+            <section class="cheatsheet-section">
+                <i class="language-icon {{cheatsheet.metadata.icon}}"></i>
+                <h1 class="title">{{cheatsheet.metadata.title}}</h1>
+                <h2>By: {{cheatsheet.metadata.author}}</h2>
+                <h3> Language: {{cheatsheet.metadata.lang | capitalize}}</h3>
+
+                <div class="article-content">
+                    {{cheatsheet.content | safe}}
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-javascript.min.js"></script>
+    {%
+    include "footer"
+    %}
+
+</body>
+
+</html>
