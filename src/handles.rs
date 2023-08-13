@@ -27,11 +27,6 @@ pub fn licenses() -> Template {
     Template::render("license_home", context! {})
 }
 
-#[get("/licenses/<lic>")]
-pub fn license_handle(lic: &str) -> Template {
-    Template::render("license", context! {license: lic})
-}
-
 #[get("/articles")]
 pub async fn article_home() -> Template {
     let files = Files::new().await.unwrap();

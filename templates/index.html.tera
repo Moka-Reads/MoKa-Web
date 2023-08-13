@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap">
+        {% include "favicon" %}
+
     <title>MoKa Reads</title>
     <meta name="description" content="An Opensource Education Platform">
     {% include "style" %}
@@ -55,7 +57,7 @@
 
         </section>
 
-        <!-- Latest Published Resources Section -->
+        <!-- Latest Published Resources Section
         <section class="latest-resources-section">
             <h2>Latest Published Resources</h2>
             <div class="resources-container">
@@ -74,7 +76,7 @@
                         essentials. Download it <a href="#">here</a>.
                     </p>
                 </div>
-                <!-- Add more resource cards as needed -->
+
             </div>
             <br>
             <div class="resources-container">
@@ -93,10 +95,10 @@
                         essentials. Download it <a href="#">here</a>.
                     </p>
                 </div>
-                <!-- Add more resource cards as needed -->
+
             </div>
         </section>
-
+         -->
         <!-- Supported Languages Section -->
         <section class="supported-languages-section">
             <h2>Languages in Focus</h2>

@@ -19,7 +19,6 @@ fn rocket() -> _ {
                 index,
                 mission,
                 licenses,
-                license_handle,
                 article_home,
                 article_,
                 cheatsheet_home,

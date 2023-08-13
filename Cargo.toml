@@ -2,6 +2,8 @@
 name = "moka-web"
 version = "0.1.0"
 edition = "2021"
+authors = ["Mustafif Khan <mustafif0929@gmail.com>", "MoKa Reads <moka.reads@mkproj.com>"]
+description = "Moka Reads Web Application"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
