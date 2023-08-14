@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install git
 WORKDIR home
 
 COPY . .
-RUN rmdir resources
+#RUN rmdir resources
 RUN git clone https://github.com/Moka-Reads/Moka-Resources.git resources
 RUN cd resources && git clone https://github.com/Moka-Reads/Moka-Articles.git
 RUN cd resources && git clone https://github.com/Moka-Reads/Moka-Cheatsheets.git
