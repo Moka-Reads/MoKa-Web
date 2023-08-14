@@ -1,5 +1,7 @@
 # MoKa Reads Web 
 
+> This project is under the [GPLv2 License](LICENSE)
+
 This is the web application for the MoKa Reads project. This is built using the [Rocket](https://rocket.rs/) web framework and 
 uses the [Tera](https://tera.netlify.app/) template engine. The web application is built to provide a way for users to 
 interact with the MoKa Reads project. This includes the ability to view articles, cheat sheets, and resources. Keeping the 
@@ -49,3 +51,13 @@ This will build the project and run it locally. The website will be available at
 - [ ] Articles Home & Items
 - [ ] Guides Home & Items
 - [ ] Online Courses Redirect
+
+## Improvements
+
+- [ ] Properly handle Unwrap() calls
+- [ ] Create Profiling Tests
+
+## Contributing
+
+If you would like to contribute to the project, please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for more
+information.
