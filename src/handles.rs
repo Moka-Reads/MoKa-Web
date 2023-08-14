@@ -1,4 +1,4 @@
-use crate::dir::Files;
+use crate::dir::{Cacher, Files};
 use crate::roadmap::Roadmap;
 use mokareads_core::resources::cheatsheet::{get_lang_map, Language};
 use rocket::get;
@@ -29,8 +29,7 @@ pub fn licenses() -> Template {
 
 #[get("/articles")]
 pub async fn article_home() -> Template {
-    let files = Files::new().await.unwrap();
-    let articles = files.articles();
+    let articles = Cacher::load().await.articles();
     Template::render(
         "articles_home",
         context! {
@@ -41,8 +40,7 @@ pub async fn article_home() -> Template {
 
 #[get("/articles/<slug>")]
 pub async fn article_(slug: &str) -> Template {
-    let files = Files::new().await.unwrap();
-    let articles = files.articles();
+    let articles = Cacher::load().await.articles();
 
     let article = articles.iter().find(|x| x.slug == slug.trim());
 
@@ -56,15 +54,12 @@ pub async fn article_(slug: &str) -> Template {
 
 #[get("/guides")]
 pub async fn guides() -> Template {
-    let files = Files::new().await.unwrap();
-    let _guides = files.guides();
     Template::render("howtoguide", context! {})
 }
 
 #[get("/guides/<repo>")]
 pub async fn guide_(repo: &str) -> Redirect {
-    let files = Files::new().await.unwrap();
-    let guides = files.guides();
+    let guides = Cacher::load().await.guides();
 
     let guide = guides.iter().find(|x| x.repo_name == repo).unwrap();
     guide.redirect()
@@ -72,8 +67,7 @@ pub async fn guide_(repo: &str) -> Redirect {
 
 #[get("/cheatsheets")]
 pub async fn cheatsheet_home() -> Template {
-    let files = Files::new().await.unwrap();
-    let cheatsheets = files.cheatsheets();
+    let cheatsheets = Cacher::load().await.cheatsheets();
     let lang_map = get_lang_map(&cheatsheets);
 
     let kotlin = lang_map
@@ -116,8 +110,7 @@ pub async fn cheatsheet_home() -> Template {
 
 #[get("/cheatsheets/<slug>")]
 pub async fn cheatsheet_(slug: &str) -> Template {
-    let files = Files::new().await.unwrap();
-    let cheatsheets = files.cheatsheets();
+    let cheatsheets = Cacher::load().await.cheatsheets();
     let cheatsheet = cheatsheets.iter().find(|x| x.slug == slug.trim()).unwrap();
     Template::render(
         "cheatsheet",

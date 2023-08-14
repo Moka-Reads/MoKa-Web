@@ -6,3 +6,46 @@ interact with the MoKa Reads project. This includes the ability to view articles
 website opensource allows for users to contribute fixes and improvements to the website that may occur during 
 their use of the website.
 
+## Getting Started
+
+### Prerequisites
+
+- [Rust](https://www.rust-lang.org/tools/install)
+- [Docker](https://docs.docker.com/get-docker/)
+
+### Running Locally
+
+Clone the repository and navigate to the root directory of the project. Then run the following command to build the
+project:
+
+```shell
+$ git clone https://github.com/Moka-Reads/MoKa-Web.git
+$ cd MoKa-Web
+$ cargo run 
+```
+
+This will build the project and run it locally. The website will be available at `http://127.0.0.1:8080`.
+
+### Running with Docker
+
+Clone the repository and navigate to the root directory of the project. Then run the following command to build the
+project:
+
+```shell
+$ git clone https://github.com/Moka-Reads/MoKa-Web.git
+$ cd MoKa-Web
+$ docker build -t moka-web .
+$ docker run -p 8000:8000 moka-web
+```
+
+This will build the project and run it locally. The website will be available at `http://0.0.0.0:8000`.
+
+## Checklist 
+
+- [X] Homepage 
+- [X] Mission Page 
+- [X] Licenses Page
+- [X] Cheatsheet Home & Items 
+- [ ] Articles Home & Items
+- [ ] Guides Home & Items
+- [ ] Online Courses Redirect

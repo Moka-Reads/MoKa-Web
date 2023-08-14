@@ -10,7 +10,10 @@ mod roadmap;
 use handles::*;
 
 #[launch]
-fn rocket() -> _ {
+async fn rocket() -> _ {
+    let cacher = dir::Cacher::new().await;
+    cacher.save().await.unwrap();
+
     rocket::build()
         .attach(Template::fairing())
         .mount(

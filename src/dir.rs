@@ -1,5 +1,6 @@
 use crate::guide::Guide;
 use mokareads_core::resources::{article::Article, cheatsheet::Cheatsheet, Parser};
+use serde::{Deserialize, Serialize};
 use std::io::Result;
 use std::path::Path;
 use tokio::fs::read_to_string;
@@ -22,9 +23,9 @@ async fn get_files(folder: &str) -> Result<Vec<String>> {
         let entry = entry?;
         let path = entry.path();
 
-        if path.is_file() && path.to_str().unwrap().contains("md"){
+        if path.is_file() && path.to_str().unwrap().contains("md") {
             let content = read_to_string(entry.path()).await?;
-                entries.push(content)
+            entries.push(content)
         }
     }
     Ok(entries)
@@ -78,5 +79,48 @@ impl Files {
             cheatsheets.push(Cheatsheet::parse(c))
         }
         cheatsheets
+    }
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct Cacher {
+    articles: Vec<Article>,
+    cheatsheets: Vec<Cheatsheet>,
+    guides: Vec<Guide>,
+}
+
+impl Cacher {
+    pub async fn new() -> Self {
+        let files = Files::new().await.unwrap();
+        let articles = files.articles();
+        let cheatsheets = files.cheatsheets();
+        let guides = files.guides();
+        Self {
+            articles,
+            cheatsheets,
+            guides,
+        }
+    }
+
+    pub async fn load() -> Self {
+        let index_json = read_to_string("./resources/index.json").await.unwrap();
+        let cacher: Cacher = serde_json::from_str(&index_json).unwrap();
+        cacher
+    }
+
+    pub async fn save(&self) -> Result<()> {
+        let index_json = serde_json::to_string_pretty(&self).unwrap();
+        tokio::fs::write("./resources/index.json", index_json).await?;
+        Ok(())
+    }
+
+    pub fn articles(&self) -> Vec<Article> {
+        self.articles.clone()
+    }
+    pub fn guides(&self) -> Vec<Guide> {
+        self.guides.clone()
+    }
+    pub fn cheatsheets(&self) -> Vec<Cheatsheet> {
+        self.cheatsheets.clone()
     }
 }
