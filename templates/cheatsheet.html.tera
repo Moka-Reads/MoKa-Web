@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css">
         {% include "favicon" %}
-
+        {% include "analytics" %}
     <title>MoKa Reads | {{cheatsheet.metadata.title}} </title>
     <meta name="description" content="An Opensource Education Platform">
     {% include "style" %}

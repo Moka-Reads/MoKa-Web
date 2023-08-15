@@ -32,7 +32,6 @@
     }
 
     footer {
-        position:sticky;
         left: 0;
         bottom: 0;
         width: 100%;
@@ -224,6 +223,10 @@
         /* Show the nav links when the hamburger menu is clicked */
         #menu-toggle:checked+ul {
             display: flex;
+        }
+
+        .mission-card img{
+            width: 150px;
         }
     }
 

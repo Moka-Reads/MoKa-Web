@@ -1,6 +1,7 @@
-use crate::dir::{Cacher, Files};
+use crate::dir::Cacher;
 use crate::roadmap::Roadmap;
 use mokareads_core::resources::cheatsheet::{get_lang_map, Language};
+use rocket::fs::NamedFile;
 use rocket::get;
 use rocket::response::Redirect;
 use rocket_dyn_templates::{context, Template};
@@ -36,6 +37,11 @@ pub async fn article_home() -> Template {
             articles: articles
         },
     )
+}
+
+#[get("/rss")]
+pub async fn rss() -> Option<NamedFile>{
+    NamedFile::open("resources/moka_articles.rss").await.ok()
 }
 
 #[get("/articles/<slug>")]

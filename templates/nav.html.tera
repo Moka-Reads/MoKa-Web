@@ -16,8 +16,17 @@
                 <li><a href="/cheatsheets"><i class="fas fa-list-alt"></i> Cheatsheets</a></li>
             </ul>
         </li>
+        <li>
+            <a>
+                <i class="fas fa-tools"></i> Tools <i class="fas fa-caret-down dropdown-caret"></i>
+            </a>
+            <ul>
+                <li><a href="/tools/krc"><i class="fab fa-amazon"></i> Kindle Calculator</a></li>
+                <li><a href="/tools/margc"><i class="fas fa-percent"></i> Margins Calculator</a></li>
+                <li><a href="/tools/moka_temp"><i class="fas fa-paste"></i> MoKa Template</a></li>
+            </ul>
+        </li>
         <li><a href="https://github.com/Moka-Reads"><i class="devicon-github-original"></i> Github</a></li>
-        <li><a href="/"><i class="fas fa-graduation-cap"></i> Online Courses</a></li>
         <li><a href="https://mokareads.sell.app"><i class="fas fa-shopping-cart"></i> Shop</a></li>
     </ul>
 </nav>
