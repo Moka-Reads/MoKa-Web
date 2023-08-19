@@ -4,12 +4,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Guide {
     pub repo_name: String,
+    pub unslug: String, 
 }
 
 impl Guide {
     pub fn new(repo_name: &str) -> Self {
         Self {
             repo_name: repo_name.to_string(),
+            unslug: repo_name.replace("_", " "),
         }
     }
     pub fn redirect_address(&self) -> String {

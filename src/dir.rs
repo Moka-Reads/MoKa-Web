@@ -35,13 +35,18 @@ fn get_dir_names(folder: &str) -> Result<Vec<String>> {
     let mut entries = Vec::new();
 
     let path = Path::new("./resources").join(folder);
-    for entry in WalkDir::new(path) {
-        let entry = entry?;
+
+    for entry in WalkDir::new(path)
+        .max_depth(1)
+        .into_iter()
+        .skip(1)
+        .filter_map(|e| e.ok())
+    {
         let path = entry.path();
         if path.is_dir() {
-            let dir_name = path.file_name().unwrap();
-            let dir_name = dir_name.to_str().unwrap();
-            entries.push(dir_name.to_string());
+            if let Some(dir_name) = path.file_name().and_then(|os_str| os_str.to_str()) {
+                entries.push(dir_name.to_string());
+            }
         }
     }
 
@@ -122,5 +127,32 @@ impl Cacher {
     }
     pub fn cheatsheets(&self) -> Vec<Cheatsheet> {
         self.cheatsheets.clone()
+    }
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct ResourceRoutes {
+    routes: Vec<String>,
+}
+
+impl ResourceRoutes {
+    pub fn new(cacher: &Cacher) -> Self {
+        let mut routes = vec![];
+        // do articles first
+        for a in &cacher.articles {
+            routes.push(format!("/articles/{}", a.slug))
+        }
+        for c in &cacher.cheatsheets {
+            routes.push(format!("/cheatsheets/{}", c.slug))
+        }
+        for g in &cacher.guides{
+            routes.push(format!("/guides/{}", g.repo_name))
+        }
+        Self { routes }
+    }
+    pub async fn save(&self) -> Result<()> {
+        let data = serde_json::to_string_pretty(&self).unwrap();
+        tokio::fs::write("./resources/resources.json", data).await?;
+        Ok(())
     }
 }

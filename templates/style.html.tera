@@ -31,14 +31,38 @@
         text-align: center;
     }
 
+    /* Style for the footer */
     footer {
-        left: 0;
+        background-color: #ad795b;
+        /* Choose a suitable background color */
+        color: #f6f3ee;
+        /* Text color */
+        padding: 20px 0;
+        /* Add vertical padding for spacing */
+        text-align: center;
+        /* Center-align text */
         bottom: 0;
         width: 100%;
-        background-color: #ad795b;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
+    }
+
+    /* Style for the footer content */
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Style for the powered by link */
+    .footer-content a {
+        color: #f6f3ee;
+        text-decoration: none;
+        transition: color 0.3s;
+        /* Add a smooth color transition on hover */
+    }
+
+    .footer-content a:hover {
+        color: #333;
+        /* Change link color on hover */
     }
 
     /* CSS for navigation bar */
@@ -47,6 +71,11 @@
         justify-content: center;
         background-color: #ad795b;
         padding: 10px 0;
+    }
+
+    nav a{
+        text-decoration: none;
+        color: #f6f3ee;
     }
 
     /* Mobile-friendly Hamburger Menu */
@@ -225,7 +254,7 @@
             display: flex;
         }
 
-        .mission-card img{
+        .mission-card img {
             width: 150px;
         }
     }
@@ -513,8 +542,8 @@
         margin-bottom: 5px;
     }
 
-    .description{
-        font-size:16px;
+    .description {
+        font-size: 16px;
         font-family: 'Times New Roman', Times, serif;
         margin-bottom: 5px;
 
@@ -557,14 +586,14 @@
         border-radius: 4px;
     }
 
-        .cheatsheet-section {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-            font-family: "Montserrat", sans-serif;
-        }
+    .cheatsheet-section {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+        font-family: "Montserrat", sans-serif;
+    }
 
     .article-content {
         margin-top: 20px;
@@ -585,9 +614,9 @@
         margin-bottom: 5px;
     }
 
-    .article-content h3{
-    color: #ad795b;
-    font-family: 'Times New Roman';
+    .article-content h3 {
+        color: #ad795b;
+        font-family: 'Times New Roman';
     }
 
     .article-content p {
@@ -602,25 +631,13 @@
         list-style-type: disc;
     }
 
-    .article-content pre {
-        background-color: lightgrey;
-        border-radius: 5px;
-        padding: 20px;
-        font-size: 14px;
-        line-height: 1.4;
-        overflow-x: auto;
-    }
 
-    .article-content code {
-        font-family: 'Courier New', monospace;
-        font-size: 14px;
-    }
 
     .article-content .language-icon {
         font-size: 100px;
     }
 
-    .article-content li{
+    .article-content li {
         font-family: 'Times New Roman', Times, serif;
     }
 
@@ -686,7 +703,6 @@
     }
 
     .guides-container {
-        max-width: 800px;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
@@ -696,6 +712,7 @@
     .guide-card {
         background-color: #fff;
         padding: 20px;
+        margin: 20px;
         border-radius: 4px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin: 10px;

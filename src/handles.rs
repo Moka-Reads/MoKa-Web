@@ -28,6 +28,11 @@ pub fn licenses() -> Template {
     Template::render("license_home", context! {})
 }
 
+#[get("/licenses/<license>")]
+pub fn license(license: &str) -> Template {
+    Template::render("license", context! {license: license})
+}
+
 #[get("/articles")]
 pub async fn article_home() -> Template {
     let articles = Cacher::load().await.articles();
@@ -40,7 +45,7 @@ pub async fn article_home() -> Template {
 }
 
 #[get("/rss")]
-pub async fn rss() -> Option<NamedFile>{
+pub async fn rss() -> Option<NamedFile> {
     NamedFile::open("resources/moka_articles.rss").await.ok()
 }
 
@@ -60,7 +65,8 @@ pub async fn article_(slug: &str) -> Template {
 
 #[get("/guides")]
 pub async fn guides() -> Template {
-    Template::render("howtoguide", context! {})
+    let guides = Cacher::load().await.guides();
+    Template::render("howtoguide", context! {guides: guides})
 }
 
 #[get("/guides/<repo>")]

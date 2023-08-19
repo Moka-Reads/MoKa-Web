@@ -1,4 +1,6 @@
-from locust import HttpUser, TaskSet, task, between
+from locust import HttpUser, task, between, events
+import json 
+import csv
 
 
 class RootHandlers(HttpUser):
@@ -23,3 +25,12 @@ class RootHandlers(HttpUser):
     @task
     def cheatsheets(self):
         self.client.get("/cheatsheets")
+
+    @task 
+    def resources(self): 
+        f = open('resources/resources.json')
+        data = json.load(f)
+
+        for r in data['routes']: 
+            self.client.get(r)
+    

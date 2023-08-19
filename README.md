@@ -36,11 +36,13 @@ project:
 ```shell
 $ git clone https://github.com/Moka-Reads/MoKa-Web.git
 $ cd MoKa-Web
-$ docker build -t moka-web .
-$ docker run -p 8000:8000 moka-web
+$ make build_docki
+% make start_container
 ```
 
 This will build the project and run it locally. The website will be available at `http://0.0.0.0:8000`.
+
+> To stop the container use the command `make stop_container` & to view the container interactively use `make exec_it`
 
 ## Checklist 
 
@@ -48,14 +50,14 @@ This will build the project and run it locally. The website will be available at
 - [X] Mission Page 
 - [X] Licenses Page
 - [X] Cheatsheet Home & Items 
-- [ ] Articles Home & Items
+- [X] Articles Home & Items
 - [ ] Guides Home & Items
 - [ ] Online Courses Redirect
 
 ## Improvements
 
 - [ ] Properly handle Unwrap() calls
-- [ ] Create Profiling Tests
+- [X] Create Profiling Tests
 
 ## Contributing
 

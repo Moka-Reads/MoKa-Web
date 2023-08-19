@@ -1,3 +1,4 @@
+use dir::ResourceRoutes;
 use mokareads_core::resources::article::articles_rss;
 use rocket::fs::FileServer;
 use rocket::{launch, routes};
@@ -15,6 +16,9 @@ async fn rocket() -> _ {
     let cacher = dir::Cacher::new().await;
     cacher.save().await.unwrap();
 
+    let res_routes = ResourceRoutes::new(&cacher);
+    res_routes.save().await.unwrap();
+
     let articles = cacher.articles();
     let channel = articles_rss(articles);
     let writer = std::fs::File::create("resources/moka_articles.rss").unwrap();
@@ -28,6 +32,7 @@ async fn rocket() -> _ {
                 index,
                 mission,
                 licenses,
+                license, 
                 article_home,
                 article_,
                 cheatsheet_home,

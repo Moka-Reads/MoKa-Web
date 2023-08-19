@@ -6,12 +6,19 @@ RUN apt-get update && apt-get install git
 WORKDIR home
 
 COPY . .
-#RUN rmdir resources
-#RUN git clone https://github.com/Moka-Reads/Moka-Resources.git resources
+RUN rm -rf resources
+RUN git clone https://github.com/Moka-Reads/Moka-Resources.git resources
 RUN cd resources && git clone https://github.com/Moka-Reads/Moka-Articles.git
 RUN cd resources && git clone https://github.com/Moka-Reads/Moka-Cheatsheets.git
 RUN cd resources && git clone https://github.com/Moka-Reads/Moka-Guides.git
 #RUN cd resources && git submodule update --remote --recursive
+
+# Prepare 
+RUN cargo chef prepare --recipe-path recipe.json
+
+# Cache dependencies 
+RUN cargo chef cook --release --recipe-path recipe.json
+
 
 # Build your Rust application
 RUN cargo build --release
