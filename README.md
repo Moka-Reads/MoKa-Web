@@ -28,7 +28,7 @@ $ cargo run
 
 This will build the project and run it locally. The website will be available at `http://127.0.0.1:8080`.
 
-### Running with Docker
+### Running with Docker Locally 
 
 Clone the repository and navigate to the root directory of the project. Then run the following command to build the
 project:
@@ -43,6 +43,18 @@ $ make build_docki
 This will build the project and run it locally. The website will be available at `http://0.0.0.0:8000`.
 
 > To stop the container use the command `make stop_container` & to view the container interactively use `make exec_it`
+
+
+### Pulling Docker Image 
+
+You may choose to use the official docker image `mustafif/moka-reads` to run the container, to do so you may run 
+the following commands: 
+
+```shell
+$ docker pull mustafif/moka-reads:latest 
+$ docker run -p 8000:8000 mustafif/moka-reads:latest
+```
+
 
 ## Checklist 
 
