@@ -231,6 +231,10 @@
             font-size: 28px;
         }
 
+        section{
+            width: 78%;
+        }
+
         .section {
             padding: 20px 0;
         }

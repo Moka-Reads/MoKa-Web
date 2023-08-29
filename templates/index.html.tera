@@ -41,9 +41,7 @@
                 <li>Empowerment to create and publish educational content for the community.</li>
             </ul>
             <br>
-            <div class="center-container">
-                {% include "zoho" %}
-            </div>
+
 
         </section>
 
