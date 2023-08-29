@@ -17,17 +17,19 @@ pub struct Files {
     guides: Vec<String>,
 }
 async fn get_files(folder: &str) -> Result<Vec<String>> {
-    let mut entries = Vec::new();
     let path = Path::new("./resources").join(folder);
+    let mut entries = Vec::new();
+
     for entry in WalkDir::new(path) {
         let entry = entry?;
         let path = entry.path();
 
-        if path.is_file() && path.to_str().unwrap().contains("md") {
+        if path.is_file() && path.extension().map_or(false, |ext| ext == "md") {
             let content = read_to_string(entry.path()).await?;
-            entries.push(content)
+            entries.push(content);
         }
     }
+
     Ok(entries)
 }
 
@@ -55,8 +57,9 @@ fn get_dir_names(folder: &str) -> Result<Vec<String>> {
 
 impl Files {
     pub async fn new() -> Result<Self> {
-        let articles = get_files(ARTICLES).await?;
-        let cheatsheets = get_files(CHEATSHEETS).await?;
+        let tasks = tokio::join!(get_files(ARTICLES), get_files(CHEATSHEETS));
+        let articles = tasks.0?;
+        let cheatsheets = tasks.1?;
         let guides = get_dir_names(GUIDES)?;
         Ok(Self {
             articles,
@@ -145,7 +148,7 @@ impl ResourceRoutes {
         for c in &cacher.cheatsheets {
             routes.push(format!("/cheatsheets/{}", c.slug))
         }
-        for g in &cacher.guides{
+        for g in &cacher.guides {
             routes.push(format!("/guides/{}", g.repo_name))
         }
         Self { routes }

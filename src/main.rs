@@ -32,7 +32,7 @@ async fn rocket() -> _ {
                 index,
                 mission,
                 licenses,
-                license, 
+                license,
                 article_home,
                 article_,
                 cheatsheet_home,
