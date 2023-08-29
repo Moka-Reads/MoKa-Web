@@ -1,7 +1,7 @@
 use dir::ResourceRoutes;
 use mokareads_core::resources::article::articles_rss;
 use rocket::fs::FileServer;
-use rocket::{launch, routes};
+use rocket::{launch, routes, catchers};
 use rocket_dyn_templates::Template;
 
 pub mod dir;
@@ -43,4 +43,5 @@ async fn rocket() -> _ {
             ],
         )
         .mount("/assets", FileServer::from("assets"))
+        .register("/", catchers![not_found, internal_error])
 }

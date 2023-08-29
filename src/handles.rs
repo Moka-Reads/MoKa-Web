@@ -1,8 +1,8 @@
 use crate::dir::Cacher;
 use crate::roadmap::Roadmap;
 use mokareads_core::resources::cheatsheet::{get_lang_map, Language};
-use rocket::fs::NamedFile;
-use rocket::get;
+use rocket::{fs::NamedFile, catch, uri};
+use rocket::{get, Request};
 use rocket::response::Redirect;
 use rocket_dyn_templates::{context, Template};
 
@@ -130,4 +130,14 @@ pub async fn cheatsheet_(slug: &str) -> Template {
             cheatsheet: cheatsheet
         },
     )
+}
+
+#[catch(404)]
+pub fn not_found(_req: &Request) -> Redirect{
+    Redirect::to(uri!(index))
+}
+
+#[catch(500)]
+pub fn internal_error(_req: &Request) -> Redirect{
+    Redirect::to(uri!(index))
 }
