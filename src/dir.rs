@@ -90,7 +90,7 @@ impl Files {
     }
 }
 
-#[derive(Debug, Clone, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize, Default)]
 pub struct Cacher {
     articles: Vec<Article>,
     cheatsheets: Vec<Cheatsheet>,

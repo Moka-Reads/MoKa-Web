@@ -977,6 +977,7 @@ dependencies = [
 name = "moka-web"
 version = "0.1.0"
 dependencies = [
+ "lazy_static",
  "mokareads-core",
  "pulldown-cmark",
  "rocket",
