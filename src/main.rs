@@ -6,13 +6,13 @@ use rocket_dyn_templates::Template;
 use std::sync::Arc;
 use tokio::sync::RwLock;
 
-///! Provides the resources file walker and the cacher to load them all
+/// Provides the resources file walker and the cacher to load them all
 pub mod dir;
-///! Provides an abstraction to handle the Guides in MoKa Reads
+/// Provides an abstraction to handle the Guides in MoKa Reads
 pub mod guide;
-///! All of the different route handles for the website
+/// All of the different route handles for the website
 pub mod handles;
-///! The roadmap type for the toml file
+/// The roadmap type for the toml file
 mod roadmap;
 
 use crate::dir::Cacher;

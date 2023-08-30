@@ -12,7 +12,7 @@ impl Guide {
     pub fn new(repo_name: &str) -> Self {
         Self {
             repo_name: repo_name.to_string(),
-            unslug: repo_name.replace("_", " "),
+            unslug: repo_name.replace('_', " "),
             addy: Guide::redirect_address(repo_name),
         }
     }
