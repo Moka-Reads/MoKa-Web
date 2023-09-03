@@ -86,7 +86,6 @@ async fn rocket() -> _ {
                 guide_,
                 cheatsheet_,
                 rss,
-                tools,
                 download_resources,
                 awesome_home,
                 awesome_page

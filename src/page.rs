@@ -1,25 +1,20 @@
-use mokareads_core::awesome_lists::Repository;
 use serde::{Deserialize, Serialize};
-use crate::ALIST;
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Page{
     number: usize,
     is_current: bool,
-    repos: Vec<Repository>
 }
 
 impl Page{
-    pub fn new(number: usize, repos: Vec<Repository>) -> Self{
-        Self{number, is_current: false, repos}
+    pub fn new(number: usize) -> Self{
+        Self{number, is_current: false}
     }
 
-    pub async fn pages() -> Vec<Self>{
-        let alist = ALIST.read().await;
+    pub fn pages() -> Vec<Self>{
         let mut pages = Vec::new();
         for p in 1..=10{
-            let repo = alist.get_page(p);
-            let page = Page::new(p, repo);
+            let page = Page::new(p);
             pages.push(page)
         }
         pages
