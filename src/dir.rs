@@ -47,6 +47,7 @@ fn get_dir_names(folder: &str) -> Result<Vec<String>> {
         let path = entry.path();
         if path.is_dir() {
             if let Some(dir_name) = path.file_name().and_then(|os_str| os_str.to_str()) {
+                if dir_name == ".git"{continue;}
                 entries.push(dir_name.to_string());
             }
         }
