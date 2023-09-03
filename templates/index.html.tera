@@ -159,6 +159,49 @@
         </section>
     </div>
 
+    <button id="install-button" style="display: none;">Install App</button>
+
+    <script>
+        // This variable will save the event for later use.
+        let deferredPrompt;
+
+        // This function will show the installation prompt.
+        function showInstallPrompt() {
+            // Check if the event object exists.
+            if (deferredPrompt) {
+                // Show the prompt.
+                deferredPrompt.prompt();
+                // Wait for the user's response.
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    // Log the user's choice.
+                    console.log(`User choice: ${choiceResult.outcome}`);
+                    // Reset the event object.
+                    deferredPrompt = null;
+                });
+            }
+        }
+
+        // Add an event listener for the beforeinstallprompt event.
+        window.addEventListener("beforeinstallprompt", (event) => {
+            // Prevent the browser from showing its own UI.
+            event.preventDefault();
+            // Save the event object for later use.
+            deferredPrompt = event;
+            // Show your own custom UI, such as a button or a banner.
+            // For example, you can unhide an element with id "install-button".
+            document.getElementById("install-button").hidden = false;
+        });
+
+        // Add an event listener for your custom UI, such as a button or a banner.
+        // For example, you can add a click listener to an element with id "install-button".
+        document.getElementById("install-button").addEventListener("click", () => {
+            // Hide your custom UI.
+            // For example, you can hide an element with id "install-button".
+            document.getElementById("install-button").hidden = true;
+            // Show the installation prompt.
+            showInstallPrompt();
+        });
+    </script>
 
 
     {% include "footer" %}
