@@ -1,10 +1,12 @@
+use mokareads_core::awesome_lists::{AwesomeList, Repository};
 use crate::roadmap::Roadmap;
 use mokareads_core::resources::cheatsheet::{get_lang_map, Language};
 use rocket::response::Redirect;
 use rocket::{catch, fs::NamedFile, uri};
 use rocket::{get, Request};
 use rocket_dyn_templates::{context, Template};
-use crate::CACHER;
+use crate::{ALIST, CACHER};
+use crate::page::{current_page, Page};
 
 /// The homepage of the website to present the idea of MoKa Reads and Opensource Education
 #[get("/")]
@@ -165,10 +167,33 @@ pub fn internal_error(_req: &Request) -> Redirect {
     Redirect::to(uri!(index))
 }
 
-// TODO: Implement tools pages for MoKaReads Template and Core!
-#[get("/tools/<tool>")]
-pub fn tools(tool: &str) -> String {
-    match tool {
-        _ => "Sorry but this is still in development :(".to_string(),
-    }
+/// Downloads `index.json` which can be used for different applications
+#[get("/download/resources")]
+pub async fn download_resources() -> Option<NamedFile>{
+    NamedFile::open("resources/index.json").await.ok()
+}
+
+#[get("/awesome")]
+pub async fn awesome_home() -> Template{
+    let (list, pages) = page(1).await;
+    Template::render("awesome", context! {
+        awesome_lists: list,
+        pages: pages
+    })
+}
+
+#[get("/awesome/<page_num>")]
+pub async fn awesome_page(page_num: usize) -> Template{
+    let (list, pages) = page(page_num).await;
+    Template::render("awesome", context! {
+        awesome_lists: list,
+        pages: pages
+    })
+}
+async fn page(page_num: usize) -> (Vec<Repository>, Vec<Page>){
+    let awesome_list = ALIST.read().await;
+    let list = awesome_list.get_page(page_num);
+    let mut pages = Page::pages().await;
+    current_page(&mut pages, page_num);
+    (list, pages)
 }

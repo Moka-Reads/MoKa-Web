@@ -14,10 +14,12 @@ pub mod guide;
 pub mod handles;
 /// The roadmap type for the toml file
 mod roadmap;
+pub mod page;
 
 use crate::dir::Cacher;
 use handles::*;
 use lazy_static::lazy_static;
+use mokareads_core::awesome_lists::AwesomeList;
 
 lazy_static! {
     /// Lazily evaluated cacher for MoKa Reads Resources
@@ -25,11 +27,15 @@ lazy_static! {
     /// `RwLock` allows for multithreaded reading while writing will be fair
     /// `Arc` allows for multiple owners to exist concurrently
     pub static ref CACHER: Arc<RwLock<Cacher>> = Arc::new(RwLock::new(Cacher::default()));
+    pub static ref ALIST: Arc<RwLock<AwesomeList>> = Arc::new(RwLock::new(AwesomeList::default()));
 }
 
 /// Initializes the global Cacher as well as the Resource Routes, and RSS
 async fn init() {
     let c = Cacher::new().await;
+
+    // save index.json
+    c.save().await.unwrap();
 
     // Save the resource routes used for load balancing testing
     let res_routes = ResourceRoutes::new(&c);
@@ -47,6 +53,12 @@ async fn init() {
     let mut cacher = CACHER.write().await;
     *cacher = c;
 }
+/// Initializes the awesome lists with default 10 pages
+async fn init_al(){
+    let awesome_lists = AwesomeList::new(10).await.unwrap();
+    let mut alist = ALIST.write().await;
+    *alist = awesome_lists;
+}
 
 #[launch]
 async fn rocket() -> _ {
@@ -55,6 +67,7 @@ async fn rocket() -> _ {
     // before the website begins.
 
     init().await;
+    init_al().await;
 
     // Runs our web server with the given tera engine, web handles, and catchers
     rocket::build()
@@ -73,7 +86,10 @@ async fn rocket() -> _ {
                 guide_,
                 cheatsheet_,
                 rss,
-                tools
+                tools,
+                download_resources,
+                awesome_home,
+                awesome_page
             ],
         )
         .mount("/assets", FileServer::from("assets"))

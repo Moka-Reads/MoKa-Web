@@ -14,6 +14,7 @@
                 <li><a href="/cheatsheets"><i class="fas fa-list-alt"></i> Cheatsheets</a></li>
                 <li><a href="/articles"><i class="fas fa-newspaper"></i> Articles</a></li>
                 <li><a href="/guides"><i class="fas fa-info-circle"></i> How to Guides</a></li>
+                <li><a href="/awesome"><i class="fas fa-list"></i> Awesome Lists </a></li>
             </ul>
         </li>
         <li>
@@ -21,8 +22,8 @@
                 <i class="fas fa-tools"></i> Tools <i class="fas fa-caret-down dropdown-caret"></i>
             </a>
             <ul>
-                <li><a href="/tools/moka_temp"><i class="fas fa-paste"></i> MoKa Template</a></li>
-                <li><a href="/tools/mokareads_core"><i class="devicon-rust-plain"></i> MoKaReads-Core</a></li>
+                <!--<li><a href="/tools/moka_temp"><i class="fas fa-paste"></i> MoKa Template</a></li>-->
+                <li><a href="https://github.com/Moka-Reads/MokaReads-Core"><i class="devicon-rust-plain"></i> MoKaReads-Core</a></li>
                 <li><a href="https://texcreate.mkproj.com"><i class="devicon-rust-plain"></i>TexCreate</a></li>
             </ul>
         </li>

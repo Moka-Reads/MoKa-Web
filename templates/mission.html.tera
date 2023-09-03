@@ -99,6 +99,15 @@
             </div>
 
         </section>
+        <script>
+        const timelineItems = document.querySelectorAll('.timeline-item');
+
+        timelineItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                item.focus();
+            });
+        });
+        </script>
     </div>
 
 

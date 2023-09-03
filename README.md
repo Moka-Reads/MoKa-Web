@@ -63,13 +63,14 @@ $ docker run -p 8000:8000 mustafif/moka-reads:latest
 - [X] Licenses Page
 - [X] Cheatsheet Home & Items 
 - [X] Articles Home & Items
-- [ ] Guides Home & Items
+- [X] Guides Home & Items
 - [ ] Online Courses Redirect
 
 ## Improvements
 
-- [ ] Properly handle Unwrap() calls
 - [X] Create Profiling Tests
+- [ ] Desktop Version for Resources built with `tauri`
+- [ ] Mobile App for Resources 
 
 ## Contributing
 

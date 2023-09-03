@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% set title = "| Awesome Lists" %}
+{%include "header"%}
+
+
+<body>
+
+    <header>
+        <h1 style="font-family: 'Russo One', sans-serif;">Awesome Lists</h1>
+    </header>
+
+    {% include "nav" %}
+
+    <div class="pagination-container">
+        <div class="pagination-box">
+            <ul class="pagination">
+    {% for page in pages %}
+        <li>
+            <a href="/awesome/{{page.number}}" {% if page.is_current %}class="active"{% endif %}>
+                {{ page.number }}
+            </a>
+        </li>
+    {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="awesome-container">
+        {% for a in awesome_lists%}
+
+        <div class="awesome">
+            <div class="title"><a class="link" href="{{a.url}}">{{a.name}}</a></div>
+            <div class="description">{{a.description}}</div>
+        </div>
+        {%endfor%}
+    </div>
+    {%
+    include "footer"
+    %}
+
+</body>
+
+</html>

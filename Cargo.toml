@@ -1,6 +1,6 @@
 [package]
 name = "moka-web"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["Mustafif Khan <mustafif0929@gmail.com>", "MoKa Reads <moka.reads@mkproj.com>"]
 description = "Moka Reads Web Application"
@@ -19,4 +19,4 @@ walkdir = "2.3.3"
 mokareads-core = {git = "https://github.com/Moka-Reads/MokaReads-Core"}
 serde_json = "1.0.104"
 lazy_static = "1.4.0"
-
+chrono = "0.4.26"

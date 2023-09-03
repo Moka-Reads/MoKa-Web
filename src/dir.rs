@@ -92,6 +92,7 @@ impl Files {
 
 #[derive(Debug, Clone, Deserialize, Serialize, Default)]
 pub struct Cacher {
+    updated_at: String,
     articles: Vec<Article>,
     cheatsheets: Vec<Cheatsheet>,
     guides: Vec<Guide>,
@@ -99,11 +100,13 @@ pub struct Cacher {
 
 impl Cacher {
     pub async fn new() -> Self {
+        let updated_at = chrono::Utc::now().to_string();
         let files = Files::new().await.unwrap();
         let articles = files.articles();
         let cheatsheets = files.cheatsheets();
         let guides = files.guides();
         Self {
+            updated_at,
             articles,
             cheatsheets,
             guides,
