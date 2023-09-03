@@ -12,9 +12,9 @@ pub mod dir;
 pub mod guide;
 /// All of the different route handles for the website
 pub mod handles;
+pub mod page;
 /// The roadmap type for the toml file
 mod roadmap;
-pub mod page;
 
 use crate::dir::Cacher;
 use handles::*;
@@ -54,7 +54,7 @@ async fn init() {
     *cacher = c;
 }
 /// Initializes the awesome lists with default 10 pages
-async fn init_al(){
+async fn init_al() {
     let awesome_lists = AwesomeList::new(10).await.unwrap();
     let mut alist = ALIST.write().await;
     *alist = awesome_lists;

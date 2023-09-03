@@ -18,7 +18,7 @@
             <h2><i class="devicon-rust-plain"></i> Rust</h2>
             <ul class="cheatsheets-grid">
                 {% for r in rust %}
-                <li><a href="/cheatsheets/{{r.slug}}">{{r.metadata.title}}</a></li>
+                <li><a href="/cheatsheets/rust/{{r.slug}}">{{r.metadata.title}}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -26,7 +26,7 @@
             <h2><i class="devicon-kotlin-plain"></i> Kotlin</h2>
             <ul class="cheatsheets-grid">
                 {% for k in kotlin %}
-                <li><a href="/cheatsheets/{{k.slug}}">{{k.metadata.title}}</a></li>
+                <li><a href="/cheatsheets/kotlin/{{k.slug}}">{{k.metadata.title}}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -34,7 +34,7 @@
             <h2><i class="devicon-c-plain"></i> C</h2>
             <ul class="cheatsheets-grid">
                 {% for v in c %}
-                <li><a href="/cheatsheets/{{v.slug}}">{{v.metadata.title}}</a></li>
+                <li><a href="/cheatsheets/c/{{v.slug}}">{{v.metadata.title}}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -42,7 +42,7 @@
             <h2><i class="devicon-cplusplus-plain"></i> C++</h2>
             <ul class="cheatsheets-grid">
                 {% for v in cpp %}
-                <li><a href="/cheatsheets/{{v.slug}}">{{v.metadata.title}}</a></li>
+                <li><a href="/cheatsheets/c++/{{v.slug}}">{{v.metadata.title}}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -50,7 +50,7 @@
             <h2><i class="devicon-zig-original"></i> Zig</h2>
             <ul class="cheatsheets-grid">
                 {% for z in zig %}
-                <li><a href="/cheatsheets/{{z.slug}}">{{z.metadata.title}}</a></li>
+                <li><a href="/cheatsheets/zig/{{z.slug}}">{{z.metadata.title}}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -58,7 +58,7 @@
             <h2><i class="devicon-python-plain"></i> Python</h2>
             <ul class="cheatsheets-grid">
                 {% for p in python %}
-                <li><a href="/cheatsheets/{{p.slug}}">{{p.metadata.title}}</a></li>
+                <li><a href="/cheatsheets/python/{{p.slug}}">{{p.metadata.title}}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -66,7 +66,7 @@
             <h2><i class="devicon-swift-plain"></i> Swift</h2>
             <ul class="cheatsheets-grid">
                 {% for s in swift %}
-                <li><a href="/cheatsheets/{{s.slug}}">{{s.metadata.title}}</a></li>
+                <li><a href="/cheatsheets/swift/{{s.slug}}">{{s.metadata.title}}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -74,7 +74,7 @@
             <h2><i class="devicon-go-plain"></i> Go</h2>
             <ul class="cheatsheets-grid">
                 {% for g in go %}
-                <li><a href="/cheatsheets/{{g.slug}}">{{g.metadata.title}}</a></li>
+                <li><a href="/cheatsheets/go/{{g.slug}}">{{g.metadata.title}}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -82,7 +82,7 @@
             <h2><i class="devicon-github-original"></i> Other</h2>
             <ul class="cheatsheets-grid">
                 {% for o in other %}
-                <li><a href="/cheatsheets/{{o.slug}}">{{o.metadata.title}}</a></li>
+                <li><a href="/cheatsheets/other/{{o.slug}}">{{o.metadata.title}}</a></li>
                 {% endfor %}
             </ul>
         </div>

@@ -1,4 +1,5 @@
 use crate::guide::Guide;
+use futures::future::join_all;
 use mokareads_core::resources::{article::Article, cheatsheet::Cheatsheet, Parser};
 use serde::{Deserialize, Serialize};
 use std::io::Result;
@@ -9,6 +10,10 @@ use walkdir::WalkDir;
 const ARTICLES: &str = "Moka-Articles";
 const CHEATSHEETS: &str = "Moka-Cheatsheets";
 const GUIDES: &str = "Moka-Guides";
+
+const LANGS: [&str; 9] = [
+    "kotlin", "rust", "c", "cpp", "zig", "python", "swift", "go", "other",
+];
 
 #[derive(Debug, Clone)]
 pub struct Files {
@@ -47,7 +52,9 @@ fn get_dir_names(folder: &str) -> Result<Vec<String>> {
         let path = entry.path();
         if path.is_dir() {
             if let Some(dir_name) = path.file_name().and_then(|os_str| os_str.to_str()) {
-                if dir_name == ".git"{continue;}
+                if dir_name == ".git" {
+                    continue;
+                }
                 entries.push(dir_name.to_string());
             }
         }
@@ -58,9 +65,19 @@ fn get_dir_names(folder: &str) -> Result<Vec<String>> {
 
 impl Files {
     pub async fn new() -> Result<Self> {
-        let tasks = tokio::join!(get_files(ARTICLES), get_files(CHEATSHEETS));
-        let articles = tasks.0?;
-        let cheatsheets = tasks.1?;
+        let mut tasks = Vec::new();
+        let articles = get_files(ARTICLES).await.unwrap();
+        for lang in LANGS {
+            let folder = format!("{}/{}", CHEATSHEETS, lang);
+            let task = tokio::spawn(async move { get_files(&folder).await });
+            tasks.push(task)
+        }
+        let joined = join_all(tasks).await;
+        let cheatsheets: Vec<String> = joined
+            .into_iter()
+            .flat_map(|x| x.ok().and_then(|y| y.ok()))
+            .flatten()
+            .collect();
         let guides = get_dir_names(GUIDES)?;
         Ok(Self {
             articles,

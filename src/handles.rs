@@ -1,14 +1,14 @@
-use mokareads_core::awesome_lists::Repository;
-use crate::roadmap::Roadmap;
-use mokareads_core::resources::cheatsheet::{get_lang_map, Language};
-use rocket::response::Redirect;
-use rocket::{catch, fs::NamedFile, uri};
-use rocket::{get, Request};
-use rocket::serde::json::Json;
-use rocket_dyn_templates::{context, Template};
-use crate::{ALIST, CACHER};
 use crate::dir::Cacher;
 use crate::page::{current_page, Page};
+use crate::roadmap::Roadmap;
+use crate::{ALIST, CACHER};
+use mokareads_core::awesome_lists::Repository;
+use mokareads_core::resources::cheatsheet::{get_lang_map, Language};
+use rocket::response::Redirect;
+use rocket::serde::json::Json;
+use rocket::{catch, fs::NamedFile, uri};
+use rocket::{get, Request};
+use rocket_dyn_templates::{context, Template};
 
 /// The homepage of the website to present the idea of MoKa Reads and Opensource Education
 #[get("/")]
@@ -142,11 +142,11 @@ pub async fn cheatsheet_home() -> Template {
 /// Loads the given cheatsheet from the homepage
 /// Unwrap is allowed here since they should be accessing this via the cheatsheet homepage
 /// If they aren't and the cheatsheet is invalid they will be redirected to index
-#[get("/cheatsheets/<slug>")]
-pub async fn cheatsheet_(slug: &str) -> Template {
+#[get("/cheatsheets/<lang>/<slug>")]
+pub async fn cheatsheet_(lang: &str, slug: &str) -> Template {
     let cacher = CACHER.read().await;
     let cheatsheets = cacher.cheatsheets();
-    let cheatsheet = cheatsheets.iter().find(|x| x.slug == slug.trim()).unwrap();
+    let cheatsheet = cheatsheets.iter().find(|x| x.slug == slug.trim() && x.lang() == lang.trim()).unwrap();
     Template::render(
         "cheatsheet",
         context! {
@@ -171,33 +171,39 @@ pub fn internal_error(_req: &Request) -> Redirect {
 
 /// Allows a user to download the resources index
 #[get("/download/resources")]
-pub async fn download_resources() -> Json<Cacher>{
+pub async fn download_resources() -> Json<Cacher> {
     let lock = CACHER.read().await;
     let cacher = lock.clone();
     Json::from(cacher)
 }
 /// The homepage or first page of the awesome-lists
 #[get("/awesome")]
-pub async fn awesome_home() -> Template{
+pub async fn awesome_home() -> Template {
     let (list, pages) = page(1).await;
-    Template::render("awesome", context! {
-        awesome_lists: list,
-        pages: pages
-    })
+    Template::render(
+        "awesome",
+        context! {
+            awesome_lists: list,
+            pages: pages
+        },
+    )
 }
 
 /// The different pages of awesome-lists
 #[get("/awesome/<page_num>")]
-pub async fn awesome_page(page_num: usize) -> Template{
+pub async fn awesome_page(page_num: usize) -> Template {
     let (list, pages) = page(page_num).await;
-    Template::render("awesome", context! {
-        awesome_lists: list,
-        pages: pages
-    })
+    Template::render(
+        "awesome",
+        context! {
+            awesome_lists: list,
+            pages: pages
+        },
+    )
 }
 
 /// Gets the proper repository and page
-async fn page(page_num: usize) -> (Vec<Repository>, Vec<Page>){
+async fn page(page_num: usize) -> (Vec<Repository>, Vec<Page>) {
     let awesome_list = ALIST.read().await;
     let list = awesome_list.get_page(page_num);
     let mut pages = Page::pages();
