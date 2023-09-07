@@ -14,8 +14,8 @@
     <div class="container">
         <!-- Mission and About sections -->
 
-        <section class="mission-section">
-            <div class="mission-card">
+        <section class="mission-section w3-mobile">
+            <div class="mission-card w3-mobile">
                 <h2>Mission</h2>
                 <p>At MoKa Reads, our mission is to provide accessible and high-quality education to everyone, making
                     learning new skills and technologies a delightful experience. We believe in the power of open-source
@@ -47,8 +47,8 @@
                     Reads aims to blend the joy of learning with the rich flavors of knowledge.</p>
             </div>
 
-            <div class="mission-about">
-                <div class="mission-card">
+            <div class="mission-about w3-mobile">
+                <div class="mission-card w3-mobile">
                     <h2>About the Founder</h2>
                     <img src="/assets/headshot.jpg" alt="Founder Image">
                     <p>Hello there; it's a pleasure to introduce myself to you. My name is Mustafif Khan, and I am the
@@ -82,7 +82,7 @@
         </section>
 
         <!-- Fancier Roadmap Section -->
-        <section class="roadmap-section">
+        <section class="roadmap-section w3-mobile">
             <h2>Roadmap</h2>
             <div class="timeline">
                 {% for item in roadmap %}

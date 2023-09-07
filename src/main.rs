@@ -19,9 +19,7 @@ mod roadmap;
 use crate::dir::Cacher;
 use handles::*;
 use lazy_static::lazy_static;
-use mokareads_core::awesome_lists::AwesomeList;
-
-lazy_static! {
+use mokareads_core::awesome_lists::AwesomeList;lazy_static! {
     /// Lazily evaluated cacher for MoKa Reads Resources
     /// Allows to lazily evaluate the resources without needing to keep reading `index.json`
     /// `RwLock` allows for multithreaded reading while writing will be fair
@@ -66,8 +64,13 @@ async fn rocket() -> _ {
     // saved then we will have issues running the website, which is why they must exist
     // before the website begins.
 
-    init().await;
-    init_al().await;
+
+    // Spawn each init task into asynchronous threads then run them in parallel using `join!`
+    let init_task = tokio::spawn(init());
+    let init_al_task = tokio::spawn(init_al());
+    let joined = tokio::join!(init_task, init_al_task);
+    joined.0.unwrap();
+    joined.1.unwrap();
 
     // Runs our web server with the given tera engine, web handles, and catchers
     rocket::build()

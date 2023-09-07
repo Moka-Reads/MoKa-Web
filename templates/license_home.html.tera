@@ -14,13 +14,13 @@
 
     <div class="container">
         <!-- License Section -->
-        <section class="license-section">
-            <div class="license-card">
+        <section class="license-section w3-mobile">
+            <div class="license-card w3-mobile">
                 <h2>License Information</h2>
                 <div class="license-type">Public Software, Code Samples, and Projects</div>
                 <p class="license-description">All public software, code samples, and projects on MoKa Reads are
                     released under the MIT License or the GPLv2 License, or both in some cases.</p>
-                <p class="license-description"><a href="/licenses/mit"><strong>MIT License:</strong></a> The MIT License is a permissive open-source
+            <p class="license-description"><a href="/licenses/mit"><strong>MIT License:</strong></a> The MIT License is a permissive open-source
                     license that allows users to freely use, modify, distribute, and sublicense the code, with minimal
                     restrictions. It is known for its simplicity and is widely used in open-source projects. It grants
                     users the freedom to integrate the code into their own projects without imposing any significant

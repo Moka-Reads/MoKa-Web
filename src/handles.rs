@@ -3,7 +3,7 @@ use crate::page::{current_page, Page};
 use crate::roadmap::Roadmap;
 use crate::{ALIST, CACHER};
 use mokareads_core::awesome_lists::Repository;
-use mokareads_core::resources::cheatsheet::{get_lang_map, Language};
+use mokareads_core::resources::cheatsheet::{get_lang_map, Language, Cheatsheet};
 use rocket::response::Redirect;
 use rocket::serde::json::Json;
 use rocket::{catch, fs::NamedFile, uri};
@@ -140,13 +140,14 @@ pub async fn cheatsheet_home() -> Template {
 }
 
 /// Loads the given cheatsheet from the homepage
-/// Unwrap is allowed here since they should be accessing this via the cheatsheet homepage
-/// If they aren't and the cheatsheet is invalid they will be redirected to index
 #[get("/cheatsheets/<lang>/<slug>")]
 pub async fn cheatsheet_(lang: &str, slug: &str) -> Template {
     let cacher = CACHER.read().await;
     let cheatsheets = cacher.cheatsheets();
-    let cheatsheet = cheatsheets.iter().find(|x| x.slug == slug.trim() && x.lang() == lang.trim()).unwrap();
+    let cheatsheet = match cheatsheets.iter().find(|x| x.slug == slug.trim() && x.lang() == lang.trim()){
+        Some(c) => c.clone(), 
+        None => Cheatsheet::default()
+    };
     Template::render(
         "cheatsheet",
         context! {

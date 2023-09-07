@@ -13,15 +13,15 @@
 
     {% include "nav" %}
 
-    <div class="search-container">
+    <div class="search-container w3-mobile">
         <input type="text" id="searchInput" placeholder="Search articles or tags...">
     </div>
 
 
-    <div class="article-container">
+    <div class="article-container w3-mobile">
         {% for article in articles%}
 
-        <div class="article">
+        <div class="article w3-mobile">
             <i class="icon-container {{article.metadata.icon}}"></i>
 
             <div class="title"><a class="link" href="/articles/{{article.slug}}">{{ article.metadata.title }} by {{article.metadata.author}}</a></div>

@@ -13,7 +13,7 @@
         background-color: #ad795b;
         color: #fff;
         text-align: center;
-        padding: 20px 0;
+        padding: 14px 0;
     }
 
     header h1 {
@@ -43,6 +43,7 @@
         /* Center-align text */
         bottom: 0;
         width: 100%;
+        position: static;
     }
 
     /* Style for the footer content */
@@ -65,63 +66,14 @@
         /* Change link color on hover */
     }
 
-    /* CSS for navigation bar */
-    nav {
-        display: flex;
-        justify-content: center;
+    .nav {
         background-color: #ad795b;
-        padding: 10px 0;
-    }
-
-    nav a {
-        text-decoration: none;
         color: #f6f3ee;
     }
 
-    /* Mobile-friendly Hamburger Menu */
-    .menu-icon {
-        display: none;
-    }
-
-    nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    nav ul li {
-        display: inline-block;
-        margin: 0 15px;
-    }
-
-    nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        padding: 5px 10px;
-    }
-
-    nav ul li:hover ul {
-        display: block;
-    }
-
-    nav ul ul {
-        display: none;
-        position: absolute;
+    .w3-dropdown-content {
         background-color: #ad795b;
-        border-top: 2px solid #f6f3ee;
-    }
-
-    nav ul ul li {
-        display: block;
-        width: 180px;
-    }
-
-    nav a:hover {
-        color: #333333;
-    }
-
-    .dropdown-caret {
-        margin-left: 5px;
+        color: #f6f3ee;
     }
 
     /* CSS for the latest published resources section */
@@ -160,20 +112,6 @@
 
     .resource-card a:hover {
         color: #874c28;
-    }
-
-    .news {
-        background-color: #ad795b;
-        color: #fff;
-        padding: 40px;
-        text-align: center;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
-    }
-
-    .news h2 {
-        margin-bottom: 20px;
     }
 
     /* CSS for the supported languages section */
@@ -227,6 +165,35 @@
 
     /* CSS for mobile responsiveness */
     @media (max-width: 810px) {
+
+        .license-card {
+            width: 100%;
+            padding: 0;
+        }
+
+        .license-card p {
+            font-size: 8px;
+            line-height: 1.6;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+
+        .license-card h2 {
+            font-size: 12px;
+        }
+
+        /* Style for license titles */
+        .license-type {
+            font-size: 10px;
+            color: #ad795b;
+            font-weight: bold;
+        }
+
+        /* Style for license descriptions */
+        .license-description {
+            font-size: 10px;
+        }
+
         header h1 {
             font-size: 28px;
         }
@@ -261,6 +228,20 @@
         .mission-card img {
             width: 150px;
         }
+
+        .hidden {
+            display: none;
+        }
+        .article {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 40%;
+            position: relative;
+            transition: box-shadow 0.3s ease;
+        }
     }
 
     .open-source-section {
@@ -269,12 +250,18 @@
         text-align: center;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         font-family: "Montserrat", sans-serif;
     }
 
     .open-source-section h2 {
         font-size: 28px;
+        color: #ad795b;
+        margin-bottom: 20px;
+    }
+
+    .open-source-section h3 {
+        font-size: 20px;
         color: #ad795b;
         margin-bottom: 20px;
     }
@@ -293,7 +280,6 @@
     .open-source-section ul li {
         list-style: none;
         position: relative;
-        padding-left: 20px;
         margin-bottom: 15px;
     }
 
@@ -547,7 +533,7 @@
         border-radius: 10px;
         padding: 20px;
         margin: 20px;
-        width: 45%;
+        width: 40%;
         position: relative;
         transition: box-shadow 0.3s ease;
     }

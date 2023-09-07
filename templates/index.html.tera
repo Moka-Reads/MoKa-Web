@@ -9,11 +9,11 @@
         <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads</h1>
     </header>
     {% include "nav" %}
-    <div class="container">
+    <div class="container w3-mobile">
         <!-- Open-Source Education Section -->
 
 
-        <section class="open-source-section">
+        <section class="open-source-section w3-mobile">
             <h2>Open-Source Education and Programming</h2>
             <p>
                 At MoKa Reads, we are passionate about open-source education, especially in the realm of programming.
@@ -32,65 +32,21 @@
                 open and accessible, we aim to enrich the programming community with high-quality content while
                 providing a platform for aspiring authors to share their knowledge and expertise.
             </p>
-            <h3>Benefits of Open-Source Education in Programming:</h3>
-            <ul>
-                <li>Enhanced collaboration and knowledge sharing among programmers.</li>
-                <li>Opportunities to learn from real-world, industry-standard projects.</li>
-                <li>Exposure to diverse perspectives and problem-solving approaches.</li>
-                <li>Community-driven support and feedback for continuous improvement.</li>
-                <li>Empowerment to create and publish educational content for the community.</li>
-            </ul>
-            <br>
-
-
-        </section>
-
-        <!-- Latest Published Resources Section
-        <section class="latest-resources-section">
-            <h2>Latest Published Resources</h2>
-            <div class="resources-container">
-                <div class="resource-card">
-                    <h3>{resource_ty1}: {title1}</h3>
-                    <p>
-                        Dive into the fascinating world of machine learning and its applications. Check out our latest
-                        article to get started. Read more <a href="#">here</a>.
-                    </p>
-                </div>
-
-                <div class="resource-card">
-                    <h3>Cheatsheet: JavaScript DOM Manipulation</h3>
-                    <p>
-                        Need a quick reference for DOM manipulation in JavaScript? Our handy cheatsheet covers all the
-                        essentials. Download it <a href="#">here</a>.
-                    </p>
-                </div>
-
-            </div>
-            <br>
-            <div class="resources-container">
-                <div class="resource-card">
-                    <h3>Article: Introduction to Machine Learning</h3>
-                    <p>
-                        Dive into the fascinating world of machine learning and its applications. Check out our latest
-                        article to get started. Read more <a href="#">here</a>.
-                    </p>
-                </div>
-
-                <div class="resource-card">
-                    <h3>Cheatsheet: JavaScript DOM Manipulation</h3>
-                    <p>
-                        Need a quick reference for DOM manipulation in JavaScript? Our handy cheatsheet covers all the
-                        essentials. Download it <a href="#">here</a>.
-                    </p>
-                </div>
-
+            <div class="hidden">
+                <h3>Benefits of Open-Source Education in Programming:</h3>
+                <ul>
+                    <li>Enhanced collaboration and knowledge sharing among programmers.</li>
+                    <li>Opportunities to learn from real-world, industry-standard projects.</li>
+                    <li>Exposure to diverse perspectives and problem-solving approaches.</li>
+                    <li>Community-driven support and feedback for continuous improvement.</li>
+                    <li>Empowerment to create and publish educational content for the community.</li>
+                </ul>
             </div>
         </section>
-         -->
-        <!-- Supported Languages Section -->
-        <section class="supported-languages-section">
+
+        <section class="supported-languages-section w3-mobile">
             <h2>Languages in Focus</h2>
-            <div class="supported-languages-container">
+            <div class="supported-languages-container w3-mobile">
                 <div class="language-card">
                     <i class="language-icon devicon-kotlin-plain"></i>
                     <div class="language-name">Kotlin</div>

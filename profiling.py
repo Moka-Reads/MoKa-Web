@@ -1,9 +1,11 @@
-from locust import HttpUser, task, between, events
+from locust import FastHttpUser, task, between
+import gevent
 import json 
-import csv
 
+f = open('resources/resources.json')
+data = json.load(f)
 
-class RootHandlers(HttpUser):
+class RootHandlers(FastHttpUser):
     wait_time = between(3, 10)
 
     @task
@@ -28,9 +30,19 @@ class RootHandlers(HttpUser):
 
     @task 
     def resources(self): 
-        f = open('resources/resources.json')
-        data = json.load(f)
+
+        def get_route(url):
+            self.client.get(url)
+
+        pool = gevent.pool.Pool()
 
         for r in data['routes']: 
-            self.client.get(r)
+            pool.spawn(get_route, r)
+        pool.join()
+            
+
+    @task
+    def awesome(self): 
+        for p in range(1, 10, 1): 
+            self.client.get(f"/awesome/{p}")
     
