@@ -8,7 +8,7 @@
     <link rel="manifest" href="/assets/site.webmanifest">
     <link rel="stylesheet" href="/assets/prism.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4502366382717492"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     {% include "favicon" %}
     {% include "analytics" %}
     <title>MoKa Reads {{ title }}</title>

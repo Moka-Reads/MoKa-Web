@@ -13,9 +13,9 @@
 
     {% include "nav" %}
 
-    <div class="pagination-container">
+    <div class="pagination-container w3-mobile">
         <div class="pagination-box">
-            <ul class="pagination">
+            <ul class="pagination w3-mobile">
     {% for page in pages %}
         <li>
             <a href="/awesome/{{page.number}}" {% if page.is_current %}class="active"{% endif %}>
@@ -28,12 +28,12 @@
     </div>
 
 
-    <div class="awesome-container">
+    <div class="awesome-container w3-mobile">
         {% for a in awesome_lists%}
 
-        <div class="awesome">
-            <div class="title"><a class="link" href="{{a.url}}">{{a.name}}</a></div>
-            <div class="description">{{a.description}}</div>
+        <div class="awesome w3-mobile">
+            <div class="title w3-mobile"><a class="link" href="{{a.url}}">{{a.name}}</a></div>
+            <div class="description w3-mobile">{{a.description}}</div>
         </div>
         {%endfor%}
     </div>

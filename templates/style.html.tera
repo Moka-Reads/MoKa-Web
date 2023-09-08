@@ -13,11 +13,12 @@
         background-color: #ad795b;
         color: #fff;
         text-align: center;
-        padding: 14px 0;
+        padding: 5px 0;
     }
 
     header h1 {
         margin: 0;
+        font-size: 50px;
     }
 
     .container {
@@ -43,7 +44,7 @@
         /* Center-align text */
         bottom: 0;
         width: 100%;
-        position: static;
+        position: inherit;
     }
 
     /* Style for the footer content */
@@ -163,6 +164,10 @@
         color: #666;
     }
 
+    .mobile-show {
+        visibility: hidden;
+    }
+
     /* CSS for mobile responsiveness */
     @media (max-width: 810px) {
 
@@ -232,6 +237,11 @@
         .hidden {
             display: none;
         }
+
+        .mobile-show {
+            visibility: visible;
+        }
+
         .article {
             background-color: #ffffff;
             border: 1px solid #ccc;
@@ -557,7 +567,6 @@
         border-radius: 10px;
         padding: 20px;
         margin: 20px;
-
         position: relative;
         transition: box-shadow 0.3s ease;
     }
