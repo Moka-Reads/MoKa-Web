@@ -1,7 +1,7 @@
 <style>
     /* CSS for general layout and styles */
     body {
-        font-family: Arial, sans-serif;
+        font-family: Forum, sans-serif;
         line-height: 1.6;
         margin: 0;
         padding: 0;
@@ -17,8 +17,8 @@
     }
 
     header h1 {
-        margin: 0;
-        font-size: 50px;
+        padding-top: 10px;
+        padding-bottom: 0;
     }
 
     .container {
@@ -47,26 +47,6 @@
         position: inherit;
     }
 
-    /* Style for the footer content */
-    .footer-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Style for the powered by link */
-    .footer-content a {
-        color: #f6f3ee;
-        text-decoration: none;
-        transition: color 0.3s;
-        /* Add a smooth color transition on hover */
-    }
-
-    .footer-content a:hover {
-        color: #333;
-        /* Change link color on hover */
-    }
-
     .nav {
         background-color: #ad795b;
         color: #f6f3ee;
@@ -75,18 +55,6 @@
     .w3-dropdown-content {
         background-color: #ad795b;
         color: #f6f3ee;
-    }
-
-    /* CSS for the latest published resources section */
-    .latest-resources-section {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .latest-resources-section h2 {
-        font-size: 28px;
-        color: #ad795b;
-        margin-bottom: 20px;
     }
 
     .resources-container {
@@ -140,6 +108,10 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s;
         cursor: pointer;
+    }
+
+    .language-card a {
+        text-decoration: none;
     }
 
     .language-card:hover {
@@ -261,19 +233,20 @@
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
-        font-family: "Montserrat", sans-serif;
     }
 
     .open-source-section h2 {
         font-size: 28px;
         color: #ad795b;
         margin-bottom: 20px;
+        font-family: Forum;
     }
 
     .open-source-section h3 {
         font-size: 20px;
         color: #ad795b;
         margin-bottom: 20px;
+        font-family: Forum;
     }
 
     .open-source-section p {
@@ -291,6 +264,7 @@
         list-style: none;
         position: relative;
         margin-bottom: 15px;
+        font-size: medium;
     }
 
     .open-source-section ul li:before {
@@ -305,51 +279,6 @@
         color: #ad795b;
     }
 
-    /* CSS for the news section */
-    .news-section {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .news-section h2 {
-        font-size: 28px;
-        color: #ad795b;
-        margin-bottom: 20px;
-    }
-
-    .news-container {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .news-card {
-        background-color: #f6f3ee;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 300px;
-        font-size: 16px;
-        line-height: 1.6;
-    }
-
-    .news-card img {
-        max-width: 100%;
-        border-radius: 5px;
-        margin-bottom: 10px;
-    }
-
-    .news-card a {
-        color: #ad795b;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s;
-    }
-
-    .news-card a:hover {
-        color: #874c28;
-    }
-
     /* CSS for the fancier roadmap design */
     .roadmap-section {
         background-color: #f6f3ee;
@@ -361,6 +290,7 @@
         font-size: 2.5rem;
         margin-bottom: 30px;
         color: #ad795b;
+        font-family: Forum;
     }
 
     /* Updated CSS with hover focus effect and improved shadow box */
@@ -424,37 +354,29 @@
     .timeline-item .content p {
         margin: 10px 0;
         font-size: 18px;
-        font-family: 'Times New Roman';
+        font-family: Forum;
     }
 
-
-    .mission-section {
-        padding: 20px;
+    .mission-card h2 {
+        font-family: Forum;
         text-align: center;
-        background-color: #f6f3ee;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        margin: 10px auto;
-    }
-
-    .mission-section h2 {
         font-size: 2.5rem;
         margin-bottom: 30px;
         color: #ad795b;
     }
 
-.mission-card ul{
-    margin: 0;
-    padding: 0;
-    list-style-type: circle;
-    text-align: left;
-}
+    .mission-card ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: circle;
+        text-align: left;
+    }
 
-.mission-card h3{
-    color: #ad795b;
-    text-align: left;
-}
+    .mission-card h3 {
+        color: #ad795b;
+        text-align: left;
+        font-family: Forum;
+    }
 
     .mission-card {
         max-width: 90%;
@@ -472,12 +394,6 @@
         margin-bottom: 20px;
     }
 
-    .mission-meaning {
-        font-size: 1.1rem;
-        font-style: italic;
-        color: #6c757d;
-    }
-
     .mission-about {
         margin-top: 50px;
     }
@@ -486,6 +402,7 @@
         max-width: 200px;
         border-radius: 10px;
         margin-bottom: 20px;
+
     }
 
     .license-section {
@@ -658,27 +575,27 @@
 
     .article-content h1 {
         font-size: 32px;
-        font-family: 'Times New Roman';
+        font-family: Forum;
         color: #ad795b;
         margin-bottom: 10px;
     }
 
     .article-content h2 {
         font-size: 22px;
-        font-family: 'Times New Roman';
+        font-family: Forum;
         font-weight: bold;
         margin-bottom: 5px;
     }
 
     .article-content h3 {
         color: #ad795b;
-        font-family: 'Times New Roman';
+        font-family: Forum;
     }
 
     .article-content p {
         font-size: 16px;
         margin-bottom: 20px;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: Forum;
     }
 
     .article-content ul {
@@ -687,14 +604,12 @@
         list-style-type: disc;
     }
 
-
-
     .article-content .language-icon {
         font-size: 100px;
     }
 
     .article-content li {
-        font-family: 'Times New Roman', Times, serif;
+        font-family: Forum;
     }
 
     .cheatsheets-container {

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/prism.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4502366382717492"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Forum" />
     {% include "favicon" %}
     {% include "analytics" %}
     <title>MoKa Reads {{ title }}</title>

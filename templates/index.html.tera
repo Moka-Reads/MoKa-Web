@@ -49,116 +49,93 @@
             <h2>Languages in Focus</h2>
             <div class="supported-languages-container w3-mobile">
                 <div class="language-card">
-                    <i class="language-icon devicon-kotlin-plain"></i>
-                    <div class="language-name">Kotlin</div>
-                    <div class="language-description">
-                        Kotlin is a modern, concise, and expressive language used for Android app development and other
-                        backend applications.
-                    </div>
+                    <a href="https://kotlinlang.org/">
+                        <i class="language-icon devicon-kotlin-plain"></i>
+                        <div class="language-name">Kotlin</div>
+                        <div class="language-description">
+                            Kotlin is a modern, concise, and expressive language used for Android app development and
+                            other
+                            backend applications.
+                        </div>
+                    </a>
                 </div>
                 <div class="language-card">
-                    <i class="language-icon devicon-rust-plain"></i>
-                    <div class="language-name">Rust</div>
-                    <div class="language-description">
-                        Rust is a systems programming language known for its safety features, low-level control, and
-                        high performance.
-                    </div>
+                    <a href="https://www.rust-lang.org/">
+                        <i class="language-icon devicon-rust-plain"></i>
+                        <div class="language-name">Rust</div>
+                        <div class="language-description">
+                            Rust is a systems programming language known for its safety features, low-level control, and
+                            high performance.
+                        </div>
+                    </a>
                 </div>
                 <div class="language-card">
-                    <i class="language-icon devicon-c-plain"></i>
-                    <div class="language-name">C</div>
-                    <div class="language-description">
-                        C is a versatile and powerful language widely used for system programming, embedded systems, and
-                        high-performance applications.
-                    </div>
+                    <a href="https://en.cppreference.com/w/c">
+                        <i class="language-icon devicon-c-plain"></i>
+                        <div class="language-name">C</div>
+                        <div class="language-description">
+                            C is a versatile and powerful language widely used for system programming, embedded systems,
+                            and
+                            high-performance applications.
+                        </div>
+                    </a>
                 </div>
                 <div class="language-card">
-                    <i class="language-icon devicon-cplusplus-plain"></i>
-                    <div class="language-name">C++</div>
-                    <div class="language-description">
-                        C++ is an extension of C with additional object-oriented features, widely used for game
-                        development and high-performance applications.
-                    </div>
+                    <a href="https://en.cppreference.com/w/cpp">
+                        <i class="language-icon devicon-cplusplus-plain"></i>
+                        <div class="language-name">C++</div>
+                        <div class="language-description">
+                            C++ is an extension of C with additional object-oriented features, widely used for game
+                            development and high-performance applications.
+                        </div>
+                    </a>
                 </div>
                 <div class="language-card">
-                    <i class="language-icon devicon-zig-original"></i>
-                    <div class="language-name">Zig</div>
-                    <div class="language-description">
-                        Zig is a modern and easy-to-use language designed for performance, safety, and readability,
-                        suitable for systems and game development.
-                    </div>
+                    <a href="https://ziglang.org/">
+                        <i class="language-icon devicon-zig-original"></i>
+                        <div class="language-name">Zig</div>
+                        <div class="language-description">
+                            Zig is a modern and easy-to-use language designed for performance, safety, and readability,
+                            suitable for systems and game development.
+                        </div>
+                    </a>
                 </div>
                 <div class="language-card">
-                    <i class="language-icon devicon-python-plain"></i>
-                    <div class="language-name">Python</div>
-                    <div class="language-description">
-                        Python is a powerful, high-level programming language known for its simplicity and readability.
-                        It is widely used in web development, data science, automation, and more.
-                    </div>
+                    <a href="https://www.python.org/">
+                        <i class="language-icon devicon-python-plain"></i>
+                        <div class="language-name">Python</div>
+                        <div class="language-description">
+                            Python is a powerful, high-level programming language known for its simplicity and
+                            readability.
+                            It is widely used in web development, data science, automation, and more.
+                        </div>
+                    </a>
                 </div>
                 <div class="language-card">
-                    <i class="language-icon devicon-swift-plain"></i>
-                    <div class="language-name">Swift</div>
-                    <div class="language-description">
-                        Swift is Apple's programming language used for iOS, macOS, watchOS, and tvOS app development. It
-                        is designed for safety, performance, and ease of use.
-                    </div>
+                    <a href="https://www.swift.org/">
+                        <i class="language-icon devicon-swift-plain"></i>
+                        <div class="language-name">Swift</div>
+                        <div class="language-description">
+                            Swift is Apple's programming language used for iOS, macOS, watchOS, and tvOS app
+                            development. It
+                            is designed for safety, performance, and ease of use.
+                        </div>
+                    </a>
                 </div>
                 <div class="language-card">
-                    <i class="language-icon devicon-go-original-wordmark"></i>
-                    <div class="language-name">Go</div>
-                    <div class="language-description">
-                        Go (or Golang) is a modern, efficient, and statically typed language developed by Google. It is
-                        widely used in web services and backend development.
-                    </div>
+                    <a href="https://go.dev/">
+                        <i class="language-icon devicon-go-original-wordmark"></i>
+                        <div class="language-name">Go</div>
+                        <div class="language-description">
+                            Go (or Golang) is a modern, efficient, and statically typed language developed by Google. It
+                            is
+                            widely used in web services and backend development.
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
     </div>
-
-    <button id="install-button" style="display: none;">Install App</button>
-
-    <script>
-        // This variable will save the event for later use.
-        let deferredPrompt;
-
-        // This function will show the installation prompt.
-        function showInstallPrompt() {
-            // Check if the event object exists.
-            if (deferredPrompt) {
-                // Show the prompt.
-                deferredPrompt.prompt();
-                // Wait for the user's response.
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    // Log the user's choice.
-                    console.log(`User choice: ${choiceResult.outcome}`);
-                    // Reset the event object.
-                    deferredPrompt = null;
-                });
-            }
-        }
-
-        // Add an event listener for the beforeinstallprompt event.
-        window.addEventListener("beforeinstallprompt", (event) => {
-            // Prevent the browser from showing its own UI.
-            event.preventDefault();
-            // Save the event object for later use.
-            deferredPrompt = event;
-            // Show your own custom UI, such as a button or a banner.
-            // For example, you can unhide an element with id "install-button".
-            document.getElementById("install-button").hidden = false;
-        });
-
-        // Add an event listener for your custom UI, such as a button or a banner.
-        // For example, you can add a click listener to an element with id "install-button".
-        document.getElementById("install-button").addEventListener("click", () => {
-            // Hide your custom UI.
-            // For example, you can hide an element with id "install-button".
-            document.getElementById("install-button").hidden = true;
-            // Show the installation prompt.
-            showInstallPrompt();
-        });
-    </script>
 
 
     {% include "footer" %}
