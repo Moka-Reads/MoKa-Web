@@ -13,16 +13,16 @@
 
     {% include "nav" %}
 
-    <div class="container">
+    <div class="container w3-mobile">
 
-        <div class="article-content">
-            <section class="cheatsheet-section">
+        <div class="article-content w3-mobile">
+            <section class="cheatsheet-section w3-mobile">
                 <i class="language-icon {{cheatsheet.metadata.icon}}"></i>
                 <h1 class="title">{{cheatsheet.metadata.title}}</h1>
                 <h2>By: {{cheatsheet.metadata.author}}</h2>
                 <h3> Language: {{cheatsheet.metadata.lang | capitalize}}</h3>
 
-                <div class="article-content">
+                <div class="article-content w3-mobile">
                     {{cheatsheet.content | safe}}
                 </div>
             </section>

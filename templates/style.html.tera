@@ -428,8 +428,6 @@
     }
 
 
-
-
     .mission-section {
         padding: 20px;
         text-align: center;
@@ -446,9 +444,21 @@
         color: #ad795b;
     }
 
+.mission-card ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: circle;
+    text-align: left;
+}
+
+.mission-card h3{
+    color: #ad795b;
+    text-align: left;
+}
+
     .mission-card {
         max-width: 90%;
-        margin: 0 auto;
+        margin: 25px auto;
         background-color: #ffffff;
         padding: 30px;
         border-radius: 8px;
