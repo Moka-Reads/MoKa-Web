@@ -9,6 +9,7 @@
 
     <header>
         <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads How To Guides</h1>
+        <button class="w3-button  w3-xlarge nav mobile-show" onclick="w3_open()">☰</button>
     </header>
 
     {%include "nav"%}

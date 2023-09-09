@@ -1,154 +1,116 @@
-<nav>
-    <!-- Hamburger Menu Icon 
-    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
-    <input type="checkbox" id="menu-toggle" style="display: none;">
-    <ul>
-        <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="/mission"><i class="fas fa-clipboard-check"></i> Mission</a></li>
-        <li><a href="/licenses"><i class="fas fa-certificate"></i> Licenses</a></li>
-        <li>
-            <a>
-                <i class="fas fa-book"></i> Resources <i class="fas fa-caret-down dropdown-caret"></i>
-            </a>
-            <ul>
-                <li><a href="/cheatsheets"><i class="fas fa-list-alt"></i> Cheatsheets</a></li>
-                <li><a href="/articles"><i class="fas fa-newspaper"></i> Articles</a></li>
-                <li><a href="/guides"><i class="fas fa-info-circle"></i> How to Guides</a></li>
-                <li><a href="/awesome"><i class="fas fa-list"></i> Awesome Lists </a></li>
-            </ul>
-        </li>
-        <li>
-            <a>
-                <i class="fas fa-tools"></i> Tools <i class="fas fa-caret-down dropdown-caret"></i>
-            </a>
-            <ul>
-                <li><a href="https://github.com/Moka-Reads/MokaReads-Core"><i class="devicon-rust-plain"></i> MoKaReads-Core</a></li>
-                <li><a href="https://texcreate.mkproj.com"><i class="devicon-rust-plain"></i>TexCreate</a></li>
-            </ul>
-        </li>
-        <li><a href="https://github.com/Moka-Reads"><i class="devicon-github-original"></i> Github</a></li>
-        <li><a href="https://shop.mokareads.org"><i class="fas fa-shopping-cart"></i> Shop</a></li>
-        <a style="margin-right: 5px;" href="/rss"><i class="fa fa-rss"></i></a>
-        <a href="https://instagram.com/moka.reads"><i class="fab fa-instagram"></i></a>
-    </ul>
-
-</nav>
--->
-
-
-    <nav class="w3-bar nav hidden">
-        <a href="/" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-home"></i> Home</a>
-        <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-clipboard-check"></i> Mission</a>
-        <a href="/licenses" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Licenses</a>
-        <div class="w3-dropdown-click w3-mobile">
-            <button class="w3-button w3-mobile" onclick="dropdown_click()"><i class="fas fa-book"></i> Resources <i
-                    class="fas fa-caret-down dropdown-caret"></i></button>
-            <div id="dropper" class="w3-dropdown-content w3-bar-block w3-card-4">
-                <a href="/cheatsheets" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-list-alt"></i>
-                    Cheatsheets</a>
-                <a href="/articles" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-newspaper"></i>
-                    Articles</a>
-                <a href="/guides" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-info-circle"></i> How to
-                    Guides</a>
-                <a href="/awesome" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-list"></i> Awesome Lists
-                </a>
-            </div>
-        </div>
-        <div class="w3-dropdown-click w3-mobile">
-            <button class="w3-button w3-mobile" onclick="dropdown_click2()"><i class="fas fa-tools"></i> Tools <i
-                    class="fas fa-caret-down dropdown-caret"></i></button>
-            <div class="w3-dropdown-content w3-bar-block w3-card-4" id="dropper2">
-                <a href="https://github.com/Moka-Reads/MokaReads-Core" class="w3-bar-item w3-button w3-mobile"><i
-                        class="devicon-rust-plain"></i> MoKaReads-Core</a>
-                <a href="https://texcreate.mkproj.com" class="w3-bar-item w3-button w3-mobile"><i
-                        class="devicon-rust-plain"></i>TexCreate</a>
-            </div>
-        </div>
-        <a href="https://github.com/Moka-Reads" class="w3-bar-item w3-button w3-mobile"><i
-                class="devicon-github-original"></i> Github</a>
-        <a href="https://shop.mokareads.org" class="w3-bar-item w3-button w3-mobile"><i
-                class="fas fa-shopping-cart"></i> Shop</a>
-        <a href="/rss" class="w3-bar-item w3-button w3-right w3-mobile"><i class="fa fa-rss"></i></a>
-        <a href="https://instagram.com/moka.reads" class="w3-bar-item w3-button w3-right w3-mobile"><i
-                class="fab fa-instagram"></i></a>
-    </nav>
-
-    <!--- Mobile Sidebar -->
-
-    <div class="w3-sidebar w3-bar-block w3-border-right mobile-show" style="display:none; background-color: #f6f3ee;"
-        id="mySidebar">
-        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-        <a href="/" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-home"></i> Home</a>
-        <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-clipboard-check"></i> Mission</a>
-        <a href="/licenses" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Licenses</a>
-        <button class="w3-button w3-block w3-center" onclick="resAccFunc()"><i class="fas fa-book"></i> Resources <i
+<nav class="w3-bar nav hidden">
+    <a href="/" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-home"></i> Home</a>
+    <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-clipboard-check"></i> Mission</a>
+    <a href="/licenses" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Licenses</a>
+    <div class="w3-dropdown-click w3-mobile">
+        <button class="w3-button w3-mobile" onclick="dropdown_click()"><i class="fas fa-book"></i> Resources <i
                 class="fas fa-caret-down dropdown-caret"></i></button>
-        <div id="resourceAcc" class="w3-bar-block w3-border w3-hide nav w3-card-4">
+        <div id="dropper" class="w3-dropdown-content w3-bar-block w3-card-4">
             <a href="/cheatsheets" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-list-alt"></i>
                 Cheatsheets</a>
             <a href="/articles" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-newspaper"></i>
                 Articles</a>
             <a href="/guides" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-info-circle"></i> How to
                 Guides</a>
+            <a href="/awesome" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-list"></i> Awesome Lists
+            </a>
         </div>
-        <button class="w3-button w3-block w3-center" onclick="toolsAccFunc()"><i class="fas fa-tools"></i> Tools <i
+    </div>
+    <div class="w3-dropdown-click w3-mobile">
+        <button class="w3-button w3-mobile" onclick="dropdown_click2()"><i class="fas fa-tools"></i> Tools <i
                 class="fas fa-caret-down dropdown-caret"></i></button>
-        <div id="toolsAcc" class="w3-bar-block w3-hide nav w3-card-4">
+        <div class="w3-dropdown-content w3-bar-block w3-card-4" id="dropper2">
             <a href="https://github.com/Moka-Reads/MokaReads-Core" class="w3-bar-item w3-button w3-mobile"><i
                     class="devicon-rust-plain"></i> MoKaReads-Core</a>
             <a href="https://texcreate.mkproj.com" class="w3-bar-item w3-button w3-mobile"><i
                     class="devicon-rust-plain"></i>TexCreate</a>
         </div>
-        <a href="https://github.com/Moka-Reads" class="w3-bar-item w3-button w3-mobile"><i
-                class="devicon-github-original"></i> Github</a>
-        <a href="https://shop.mokareads.org" class="w3-bar-item w3-button w3-mobile"><i
-                class="fas fa-shopping-cart"></i> Shop</a>
-        <a href="/rss" class="w3-bar-item w3-button w3-right w3-mobile"><i class="fa fa-rss"></i></a>
-        <a href="https://instagram.com/moka.reads" class="w3-bar-item w3-button w3-right w3-mobile"><i
-                class="fab fa-instagram"></i></a>
     </div>
+    <a href="https://github.com/Moka-Reads" class="w3-bar-item w3-button w3-mobile"><i
+            class="devicon-github-original"></i> Github</a>
+    <a href="https://shop.mokareads.org" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-shopping-cart"></i>
+        Shop</a>
+    <a href="/rss" class="w3-bar-item w3-button w3-right w3-mobile"><i class="fa fa-rss"></i></a>
+    <a href="https://instagram.com/moka.reads" class="w3-bar-item w3-button w3-right w3-mobile"><i
+            class="fab fa-instagram"></i></a>
+</nav>
 
-    <script>
-        function w3_open() {
-            document.getElementById("mySidebar").style.display = "block";
-        }
+<!--- Mobile Sidebar -->
 
-        function w3_close() {
-            document.getElementById("mySidebar").style.display = "none";
-        }
-        function dropdown_click() {
-            var x = document.getElementById("dropper");
-            if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
-            } else {
-                x.className = x.className.replace(" w3-show", "");
-            }
-        }
-        function dropdown_click2() {
-            var x = document.getElementById("dropper2");
-            if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
-            } else {
-                x.className = x.className.replace(" w3-show", "");
-            }
-        }
+<div class="w3-sidebar w3-bar-block w3-border-right mobile-show" style="display:none; background-color: #f6f3ee;"
+    id="mySidebar">
+    <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+    <a href="/" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-home"></i> Home</a>
+    <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-clipboard-check"></i> Mission</a>
+    <a href="/licenses" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Licenses</a>
+    <button class="w3-button w3-block w3-center" onclick="resAccFunc()"><i class="fas fa-book"></i> Resources <i
+            class="fas fa-caret-down dropdown-caret"></i></button>
+    <div id="resourceAcc" class="w3-bar-block w3-border w3-hide nav w3-card-4">
+        <a href="/cheatsheets" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-list-alt"></i>
+            Cheatsheets</a>
+        <a href="/articles" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-newspaper"></i>
+            Articles</a>
+        <a href="/guides" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-info-circle"></i> How to
+            Guides</a>
+    </div>
+    <button class="w3-button w3-block w3-center" onclick="toolsAccFunc()"><i class="fas fa-tools"></i> Tools <i
+            class="fas fa-caret-down dropdown-caret"></i></button>
+    <div id="toolsAcc" class="w3-bar-block w3-hide nav w3-card-4">
+        <a href="https://github.com/Moka-Reads/MokaReads-Core" class="w3-bar-item w3-button w3-mobile"><i
+                class="devicon-rust-plain"></i> MoKaReads-Core</a>
+        <a href="https://texcreate.mkproj.com" class="w3-bar-item w3-button w3-mobile"><i
+                class="devicon-rust-plain"></i>TexCreate</a>
+    </div>
+    <a href="https://github.com/Moka-Reads" class="w3-bar-item w3-button w3-mobile"><i
+            class="devicon-github-original"></i> Github</a>
+    <a href="https://shop.mokareads.org" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-shopping-cart"></i>
+        Shop</a>
+    <a href="/rss" class="w3-bar-item w3-button w3-right w3-mobile"><i class="fa fa-rss"></i></a>
+    <a href="https://instagram.com/moka.reads" class="w3-bar-item w3-button w3-right w3-mobile"><i
+            class="fab fa-instagram"></i></a>
+</div>
 
-        function resAccFunc() {
-            var x = document.getElementById("resourceAcc");
-            if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
+<script>
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+    }
 
-            } else {
-                x.className = x.className.replace(" w3-show", "");
-            }
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+    }
+    function dropdown_click() {
+        var x = document.getElementById("dropper");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
         }
-        function toolsAccFunc() {
-            var x = document.getElementById("toolsAcc");
-            if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
+    }
+    function dropdown_click2() {
+        var x = document.getElementById("dropper2");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
 
-            } else {
-                x.className = x.className.replace(" w3-show", "");
-            }
+    function resAccFunc() {
+        var x = document.getElementById("resourceAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+
+        } else {
+            x.className = x.className.replace(" w3-show", "");
         }
-    </script>
+    }
+    function toolsAccFunc() {
+        var x = document.getElementById("toolsAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
