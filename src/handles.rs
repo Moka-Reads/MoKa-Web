@@ -1,12 +1,15 @@
-use mokareads_core::awesome_lists::Repository;
+use std::collections::HashMap;
+use mokareads_core::awesome_lists::{AwesomeList, Repository};
+use mokareads_core::resources::article::Article;
 use mokareads_core::resources::cheatsheet::{get_lang_map, Cheatsheet, Language};
+use mokareads_core::resources::Cacher;
+use mokareads_core::resources::guide::Guide;
 use rocket::response::Redirect;
 use rocket::serde::json::Json;
 use rocket::{catch, fs::NamedFile, uri};
 use rocket::{get, Request};
 use rocket_dyn_templates::{context, Template};
 
-use crate::dir::Cacher;
 use crate::downloader::{Downloader, Platforms, Version, GitHubTag};
 use crate::page::{current_page, Page};
 use crate::roadmap::Roadmap;
@@ -174,14 +177,6 @@ pub fn not_found(_req: &Request) -> Redirect {
 pub fn internal_error(_req: &Request) -> Redirect {
     Redirect::to(uri!(index))
 }
-
-/// Allows a user to download the resources index
-#[get("/download/resources")]
-pub async fn download_resources() -> Json<Cacher> {
-    let lock = CACHER.read().await;
-    let cacher = lock.clone();
-    Json::from(cacher)
-}
 /// The homepage or first page of the awesome-lists
 #[get("/awesome")]
 pub async fn awesome_home() -> Template {
@@ -240,4 +235,47 @@ pub async fn downloads_home() -> Template {
             latest: latest
         },
     )
+}
+
+/// Allows a user to download the resources index
+#[get("/api/resources")]
+pub async fn api_resources() -> Json<Cacher> {
+    let lock = CACHER.read().await;
+    let cacher = lock.clone();
+    Json::from(cacher)
+}
+
+#[get("/api/cheatsheets")]
+pub async fn api_cheatsheets() -> Json<Vec<Cheatsheet>> {
+    let lock = CACHER.read().await;
+    let cacher = lock.clone();
+    Json::from(cacher.cheatsheets())
+}
+
+#[get("/api/articles")]
+pub async fn api_articles() -> Json<Vec<Article>> {
+    let lock = CACHER.read().await;
+    let cacher = lock.clone();
+    Json::from(cacher.articles())
+}
+
+#[get("/api/guides")]
+pub async fn api_guides() -> Json<Vec<Guide>> {
+    let lock = CACHER.read().await;
+    let cacher = lock.clone();
+    Json::from(cacher.guides())
+}
+
+#[get("/api/awesome")]
+pub async fn api_awesome() -> Json<AwesomeList> {
+    let lock = ALIST.read().await;
+    let alist = lock.clone();
+    Json::from(alist)
+}
+
+#[get("/api/lang_map")]
+pub async fn api_lang_map() -> Json<HashMap<Language, Vec<Cheatsheet>>> {
+    let lock = CACHER.read().await;
+    let cacher = lock.clone();
+    Json::from(get_lang_map(&cacher.cheatsheets()))
 }

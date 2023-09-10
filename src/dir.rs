@@ -2,12 +2,10 @@ use std::io::Result;
 use std::path::Path;
 
 use futures::future::join_all;
-use mokareads_core::resources::{article::Article, cheatsheet::Cheatsheet, Parser};
+use mokareads_core::resources::{article::Article, cheatsheet::Cheatsheet, guide::Guide, Parser, Cacher};
 use serde::{Deserialize, Serialize};
 use tokio::fs::read_to_string;
 use walkdir::WalkDir;
-
-use crate::guide::Guide;
 
 const ARTICLES: &str = "Moka-Articles";
 const CHEATSHEETS: &str = "Moka-Cheatsheets";
@@ -17,7 +15,7 @@ const LANGS: [&str; 9] = [
     "kotlin", "rust", "c", "cpp", "zig", "python", "swift", "go", "other",
 ];
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Default)]
 pub struct Files {
     articles: Vec<String>,
     cheatsheets: Vec<String>,
@@ -110,51 +108,6 @@ impl Files {
     }
 }
 
-#[derive(Debug, Clone, Deserialize, Serialize, Default)]
-pub struct Cacher {
-    updated_at: String,
-    articles: Vec<Article>,
-    cheatsheets: Vec<Cheatsheet>,
-    guides: Vec<Guide>,
-}
-
-impl Cacher {
-    pub async fn new() -> Self {
-        let updated_at = chrono::Utc::now().to_string();
-        let files = Files::new().await.unwrap();
-        let articles = files.articles();
-        let cheatsheets = files.cheatsheets();
-        let guides = files.guides();
-        Self {
-            updated_at,
-            articles,
-            cheatsheets,
-            guides,
-        }
-    }
-
-    pub async fn load() -> Self {
-        let index_json = read_to_string("./resources/index.json").await.unwrap();
-        let cacher: Cacher = serde_json::from_str(&index_json).unwrap();
-        cacher
-    }
-
-    pub async fn save(&self) -> Result<()> {
-        let index_json = serde_json::to_string_pretty(&self).unwrap();
-        tokio::fs::write("./resources/index.json", index_json).await?;
-        Ok(())
-    }
-
-    pub fn articles(&self) -> Vec<Article> {
-        self.articles.clone()
-    }
-    pub fn guides(&self) -> Vec<Guide> {
-        self.guides.clone()
-    }
-    pub fn cheatsheets(&self) -> Vec<Cheatsheet> {
-        self.cheatsheets.clone()
-    }
-}
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct ResourceRoutes {
@@ -165,13 +118,13 @@ impl ResourceRoutes {
     pub fn new(cacher: &Cacher) -> Self {
         let mut routes = vec![];
         // do articles first
-        for a in &cacher.articles {
+        for a in &cacher.articles() {
             routes.push(format!("/articles/{}", a.slug))
         }
-        for c in &cacher.cheatsheets {
+        for c in &cacher.cheatsheets() {
             routes.push(format!("/cheatsheets/{}", c.slug))
         }
-        for g in &cacher.guides {
+        for g in &cacher.guides() {
             routes.push(format!("/guides/{}", g.repo_name))
         }
         Self { routes }

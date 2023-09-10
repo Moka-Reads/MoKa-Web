@@ -8,17 +8,15 @@ use rocket::{catchers, launch, routes};
 use rocket_dyn_templates::Template;
 use tokio::sync::RwLock;
 
-use dir::ResourceRoutes;
+use dir::{ResourceRoutes, Files};
 use handles::*;
 
-use crate::dir::Cacher;
+use mokareads_core::resources::Cacher;
 
 /// Provides the resources file walker and the cacher to load them all
 pub mod dir;
 /// Provides an abstraction for downloading files
 mod downloader;
-/// Provides an abstraction to handle the Guides in MoKa Reads
-pub mod guide;
 /// All of the different route handles for the website
 pub mod handles;
 pub mod page;
@@ -36,10 +34,8 @@ lazy_static! {
 
 /// Initializes the global Cacher as well as the Resource Routes, and RSS
 async fn init() {
-    let c = Cacher::new().await;
-
-    // save index.json
-    c.save().await.unwrap();
+    let files = Files::new().await.unwrap_or_default();
+    let c = Cacher::new(files.articles(), files.cheatsheets(), files.guides());
 
     // Save the resource routes used for load balancing testing
     let res_routes = ResourceRoutes::new(&c);
@@ -94,11 +90,16 @@ async fn rocket() -> _ {
                 guide_,
                 cheatsheet_,
                 rss,
-                download_resources,
                 awesome_home,
                 awesome_page,
                 downloader_app,
-                downloads_home
+                downloads_home,
+                api_resources,
+                api_cheatsheets,
+                api_guides,
+                api_articles,
+                api_awesome,
+                api_lang_map,
             ],
         )
         .mount("/assets", FileServer::from("assets"))
