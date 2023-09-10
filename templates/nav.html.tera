@@ -26,6 +26,7 @@
                     class="devicon-rust-plain"></i>TexCreate</a>
         </div>
     </div>
+    <a href="/download" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-download"></i> Downloads</a>
     <a href="https://github.com/Moka-Reads" class="w3-bar-item w3-button w3-mobile"><i
             class="devicon-github-original"></i> Github</a>
     <a href="https://shop.mokareads.org" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-shopping-cart"></i>

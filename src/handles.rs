@@ -1,14 +1,16 @@
-use crate::dir::Cacher;
-use crate::page::{current_page, Page};
-use crate::roadmap::Roadmap;
-use crate::{ALIST, CACHER};
 use mokareads_core::awesome_lists::Repository;
-use mokareads_core::resources::cheatsheet::{get_lang_map, Language, Cheatsheet};
+use mokareads_core::resources::cheatsheet::{get_lang_map, Cheatsheet, Language};
 use rocket::response::Redirect;
 use rocket::serde::json::Json;
 use rocket::{catch, fs::NamedFile, uri};
 use rocket::{get, Request};
 use rocket_dyn_templates::{context, Template};
+
+use crate::dir::Cacher;
+use crate::downloader::{Downloader, Platforms, Version, GitHubTag};
+use crate::page::{current_page, Page};
+use crate::roadmap::Roadmap;
+use crate::{ALIST, CACHER};
 
 /// The homepage of the website to present the idea of MoKa Reads and Opensource Education
 #[get("/")]
@@ -144,9 +146,12 @@ pub async fn cheatsheet_home() -> Template {
 pub async fn cheatsheet_(lang: &str, slug: &str) -> Template {
     let cacher = CACHER.read().await;
     let cheatsheets = cacher.cheatsheets();
-    let cheatsheet = match cheatsheets.iter().find(|x| x.slug == slug.trim() && x.lang() == lang.trim()){
-        Some(c) => c.clone(), 
-        None => Cheatsheet::default()
+    let cheatsheet = match cheatsheets
+        .iter()
+        .find(|x| x.slug == slug.trim() && x.lang() == lang.trim())
+    {
+        Some(c) => c.clone(),
+        None => Cheatsheet::default(),
     };
     Template::render(
         "cheatsheet",
@@ -210,4 +215,29 @@ async fn page(page_num: usize) -> (Vec<Repository>, Vec<Page>) {
     let mut pages = Page::pages();
     current_page(&mut pages, page_num);
     (list, pages)
+}
+
+#[get("/download/<platform>/<version>")]
+pub async fn downloader_app(platform: String, version: String) -> Redirect {
+    let platform = Platforms::parse(&platform).unwrap();
+    let version = Version::parse(&version).unwrap();
+
+    let downloader = Downloader::new(platform, version);
+    let link = downloader.download_link();
+    Redirect::to(link)
+}
+
+#[get("/download")]
+pub async fn downloads_home() -> Template {
+    let releases = GitHubTag::fetch_tags().await.unwrap();
+    let mut version_vec = releases.iter().map(|x| Version::parse(x).unwrap()).collect::<Vec<Version>>();
+    version_vec.sort();
+    let latest = version_vec.pop().unwrap().to_string();
+    Template::render(
+        "downloader",
+        context! {
+            releases: releases,
+            latest: latest
+        },
+    )
 }

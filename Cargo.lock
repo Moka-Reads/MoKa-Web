@@ -1075,6 +1075,7 @@ dependencies = [
  "lazy_static",
  "mokareads-core",
  "pulldown-cmark",
+ "reqwest",
  "rocket",
  "rocket_dyn_templates",
  "serde",

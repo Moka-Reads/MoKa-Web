@@ -1,13 +1,22 @@
-use dir::ResourceRoutes;
+use std::sync::Arc;
+
+use lazy_static::lazy_static;
+use mokareads_core::awesome_lists::AwesomeList;
 use mokareads_core::resources::article::articles_rss;
 use rocket::fs::FileServer;
 use rocket::{catchers, launch, routes};
 use rocket_dyn_templates::Template;
-use std::sync::Arc;
 use tokio::sync::RwLock;
+
+use dir::ResourceRoutes;
+use handles::*;
+
+use crate::dir::Cacher;
 
 /// Provides the resources file walker and the cacher to load them all
 pub mod dir;
+/// Provides an abstraction for downloading files
+mod downloader;
 /// Provides an abstraction to handle the Guides in MoKa Reads
 pub mod guide;
 /// All of the different route handles for the website
@@ -16,10 +25,7 @@ pub mod page;
 /// The roadmap type for the toml file
 mod roadmap;
 
-use crate::dir::Cacher;
-use handles::*;
-use lazy_static::lazy_static;
-use mokareads_core::awesome_lists::AwesomeList;lazy_static! {
+lazy_static! {
     /// Lazily evaluated cacher for MoKa Reads Resources
     /// Allows to lazily evaluate the resources without needing to keep reading `index.json`
     /// `RwLock` allows for multithreaded reading while writing will be fair
@@ -64,7 +70,6 @@ async fn rocket() -> _ {
     // saved then we will have issues running the website, which is why they must exist
     // before the website begins.
 
-
     // Spawn each init task into asynchronous threads then run them in parallel using `join!`
     let init_task = tokio::spawn(init());
     let init_al_task = tokio::spawn(init_al());
@@ -91,7 +96,9 @@ async fn rocket() -> _ {
                 rss,
                 download_resources,
                 awesome_home,
-                awesome_page
+                awesome_page,
+                downloader_app,
+                downloads_home
             ],
         )
         .mount("/assets", FileServer::from("assets"))

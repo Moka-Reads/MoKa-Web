@@ -1,6 +1,7 @@
-from locust import FastHttpUser, task, between
+import json
+
 import gevent
-import json 
+from locust import FastHttpUser, task, between
 
 f = open('resources/resources.json')
 data = json.load(f)

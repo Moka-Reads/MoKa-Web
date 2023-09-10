@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% set title = "| Downloads" %}
+{%include "header"%}
+
+<body>
+    <header>
+        <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads Downloads</h1>
+        <button class="w3-button  w3-xlarge nav mobile-show" onclick="w3_open()">☰</a></button>
+    </header>
+    {% include "nav" %}
+
+    <div class="container">
+        <section class="open-source-section">
+            <h2>MoKa Reads Desktop</h2>
+            <h3>Latest: v{{latest}}</h3>
+            <p>Introducing MoKa Reads Desktop—an innovative experiment aimed at elevating your MoKa Reads experience.
+                Currently in the experimental phase, this application offers a practical solution for accessing the MoKa
+                Reads platform on your desktop. Developed using the Tauri framework, it's designed to provide a reliable
+                and seamless experience across major operating systems, including Windows, macOS, and Linux, all within
+                the x86_64 architecture. MoKa Reads Desktop aims to enhance your platform interaction, offering a
+                desktop app that's still a work in progress but promises great potential.
+            </p>
+            {% for r in releases %}
+            <h2>v{{r}}</h2>
+            <div class="supported-languages-container">
+                <div class="language-card">
+                    <i class="language-icon devicon-windows8-original"></i>
+                    <div class="language-name">Windows</div>
+                    <button class="w3-button nav"> <a href="/download/windows-exe/{{r}}">Windows EXE</a></button>
+                    <button class="w3-button nav"> <a href="/download/windows-msi/{{r}}">Windows MSI</a></button>
+                </div>
+                <div class="language-card">
+                    <i class="language-icon devicon-apple-original"></i>
+                    <div class="language-name">Apple/Darwin</div>
+                    <button class="w3-button nav"> <a href="/download/darwin/{{r}}">DMG (x64)</a></button>
+                </div>
+                <div class="language-card">
+                    <i class="language-icon devicon-linux-plain"></i>
+                    <div class="language-name">Linux</div>
+                    <button class="w3-button nav"> <a href="/download/linux/{{r}}">Linux AppImage</a></button>
+                </div>
+                <div class="language-card">
+                    <i class="language-icon devicon-debian-plain"></i>
+                    <div class="language-name">Debian</div>
+                    <button class="w3-button nav"> <a href="/download/debian/{{r}}">Linux Deb</a></button>
+                </div>
+                <div class="language-card">
+                    <i class="language-icon fa-regular fa-file-zipper"></i>
+                    <div class="language-name">Source</div>
+                    <button class="w3-button nav"> <a href="/download/source/{{r}}">Source Tar.Gz</a></button>
+                </div>
+                <div class="language-card">
+                    <i class="language-icon devicon-github-original"></i>
+                    <div class="language-name">Release</div>
+                    <button class="w3-button nav"> <a
+                            href="https://github.com/Moka-Reads/MoKa-Desktop/releases/tag/v{{r}}">Github
+                            Release</a></button>
+                </div>
+            </div>
+            {% endfor %}
+
+        </section>
+    </div>
+
+
+
+    {% include "footer" %}
+</body>
+
+</html>

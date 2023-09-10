@@ -1,11 +1,13 @@
-use crate::guide::Guide;
+use std::io::Result;
+use std::path::Path;
+
 use futures::future::join_all;
 use mokareads_core::resources::{article::Article, cheatsheet::Cheatsheet, Parser};
 use serde::{Deserialize, Serialize};
-use std::io::Result;
-use std::path::Path;
 use tokio::fs::read_to_string;
 use walkdir::WalkDir;
+
+use crate::guide::Guide;
 
 const ARTICLES: &str = "Moka-Articles";
 const CHEATSHEETS: &str = "Moka-Cheatsheets";

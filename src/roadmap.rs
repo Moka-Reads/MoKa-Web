@@ -1,6 +1,8 @@
-use serde::{Deserialize, Serialize};
 use std::cmp::Ordering;
+
+use serde::{Deserialize, Serialize};
 use tokio::fs::read_to_string;
+
 #[derive(Debug, Deserialize, Serialize, Clone, Eq, PartialEq)]
 pub struct RoadmapItem {
     pub year: u32,
