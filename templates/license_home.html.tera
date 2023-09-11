@@ -56,7 +56,25 @@
                     adapted. The source code may not be released under this license. It is suitable for cases where the
                     content needs to be preserved in its original form.</p>
             </div>
+
+            <div class="license-card w3-mobile">
+                <h2>Disclosure: Generative AI Content</h2>
+                <p>In the evolving world, AI has become a valuable tool that aids us in our mission at MoKa Reads to provide high-quality, informative, and engaging content to our readers.
+                    </p>
+
+                    <p>Some of the content on MoKa Reads has been generated with the assistance of advanced generative artificial intelligence (AI) algorithms. These AI systems are trained on vast datasets of human-written text and are designed to mimic human language. While content is generated algorithmically and without direct human input, we want to assure you that we take careful steps to ensure its accuracy and relevance.
+                    </p>
+                    <p>Our team at MoKa Reads meticulously reviews all AI-generated content and makes the necessary modifications to meet our quality standards. Our goal is to provide you with valuable information in a readable and engaging format.
+                    </p>
+                    <p>We believe that AI enhances our ability to deliver content, and we value transparency in this process. This disclosure is meant to inform our readers about the AI's role in content creation.
+                    </p>
+                    <p>If you have any questions or concerns about the content on MoKa Reads or our use of generative AI, please don't hesitate to contact us or file an issue in the <a href="https://github.com/Moka-Reads/Moka-Resources">MoKa-Resources</a> repo in the 
+                    case a resource's content has incorrect information. Your feedback is essential and helps us continually improve our content and processes.
+                    </p>
+                    <p>Thank you for visiting MoKa Reads. We appreciate your trust and readership.</p>
+            </div>
         </section>
+
     </div>
 
 
