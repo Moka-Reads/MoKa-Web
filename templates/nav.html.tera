@@ -1,7 +1,7 @@
 <nav class="w3-bar nav hidden">
     <a href="/" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-home"></i> Home</a>
     <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-clipboard-check"></i> Mission</a>
-    <a href="/licenses" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Licenses</a>
+    <a href="/licenses" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Licenses/Terms</a>
     <div class="w3-dropdown-click w3-mobile">
         <button class="w3-button w3-mobile" onclick="dropdown_click()"><i class="fas fa-book"></i> Resources <i
                 class="fas fa-caret-down dropdown-caret"></i></button>
@@ -43,7 +43,7 @@
     <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
     <a href="/" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-home"></i> Home</a>
     <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-clipboard-check"></i> Mission</a>
-    <a href="/licenses" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Licenses</a>
+    <a href="/licenses" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Licenses/Terms</a>
     <button class="w3-button w3-block w3-center" onclick="resAccFunc()"><i class="fas fa-book"></i> Resources <i
             class="fas fa-caret-down dropdown-caret"></i></button>
     <div id="resourceAcc" class="w3-bar-block w3-border w3-hide nav w3-card-4">
