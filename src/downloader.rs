@@ -40,7 +40,7 @@ impl Platforms {
             Platforms::WindowsExe => format!("moka-desktop_{}_x64-setup.exe", version),
             Platforms::WindowsMSI => format!("moka-desktop_{}_x64_en-US.msi", version),
             Platforms::Darwin => format!("moka-desktop_{}_x64.dmg", version),
-            Platforms::Source => format!("moka-desktop_x64.app.tar.gz"),
+            Platforms::Source => "moka-desktop_x64.app.tar.gz".to_string(),
         }
     }
     pub fn download_link(&self, version: Version) -> String {
@@ -111,7 +111,7 @@ impl GitHubTag {
 
         let tag_names: Vec<String> = tags
             .into_iter()
-            .map(|tag| tag.name.replace("v", ""))
+            .map(|tag| tag.name.replace('v', ""))
             .collect();
         Ok(tag_names)
     }
