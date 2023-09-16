@@ -1,16 +1,11 @@
-use std::sync::Arc;
-
-use lazy_static::lazy_static;
+use dir::{Files, ResourceRoutes};
+use handles::*;
 use mokareads_core::awesome_lists::AwesomeList;
 use mokareads_core::resources::article::articles_rss;
 use rocket::fs::FileServer;
 use rocket::{catchers, launch, routes};
 use rocket_dyn_templates::Template;
-use tokio::sync::RwLock;
-
-use dir::{ResourceRoutes, Files};
-use handles::*;
-
+use rocket::tokio;
 use mokareads_core::resources::Cacher;
 
 /// Provides the resources file walker and the cacher to load them all
@@ -23,17 +18,8 @@ pub mod page;
 /// The roadmap type for the toml file
 mod roadmap;
 
-lazy_static! {
-    /// Lazily evaluated cacher for MoKa Reads Resources
-    /// Allows to lazily evaluate the resources without needing to keep reading `index.json`
-    /// `RwLock` allows for multithreaded reading while writing will be fair
-    /// `Arc` allows for multiple owners to exist concurrently
-    pub static ref CACHER: Arc<RwLock<Cacher>> = Arc::new(RwLock::new(Cacher::default()));
-    pub static ref ALIST: Arc<RwLock<AwesomeList>> = Arc::new(RwLock::new(AwesomeList::default()));
-}
-
 /// Initializes the global Cacher as well as the Resource Routes, and RSS
-async fn init() {
+async fn init() -> Cacher {
     let files = Files::new().await.unwrap_or_default();
     let c = Cacher::new(files.articles(), files.cheatsheets(), files.guides());
 
@@ -46,18 +32,15 @@ async fn init() {
     // Uses the array of articles to turn it into rss Channel
     let channel = articles_rss(articles);
     // Create a synchronous writer as the file we want to write to
-    let writer = std::fs::File::create("resources/moka_articles.rss").unwrap();
+    let writer = std::fs::File::create("moka_articles.rss").unwrap();
     // Format and write the RSS file
     channel.pretty_write_to(writer, b' ', 2).unwrap();
-
-    let mut cacher = CACHER.write().await;
-    *cacher = c;
+    c
 }
 /// Initializes the awesome lists with default 10 pages
-async fn init_al() {
+async fn init_al() -> AwesomeList {
     let awesome_lists = AwesomeList::new(10).await.unwrap();
-    let mut alist = ALIST.write().await;
-    *alist = awesome_lists;
+    awesome_lists
 }
 
 #[launch]
@@ -70,12 +53,13 @@ async fn rocket() -> _ {
     let init_task = tokio::spawn(init());
     let init_al_task = tokio::spawn(init_al());
     let joined = tokio::join!(init_task, init_al_task);
-    joined.0.unwrap();
-    joined.1.unwrap();
+
+    let cacher = joined.0.unwrap();
+    let awesome_lists = joined.1.unwrap();
 
     // Runs our web server with the given tera engine, web handles, and catchers
     rocket::build()
-        .attach(Template::fairing())
+        .attach(Template::fairing()) // Attach the tera engine to the web server
         .mount(
             "/",
             routes![
@@ -101,7 +85,9 @@ async fn rocket() -> _ {
                 api_awesome,
                 api_lang_map,
             ],
-        )
-        .mount("/assets", FileServer::from("assets"))
-        .register("/", catchers![not_found, internal_error])
+        ) // Mount the routes for the website
+        .mount("/assets", FileServer::from("assets")) // Mount the assets folder for static files
+        .register("/", catchers![not_found, internal_error]) // Register the catchers for 404 and 500 errors
+        .manage(cacher) // Manage the cacher as a global state
+        .manage(awesome_lists) // Manage the awesome lists as a global state
 }

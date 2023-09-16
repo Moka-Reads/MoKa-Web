@@ -1,19 +1,21 @@
-use std::collections::HashMap;
 use mokareads_core::awesome_lists::{AwesomeList, Repository};
 use mokareads_core::resources::article::Article;
 use mokareads_core::resources::cheatsheet::{get_lang_map, Cheatsheet, Language};
-use mokareads_core::resources::Cacher;
 use mokareads_core::resources::guide::Guide;
+use mokareads_core::resources::Cacher;
 use rocket::response::Redirect;
 use rocket::serde::json::Json;
-use rocket::{catch, fs::NamedFile, uri};
+use rocket::{catch, fs::NamedFile, uri, State};
 use rocket::{get, Request};
 use rocket_dyn_templates::{context, Template};
+use std::collections::HashMap;
 
-use crate::downloader::{Downloader, Platforms, Version, GitHubTag};
+use crate::downloader::{Downloader, GitHubTag, Platforms, Version};
 use crate::page::{current_page, Page};
 use crate::roadmap::Roadmap;
-use crate::{ALIST, CACHER};
+
+type StateCache = State<Cacher>;
+type StateAwesome = State<AwesomeList>;
 
 /// The homepage of the website to present the idea of MoKa Reads and Opensource Education
 #[get("/")]
@@ -47,12 +49,11 @@ pub fn license(license: &str) -> Template {
 /// Opens the rss file which contains all of the different articles from MoKa Reads
 #[get("/rss")]
 pub async fn rss() -> Option<NamedFile> {
-    NamedFile::open("resources/moka_articles.rss").await.ok()
+    NamedFile::open("moka_articles.rss").await.ok()
 }
 /// Loads all of the articles for the user to choose or search for
 #[get("/articles")]
-pub async fn article_home() -> Template {
-    let cacher = CACHER.read().await;
+pub async fn article_home(cacher: &StateCache) -> Template {
     let articles = cacher.articles();
     Template::render(
         "articles_home",
@@ -65,8 +66,7 @@ pub async fn article_home() -> Template {
 /// Unwrap is allowed here since they should be accessing this from the article's homepage
 /// If they aren't and it is invalid they will be redirected to index
 #[get("/articles/<slug>")]
-pub async fn article_(slug: &str) -> Template {
-    let cacher = CACHER.read().await;
+pub async fn article_(slug: &str, cacher: &StateCache) -> Template {
     let articles = cacher.articles();
 
     let article = articles.iter().find(|x| x.slug == slug.trim());
@@ -80,8 +80,7 @@ pub async fn article_(slug: &str) -> Template {
 }
 /// Loads all of the guides which the user can be redirected to
 #[get("/guides")]
-pub async fn guides() -> Template {
-    let cacher = CACHER.read().await;
+pub async fn guides(cacher: &StateCache) -> Template {
     let guides = cacher.guides();
     Template::render("howtoguide", context! {guides: guides})
 }
@@ -90,8 +89,7 @@ pub async fn guides() -> Template {
 /// Unwrap is allowed here since they should be accessing this from the guide's homepage
 /// If they aren't and it is invalid they will be redirected to index
 #[get("/guides/<repo>")]
-pub async fn guide_(repo: &str) -> Redirect {
-    let cacher = CACHER.read().await;
+pub async fn guide_(repo: &str, cacher: &StateCache) -> Redirect {
     let guides = cacher.guides();
 
     let guide = guides.iter().find(|x| x.repo_name == repo).unwrap();
@@ -101,8 +99,7 @@ pub async fn guide_(repo: &str) -> Redirect {
 /// Loads all of the cheatsheet and gives arrays for each of the focused languages
 /// and any cheatsheet that isn't part of them will be under the `Other` section.
 #[get("/cheatsheets")]
-pub async fn cheatsheet_home() -> Template {
-    let cacher = CACHER.read().await;
+pub async fn cheatsheet_home(cacher: &StateCache) -> Template {
     let cheatsheets = cacher.cheatsheets();
     let lang_map = get_lang_map(&cheatsheets);
 
@@ -146,8 +143,7 @@ pub async fn cheatsheet_home() -> Template {
 
 /// Loads the given cheatsheet from the homepage
 #[get("/cheatsheets/<lang>/<slug>")]
-pub async fn cheatsheet_(lang: &str, slug: &str) -> Template {
-    let cacher = CACHER.read().await;
+pub async fn cheatsheet_(lang: &str, slug: &str, cacher: &StateCache) -> Template {
     let cheatsheets = cacher.cheatsheets();
     let cheatsheet = match cheatsheets
         .iter()
@@ -179,8 +175,8 @@ pub fn internal_error(_req: &Request) -> Redirect {
 }
 /// The homepage or first page of the awesome-lists
 #[get("/awesome")]
-pub async fn awesome_home() -> Template {
-    let (list, pages) = page(1).await;
+pub async fn awesome_home(awesome_list: &StateAwesome) -> Template {
+    let (list, pages) = page(1, awesome_list).await;
     Template::render(
         "awesome",
         context! {
@@ -192,8 +188,8 @@ pub async fn awesome_home() -> Template {
 
 /// The different pages of awesome-lists
 #[get("/awesome/<page_num>")]
-pub async fn awesome_page(page_num: usize) -> Template {
-    let (list, pages) = page(page_num).await;
+pub async fn awesome_page(page_num: usize, awesome_list: &StateAwesome) -> Template {
+    let (list, pages) = page(page_num, awesome_list).await;
     Template::render(
         "awesome",
         context! {
@@ -204,8 +200,7 @@ pub async fn awesome_page(page_num: usize) -> Template {
 }
 
 /// Gets the proper repository and page
-async fn page(page_num: usize) -> (Vec<Repository>, Vec<Page>) {
-    let awesome_list = ALIST.read().await;
+async fn page(page_num: usize, awesome_list: &StateAwesome) -> (Vec<Repository>, Vec<Page>) {
     let list = awesome_list.get_page(page_num);
     let mut pages = Page::pages();
     current_page(&mut pages, page_num);
@@ -225,7 +220,10 @@ pub async fn downloader_app(platform: String, version: String) -> Redirect {
 #[get("/download")]
 pub async fn downloads_home() -> Template {
     let releases = GitHubTag::fetch_tags().await.unwrap();
-    let mut version_vec = releases.iter().map(|x| Version::parse(x).unwrap()).collect::<Vec<Version>>();
+    let mut version_vec = releases
+        .iter()
+        .map(|x| Version::parse(x).unwrap())
+        .collect::<Vec<Version>>();
     version_vec.sort();
     let latest = version_vec.pop().unwrap().to_string();
     Template::render(
@@ -239,43 +237,31 @@ pub async fn downloads_home() -> Template {
 
 /// Allows a user to download the resources index
 #[get("/api/resources")]
-pub async fn api_resources() -> Json<Cacher> {
-    let lock = CACHER.read().await;
-    let cacher = lock.clone();
-    Json::from(cacher)
+pub async fn api_resources(cacher: &StateCache) -> Json<Cacher> {
+    Json::from(cacher.inner().clone())
 }
 
 #[get("/api/cheatsheets")]
-pub async fn api_cheatsheets() -> Json<Vec<Cheatsheet>> {
-    let lock = CACHER.read().await;
-    let cacher = lock.clone();
+pub async fn api_cheatsheets(cacher: &StateCache) -> Json<Vec<Cheatsheet>> {
     Json::from(cacher.cheatsheets())
 }
 
 #[get("/api/articles")]
-pub async fn api_articles() -> Json<Vec<Article>> {
-    let lock = CACHER.read().await;
-    let cacher = lock.clone();
+pub async fn api_articles(cacher: &StateCache) -> Json<Vec<Article>> {
     Json::from(cacher.articles())
 }
 
 #[get("/api/guides")]
-pub async fn api_guides() -> Json<Vec<Guide>> {
-    let lock = CACHER.read().await;
-    let cacher = lock.clone();
+pub async fn api_guides(cacher: &StateCache) -> Json<Vec<Guide>> {
     Json::from(cacher.guides())
 }
 
 #[get("/api/awesome")]
-pub async fn api_awesome() -> Json<AwesomeList> {
-    let lock = ALIST.read().await;
-    let alist = lock.clone();
-    Json::from(alist)
+pub async fn api_awesome(awesome_list: &StateAwesome) -> Json<AwesomeList> {
+    Json::from(awesome_list.inner().clone())
 }
 
 #[get("/api/lang_map")]
-pub async fn api_lang_map() -> Json<HashMap<Language, Vec<Cheatsheet>>> {
-    let lock = CACHER.read().await;
-    let cacher = lock.clone();
+pub async fn api_lang_map(cacher: &StateCache) -> Json<HashMap<Language, Vec<Cheatsheet>>> {
     Json::from(get_lang_map(&cacher.cheatsheets()))
 }

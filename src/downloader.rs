@@ -1,7 +1,7 @@
 use mokareads_core::Result;
-use std::fmt::Display;
 use reqwest::header;
 use serde::Deserialize;
+use std::fmt::Display;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Platforms {
@@ -87,13 +87,13 @@ pub struct GitHubTag {
 impl GitHubTag {
     pub async fn fetch_tags() -> Result<Vec<String>> {
         let user_agent = header::HeaderValue::from_static("MoKa-Tags");
-        let client = reqwest::Client::builder().default_headers(
-            {
+        let client = reqwest::Client::builder()
+            .default_headers({
                 let mut headers = header::HeaderMap::new();
                 headers.insert(header::USER_AGENT, user_agent);
                 headers
-            }
-        ).build()?;
+            })
+            .build()?;
         let resp = client
             .get("https://api.github.com/repos/Moka-Reads/MoKa-Desktop/tags")
             .send()
@@ -104,17 +104,23 @@ impl GitHubTag {
             return Err(format!("Received a {} from server", resp.status()).into());
         }
 
-        let tags: Vec<GitHubTag> = resp.json().await.map_err(|_| "Failed to deserialize response")?;
+        let tags: Vec<GitHubTag> = resp
+            .json()
+            .await
+            .map_err(|_| "Failed to deserialize response")?;
 
-        let tag_names: Vec<String> = tags.into_iter().map(|tag| tag.name.replace("v", "")).collect();
+        let tag_names: Vec<String> = tags
+            .into_iter()
+            .map(|tag| tag.name.replace("v", ""))
+            .collect();
         Ok(tag_names)
     }
 }
 
 #[test]
-fn test_sort(){
+fn test_sort() {
     let mut versions = vec![Version(0, 0, 1), Version(1, 1, 0), Version(0, 1, 0)];
-    let sorted = vec![Version(0, 0, 1), Version(0, 1, 0),Version(1, 1, 0)];
+    let sorted = vec![Version(0, 0, 1), Version(0, 1, 0), Version(1, 1, 0)];
 
     versions.sort();
     assert_eq!(versions, sorted);
