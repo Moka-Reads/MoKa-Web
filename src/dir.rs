@@ -2,10 +2,13 @@ use std::io::Result;
 use std::path::Path;
 
 use futures::future::join_all;
-use mokareads_core::resources::{article::Article, cheatsheet::Cheatsheet, guide::Guide, Parser, Cacher};
+use mokareads_core::resources::{
+    article::Article, cheatsheet::Cheatsheet, guide::Guide, Cacher, Parser,
+};
 use serde::{Deserialize, Serialize};
-use tokio::fs::read_to_string;
+use rocket::tokio::fs::read_to_string;
 use walkdir::WalkDir;
+use rocket::tokio;
 
 const ARTICLES: &str = "Moka-Articles";
 const CHEATSHEETS: &str = "Moka-Cheatsheets";
@@ -107,7 +110,6 @@ impl Files {
         cheatsheets
     }
 }
-
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct ResourceRoutes {
