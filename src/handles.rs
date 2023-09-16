@@ -14,10 +14,15 @@ use crate::downloader::{Downloader, GitHubTag, Platforms, Version};
 use crate::page::{current_page, Page};
 use crate::roadmap::Roadmap;
 
+/// A type alias for the Cacher global state
 type StateCache = State<Cacher>;
+/// A type alias for the AwesomeList global state
 type StateAwesome = State<AwesomeList>;
+/// A type alias for the Article global state
 type StateArticle = State<Vec<Article>>;
+/// A type alias for the Cheatsheet global state
 type StateCheatsheet = State<Vec<Cheatsheet>>;
+/// A type alias for the Guide global state
 type StateGuide = State<Vec<Guide>>;
 
 /// The homepage of the website to present the idea of MoKa Reads and Opensource Education
@@ -202,6 +207,7 @@ async fn page(page_num: usize, awesome_list: &StateAwesome) -> (Vec<Repository>,
     (list, pages)
 }
 
+/// Redirects the user to the proper download link for the given platform and version
 #[get("/download/<platform>/<version>")]
 pub async fn downloader_app(platform: String, version: String) -> Redirect {
     let platform = Platforms::parse(&platform).unwrap();
@@ -212,6 +218,7 @@ pub async fn downloader_app(platform: String, version: String) -> Redirect {
     Redirect::to(link)
 }
 
+/// Loads the downloader homepage with the different versions
 #[get("/download")]
 pub async fn downloads_home() -> Template {
     let releases = GitHubTag::fetch_tags().await.unwrap();
@@ -236,26 +243,31 @@ pub async fn api_resources(cacher: &StateCache) -> Json<Cacher> {
     Json::from(cacher.inner().clone())
 }
 
+/// Allows a user to download the cheatsheets index
 #[get("/api/cheatsheets")]
 pub async fn api_cheatsheets(cheatsheets: &StateCheatsheet) -> Json<Vec<Cheatsheet>> {
     Json::from(cheatsheets.inner().clone())
 }
 
+/// Allows a user to download the articles index
 #[get("/api/articles")]
 pub async fn api_articles(articles: &StateArticle) -> Json<Vec<Article>> {
     Json::from(articles.inner().clone())
 }
 
+/// Allows a user to download the guides index
 #[get("/api/guides")]
 pub async fn api_guides(guides: &StateGuide) -> Json<Vec<Guide>> {
     Json::from(guides.inner().clone())
 }
 
+/// Allows a user to download the awesome-lists index
 #[get("/api/awesome")]
 pub async fn api_awesome(awesome_list: &StateAwesome) -> Json<AwesomeList> {
     Json::from(awesome_list.inner().clone())
 }
 
+/// Allows a user to download the language map for the cheatsheets
 #[get("/api/lang_map")]
 pub async fn api_lang_map(cheatsheets: &StateCheatsheet) -> Json<HashMap<Language, Vec<Cheatsheet>>> {
     Json::from(get_lang_map(cheatsheets))
