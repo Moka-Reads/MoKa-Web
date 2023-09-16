@@ -106,7 +106,6 @@
     .language-card {
         background-color: #f6f3ee;
         border-radius: 10px;
-        padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s;
         cursor: pointer;
@@ -145,12 +144,6 @@
     /* CSS for mobile responsiveness */
     @media (max-width: 810px) {
 
-        .license-card {
-            width: 100%;
-            margin: 20px;
-            padding: 0;
-        }
-
         .license-card p {
             font-size: 8px;
             line-height: 1.6;
@@ -175,7 +168,7 @@
         }
 
         header h1 {
-            font-size: 28px;
+            font-size: 2rem;
         }
 
         section {
@@ -409,14 +402,14 @@
     }
 
     .license-section {
-        padding: 50px;
         text-align: center;
         background-color: #f6f3ee;
+        margin:20px;
     }
 
     .license-card {
         margin: 20px auto;
-        padding: 20px;
+        padding: 30px;
         background-color: #ffffff;
         padding: 30px;
         border-radius: 8px;

@@ -16,6 +16,9 @@ use crate::roadmap::Roadmap;
 
 type StateCache = State<Cacher>;
 type StateAwesome = State<AwesomeList>;
+type StateArticle = State<Vec<Article>>;
+type StateCheatsheet = State<Vec<Cheatsheet>>;
+type StateGuide = State<Vec<Guide>>;
 
 /// The homepage of the website to present the idea of MoKa Reads and Opensource Education
 #[get("/")]
@@ -53,12 +56,11 @@ pub async fn rss() -> Option<NamedFile> {
 }
 /// Loads all of the articles for the user to choose or search for
 #[get("/articles")]
-pub async fn article_home(cacher: &StateCache) -> Template {
-    let articles = cacher.articles();
+pub async fn article_home(articles: &StateArticle) -> Template {
     Template::render(
         "articles_home",
         context! {
-            articles: articles
+            articles: articles.inner()
         },
     )
 }
@@ -66,9 +68,7 @@ pub async fn article_home(cacher: &StateCache) -> Template {
 /// Unwrap is allowed here since they should be accessing this from the article's homepage
 /// If they aren't and it is invalid they will be redirected to index
 #[get("/articles/<slug>")]
-pub async fn article_(slug: &str, cacher: &StateCache) -> Template {
-    let articles = cacher.articles();
-
+pub async fn article_(slug: &str, articles: &StateArticle) -> Template {
     let article = articles.iter().find(|x| x.slug == slug.trim());
 
     Template::render(
@@ -80,18 +80,15 @@ pub async fn article_(slug: &str, cacher: &StateCache) -> Template {
 }
 /// Loads all of the guides which the user can be redirected to
 #[get("/guides")]
-pub async fn guides(cacher: &StateCache) -> Template {
-    let guides = cacher.guides();
-    Template::render("howtoguide", context! {guides: guides})
+pub async fn guides(guides: &StateGuide) -> Template {
+    Template::render("howtoguide", context! {guides: guides.inner()})
 }
 
 /// Given a guide's repo name it will redirect to the proper github pages site
 /// Unwrap is allowed here since they should be accessing this from the guide's homepage
 /// If they aren't and it is invalid they will be redirected to index
 #[get("/guides/<repo>")]
-pub async fn guide_(repo: &str, cacher: &StateCache) -> Redirect {
-    let guides = cacher.guides();
-
+pub async fn guide_(repo: &str, guides: &StateGuide) -> Redirect {
     let guide = guides.iter().find(|x| x.repo_name == repo).unwrap();
     guide.redirect()
 }
@@ -99,8 +96,7 @@ pub async fn guide_(repo: &str, cacher: &StateCache) -> Redirect {
 /// Loads all of the cheatsheet and gives arrays for each of the focused languages
 /// and any cheatsheet that isn't part of them will be under the `Other` section.
 #[get("/cheatsheets")]
-pub async fn cheatsheet_home(cacher: &StateCache) -> Template {
-    let cheatsheets = cacher.cheatsheets();
+pub async fn cheatsheet_home(cheatsheets: &StateCheatsheet) -> Template {
     let lang_map = get_lang_map(&cheatsheets);
 
     let kotlin = lang_map
@@ -143,8 +139,7 @@ pub async fn cheatsheet_home(cacher: &StateCache) -> Template {
 
 /// Loads the given cheatsheet from the homepage
 #[get("/cheatsheets/<lang>/<slug>")]
-pub async fn cheatsheet_(lang: &str, slug: &str, cacher: &StateCache) -> Template {
-    let cheatsheets = cacher.cheatsheets();
+pub async fn cheatsheet_(lang: &str, slug: &str, cheatsheets: &StateCheatsheet) -> Template {
     let cheatsheet = match cheatsheets
         .iter()
         .find(|x| x.slug == slug.trim() && x.lang() == lang.trim())
@@ -242,18 +237,18 @@ pub async fn api_resources(cacher: &StateCache) -> Json<Cacher> {
 }
 
 #[get("/api/cheatsheets")]
-pub async fn api_cheatsheets(cacher: &StateCache) -> Json<Vec<Cheatsheet>> {
-    Json::from(cacher.cheatsheets())
+pub async fn api_cheatsheets(cheatsheets: &StateCheatsheet) -> Json<Vec<Cheatsheet>> {
+    Json::from(cheatsheets.inner().clone())
 }
 
 #[get("/api/articles")]
-pub async fn api_articles(cacher: &StateCache) -> Json<Vec<Article>> {
-    Json::from(cacher.articles())
+pub async fn api_articles(articles: &StateArticle) -> Json<Vec<Article>> {
+    Json::from(articles.inner().clone())
 }
 
 #[get("/api/guides")]
-pub async fn api_guides(cacher: &StateCache) -> Json<Vec<Guide>> {
-    Json::from(cacher.guides())
+pub async fn api_guides(guides: &StateGuide) -> Json<Vec<Guide>> {
+    Json::from(guides.inner().clone())
 }
 
 #[get("/api/awesome")]
@@ -262,6 +257,6 @@ pub async fn api_awesome(awesome_list: &StateAwesome) -> Json<AwesomeList> {
 }
 
 #[get("/api/lang_map")]
-pub async fn api_lang_map(cacher: &StateCache) -> Json<HashMap<Language, Vec<Cheatsheet>>> {
-    Json::from(get_lang_map(&cacher.cheatsheets()))
+pub async fn api_lang_map(cheatsheets: &StateCheatsheet) -> Json<HashMap<Language, Vec<Cheatsheet>>> {
+    Json::from(get_lang_map(cheatsheets))
 }

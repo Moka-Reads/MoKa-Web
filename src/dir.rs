@@ -5,10 +5,10 @@ use futures::future::join_all;
 use mokareads_core::resources::{
     article::Article, cheatsheet::Cheatsheet, guide::Guide, Cacher, Parser,
 };
-use serde::{Deserialize, Serialize};
-use rocket::tokio::fs::read_to_string;
-use walkdir::WalkDir;
 use rocket::tokio;
+use rocket::tokio::fs::read_to_string;
+use serde::{Deserialize, Serialize};
+use walkdir::WalkDir;
 
 const ARTICLES: &str = "Moka-Articles";
 const CHEATSHEETS: &str = "Moka-Cheatsheets";
