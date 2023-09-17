@@ -19,7 +19,7 @@
     header h1 {
         padding-top: 10px;
         padding-bottom: 0;
-        font-size: 3.3vw;
+        font-size: 2.5vw;
     }
 
     .container {
@@ -404,7 +404,7 @@
     .license-section {
         text-align: center;
         background-color: #f6f3ee;
-        margin:20px;
+        margin: 20px;
     }
 
     .license-card {
@@ -569,6 +569,7 @@
     .article-content {
         margin-top: 20px;
         text-align: left;
+
     }
 
     .article-content h1 {
@@ -771,5 +772,34 @@
 
     .pagination a.active {
         background-color: #000000;
+    }
+
+    table,
+    th,
+    td {
+        border: 0.5px solid #ad795b;
+        text-align: center;
+    }
+
+    th {
+        background-color: #ad795b;
+        color: white;
+    }
+
+    tr {
+        background-color: #f6f3ee;
+        color: #000000;
+    }
+
+    blockquote {
+        background-color: #f6f3ee;
+        border-left: 10px solid #ad795b;
+        padding: 10px;
+        margin-left: 0;
+        quotes: "\201C" "\201D" "\2018" "\2019";
+    }
+
+    blockquote p {
+        display: inline;
     }
 </style>
