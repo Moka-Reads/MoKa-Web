@@ -14,6 +14,7 @@ pub mod dir;
 mod downloader;
 /// All of the different route handles for the website
 pub mod handles;
+/// Pagination abstraction 
 pub mod page;
 /// The roadmap type for the toml file
 mod roadmap;
