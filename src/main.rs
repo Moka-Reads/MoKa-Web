@@ -2,11 +2,11 @@ use dir::{Files, ResourceRoutes};
 use handles::*;
 use mokareads_core::awesome_lists::AwesomeList;
 use mokareads_core::resources::article::articles_rss;
-use rocket::fs::FileServer;
-use rocket::{catchers, launch, routes};
-use rocket_dyn_templates::Template;
-use rocket::tokio;
 use mokareads_core::resources::Cacher;
+use rocket::fs::FileServer;
+use rocket::tokio;
+use rocket::{catchers, launch, routes, Build, Rocket};
+use rocket_dyn_templates::Template;
 
 /// Provides the resources file walker and the cacher to load them all
 pub mod dir;
@@ -39,12 +39,11 @@ async fn init() -> Cacher {
 }
 /// Initializes the awesome lists with default 10 pages
 async fn init_al() -> AwesomeList {
-    let awesome_lists = AwesomeList::new(10).await.unwrap();
-    awesome_lists
+    AwesomeList::new(10).await.unwrap()
 }
 
 #[launch]
-async fn rocket() -> _ {
+async fn rocket() -> Rocket<Build> {
     // Unwraps are necessary here because if the cacher and resource routes aren't
     // saved then we will have issues running the website, which is why they must exist
     // before the website begins.
@@ -88,6 +87,9 @@ async fn rocket() -> _ {
         ) // Mount the routes for the website
         .mount("/assets", FileServer::from("assets")) // Mount the assets folder for static files
         .register("/", catchers![not_found, internal_error]) // Register the catchers for 404 and 500 errors
+        .manage(cacher.articles()) // Manage the articles as a global state
+        .manage(cacher.cheatsheets()) // Manage the cheatsheets as a global state
+        .manage(cacher.guides()) // Manage the guides as a global state
         .manage(cacher) // Manage the cacher as a global state
         .manage(awesome_lists) // Manage the awesome lists as a global state
 }

@@ -24,7 +24,7 @@ impl Page {
     }
 }
 
-pub fn current_page(pages: &mut Vec<Page>, page_num: usize) {
+pub fn current_page(pages: &mut [Page], page_num: usize) {
     let mut page = pages[page_num - 1].clone();
     page.is_current = true;
     pages[page_num - 1] = page;

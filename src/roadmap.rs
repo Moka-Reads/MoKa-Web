@@ -1,7 +1,7 @@
 use std::cmp::Ordering;
 
-use serde::{Deserialize, Serialize};
 use rocket::tokio::fs::read_to_string;
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Deserialize, Serialize, Clone, Eq, PartialEq)]
 pub struct RoadmapItem {
