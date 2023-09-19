@@ -14,6 +14,7 @@ pub mod dir;
 mod downloader;
 /// All of the different route handles for the website
 pub mod handles;
+/// Pagination abstraction 
 pub mod page;
 /// The roadmap type for the toml file
 mod roadmap;
@@ -37,9 +38,10 @@ async fn init() -> Cacher {
     channel.pretty_write_to(writer, b' ', 2).unwrap();
     c
 }
-/// Initializes the awesome lists with default 10 pages
+/// Initializes the awesome list from generated `awesome.json`
 async fn init_al() -> AwesomeList {
-    AwesomeList::new(10).await.unwrap()
+    let data = tokio::fs::read_to_string("awesome.json").await.unwrap();
+    serde_json::from_str(&data).unwrap()
 }
 
 #[launch]
