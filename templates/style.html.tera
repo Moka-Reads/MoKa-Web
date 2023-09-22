@@ -777,16 +777,25 @@
     table{
         margin-left: auto;
         margin-right: auto;
+        width: 75%;
     }
     table,
     th,
     td {
-        border: 0.5px solid #ad795b;
         text-align: center;
-        padding: 5px;
+        padding: 10px;
+    }
+    td{
+        border: 0.5px solid #ad795b;
+    }
+    td a{
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: 600;
     }
 
     th {
+        border: 2.5px solid #ad795b;
         background-color: #ad795b;
         color: white;
     }
@@ -843,5 +852,6 @@
         overflow: hidden;
         transition: max-height 0.2s ease-out;
         background-color: #f6f3ee;
+        border-radius: 10px;
       }
 </style>
