@@ -16,7 +16,7 @@
             </a>
         </div>
     </div>
-    <div class="w3-dropdown-click w3-mobile">
+    <!--<div class="w3-dropdown-click w3-mobile">
         <button class="w3-button w3-mobile" onclick="dropdown_click2()"><i class="fas fa-tools"></i> Tools <i
                 class="fas fa-caret-down dropdown-caret"></i></button>
         <div class="w3-dropdown-content w3-bar-block w3-card-4" id="dropper2">
@@ -27,7 +27,8 @@
             <a href="https://texcreate.mkproj.com" class="w3-bar-item w3-button w3-mobile"><i
                     class="devicon-rust-plain"></i>TexCreate</a>
         </div>
-    </div>
+    </div>-->
+    <a href="/research" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-flask"></i> Research</a>
     <a href="/download" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-download"></i> Downloads</a>
     <a href="https://github.com/Moka-Reads" class="w3-bar-item w3-button w3-mobile"><i
             class="devicon-github-original"></i> Github</a>

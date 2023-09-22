@@ -85,6 +85,8 @@ async fn rocket() -> Rocket<Build> {
                 api_articles,
                 api_awesome,
                 api_lang_map,
+                research, 
+                curr, 
             ],
         ) // Mount the routes for the website
         .mount("/assets", FileServer::from("assets")) // Mount the assets folder for static files

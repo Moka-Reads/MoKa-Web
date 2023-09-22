@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {% set title = "| Research" %}
+    {%include "header"%}
+
+    <body>
+
+        <header>
+            <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads
+                Research</h1>
+            <button class="w3-button  w3-xlarge nav mobile-show"
+                onclick="w3_open()">☰</button>
+        </header>
+        {% include "nav" %}
+
+        <div class="container">
+            <div class="mission-card w3-mobile">
+                <h2>Curriculum Plans</h2>
+                <table class="w3-centered">
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Title</th>
+                        <th>Materials</th>
+                    </tr>
+
+                    <tr>
+                        
+                            <td>
+                                <a href="/research/curr/kot101">
+                                KOT101
+                                </a>
+                            </td>
+                        
+                        <td>Kotlin Fundamentals</td>
+                        <td><i class="devicon-github-original"></i> Download</td>
+                    </tr>
+
+                    <tr>
+                        <td>RST101</td>
+                        <td>Rust Fundamentals</td>
+                        <td><i class="devicon-github-original"></i> Download</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="mission-card w3-mobile">
+                <h2>Research Papers</h2>
+            </div>
+        </div>
+        {% include "footer" %}
+    </body>
+</html>

@@ -272,3 +272,16 @@ pub async fn api_awesome(awesome_list: &StateAwesome) -> Json<AwesomeList> {
 pub async fn api_lang_map(cheatsheets: &StateCheatsheet) -> Json<HashMap<Language, Vec<Cheatsheet>>> {
     Json::from(get_lang_map(cheatsheets))
 }
+
+/// Allows a user to view the MoKa Resarch iniative 
+#[get("/research")]
+pub async fn research() -> Template{
+    Template::render("research", context!{})
+}
+
+/// View for curriculum plan 
+#[get("/research/curr/<code>")]
+pub async fn curr(code: &str) -> Template{
+    let view = format!("courses/{code}");
+    Template::render(view, context!{})
+}
