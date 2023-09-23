@@ -109,6 +109,7 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s;
         cursor: pointer;
+        padding: 15px;
     }
 
     .language-card a {
@@ -368,7 +369,8 @@
         text-align: left;
     }
 
-    .mission-card h3, h4 {
+    .mission-card h3,
+    h4 {
         color: #ad795b;
         text-align: left;
         font-family: Forum;
@@ -774,21 +776,24 @@
         background-color: #000000;
     }
 
-    table{
+    table {
         margin-left: auto;
         margin-right: auto;
         width: 75%;
     }
+
     table,
     th,
     td {
         text-align: center;
         padding: 10px;
     }
-    td{
+
+    td {
         border: 0.5px solid #ad795b;
     }
-    td a{
+
+    td a {
         text-decoration: none;
         cursor: pointer;
         font-weight: 600;
@@ -816,6 +821,7 @@
     blockquote p {
         display: inline;
     }
+
     .collapsible {
         background-color: #ad765b;
         color: white;
@@ -829,29 +835,39 @@
         font-weight: bold;
         border-radius: 10px;
         margin: 10px;
-      }
-      .active, .collapsible:hover {
+    }
+
+    .active,
+    .collapsible:hover {
         background-color: #000;
-      }
-      
-      .collapsible:after {
+    }
+
+    .collapsible:after {
         content: '\002B';
         color: white;
         font-weight: bold;
         float: right;
         margin-left: 5px;
-      }
-      
-      .active:after {
+    }
+
+    .active:after {
         content: "\2212";
-      }
-      
-      .collcontent {
+    }
+
+    .collcontent {
         padding: 0 18px;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.2s ease-out;
         background-color: #f6f3ee;
         border-radius: 10px;
-      }
+    }
+
+    .searcher {
+        padding: 10px;
+        width: 300px;
+    }
+    .searcher-btn{
+        padding: 10px;
+    }
 </style>

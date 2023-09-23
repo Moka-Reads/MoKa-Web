@@ -2,13 +2,15 @@ use mokareads_core::awesome_lists::{AwesomeList, Repository};
 use mokareads_core::resources::article::Article;
 use mokareads_core::resources::cheatsheet::{get_lang_map, Cheatsheet, Language};
 use mokareads_core::resources::guide::Guide;
-use mokareads_core::resources::Cacher;
+use mokareads_core::resources::{Cacher, Searcher, SearchMetadata};
 use rocket::response::Redirect;
 use rocket::serde::json::Json;
-use rocket::{catch, fs::NamedFile, uri, State};
+use rocket::{catch, fs::NamedFile, uri, State, post, FromForm};
 use rocket::{get, Request};
 use rocket_dyn_templates::{context, Template};
 use std::collections::HashMap;
+use rocket::form::Form;
+use rocket::tokio::sync::Mutex;
 
 use crate::downloader::{Downloader, GitHubTag, Platforms, Version};
 use crate::page::{current_page, Page};
@@ -285,3 +287,24 @@ pub async fn curr(code: &str) -> Template{
     let view = format!("courses/{code}");
     Template::render(view, context!{})
 }
+
+#[derive(FromForm)]
+pub struct InputForm{
+    search: String
+}
+
+#[post("/", data="<form>")]
+pub async fn search(form: Form<InputForm>, metadata_state: &State<Mutex<Vec<SearchMetadata>>>, searcher_state: &State<Searcher>) -> Redirect{
+    let input = form.search.to_string();
+    let result = searcher_state.search(input);
+    let mut metadata = metadata_state.inner().lock().await;
+    *metadata = result;
+    Redirect::to(uri!(search_results))
+}
+
+#[get("/search")]
+pub async fn search_results(metadata_state: &State<Mutex<Vec<SearchMetadata>>>) -> String{
+    let metadata = metadata_state.lock().await;
+    serde_json::to_string_pretty(&*metadata).unwrap()
+}
+
