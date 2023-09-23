@@ -27,6 +27,8 @@ type StateCheatsheet = State<Vec<Cheatsheet>>;
 /// A type alias for the Guide global state
 type StateGuide = State<Vec<Guide>>;
 
+type SMState = State<Mutex<Vec<SearchMetadata>>>;
+
 /// The homepage of the website to present the idea of MoKa Reads and Opensource Education
 #[get("/")]
 pub fn index() -> Template {
@@ -294,7 +296,7 @@ pub struct InputForm{
 }
 
 #[post("/", data="<form>")]
-pub async fn search(form: Form<InputForm>, metadata_state: &State<Mutex<Vec<SearchMetadata>>>, searcher_state: &State<Searcher>) -> Redirect{
+pub async fn search(form: Form<InputForm>, metadata_state: &SMState, searcher_state: &State<Searcher>) -> Redirect{
     let input = form.search.to_string();
     let result = searcher_state.search(input);
     let mut metadata = metadata_state.inner().lock().await;
@@ -303,8 +305,10 @@ pub async fn search(form: Form<InputForm>, metadata_state: &State<Mutex<Vec<Sear
 }
 
 #[get("/search")]
-pub async fn search_results(metadata_state: &State<Mutex<Vec<SearchMetadata>>>) -> String{
+pub async fn search_results(metadata_state: &SMState) -> Template{
     let metadata = metadata_state.lock().await;
-    serde_json::to_string_pretty(&*metadata).unwrap()
+    Template::render("search_results", context! {
+        results: metadata.clone()
+    })
 }
 

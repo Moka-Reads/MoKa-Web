@@ -63,6 +63,7 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
     }
+    
 
     .resource-card {
         background-color: #f6f3ee;
@@ -865,9 +866,30 @@
 
     .searcher {
         padding: 10px;
-        width: 300px;
+        width: 275px;
     }
     .searcher-btn{
         padding: 10px;
+    }
+    .search-btn{
+        padding: 10px;
+        background-color: #f6f3ee;
+        margin: 10px;
+        border-radius: 10px;
+        border: 1px solid #ad765b;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+        cursor: pointer;
+    }
+    .search-btn :hover{
+        color: #000;
+    }
+    .search-btn a{
+        text-decoration: none;
+    }
+    .open-source-section .search-btn{
+        grid-row: 2;
+        display: grid;
     }
 </style>

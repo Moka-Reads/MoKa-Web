@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% set title = "| Search" %}
+{%include "header"%}
+
+
+<body>
+
+    <header>
+        <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads</h1>
+        <button class="w3-button  w3-xlarge nav mobile-show" onclick="w3_open()">☰</button>
+    </header>
+    {% include "nav" %}
+
+    <div class="container">
+
+        <section class="open-source-section" w3-mobile">
+            <h2>Results [ {{results | length}} ]</h2>
+                {% for result in results %}
+                    <button class="search-btn w3-mobile"><h3 style="text-align: center;"><a href="{{result.link}}">{{result.title}} {% if result.lang | length > 0 %} ({{result.lang | capitalize}}) {%endif%} : {{result.ty }}</a></h3></button>
+                {% endfor %}
+        </section>
+
+    </div>
+    {% include "footer" %}
+</body>
+
+</html>
