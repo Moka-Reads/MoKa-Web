@@ -15,7 +15,7 @@
 
     <div class="container">
 
-        <section class="open-source-section" w3-mobile">
+        <section class="open-source-section w3-mobile">
             <h2>Results [ {{results | length}} ]</h2>
                 {% for result in results %}
                     <button class="search-btn w3-mobile"><h3 style="text-align: center;"><a href="{{result.link}}">{{result.title}} {% if result.lang | length > 0 %} ({{result.lang | capitalize}}) {%endif%} : {{result.ty }}</a></h3></button>

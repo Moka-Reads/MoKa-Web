@@ -290,11 +290,13 @@ pub async fn curr(code: &str) -> Template{
     Template::render(view, context!{})
 }
 
+/// Search bar input form
 #[derive(FromForm)]
 pub struct InputForm{
     search: String
 }
 
+/// Searches for resources either by their language, title, and resource type
 #[post("/", data="<form>")]
 pub async fn search(form: Form<InputForm>, metadata_state: &SMState, searcher_state: &State<Searcher>) -> Redirect{
     let input = form.search.to_string();
@@ -304,6 +306,7 @@ pub async fn search(form: Form<InputForm>, metadata_state: &SMState, searcher_st
     Redirect::to(uri!(search_results))
 }
 
+/// Redirect page to see the search results 
 #[get("/search")]
 pub async fn search_results(metadata_state: &SMState) -> Template{
     let metadata = metadata_state.lock().await;
