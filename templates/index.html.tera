@@ -10,10 +10,16 @@
         <button class="w3-button  w3-xlarge nav mobile-show" onclick="w3_open()">☰</button>
     </header>
     {% include "nav" %}
+
+    <div class="search-container">
+        <form action="/" method="post">
+            <input type="text" placeholder="Search (Lang, Title or Resource Type)..." name="search" class="searcher"> <button type="submit"
+                class="searcher-btn"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+
     <div class="container w3-mobile">
         <!-- Open-Source Education Section -->
-
-
         <section class="open-source-section w3-mobile">
             <h2>Open-Source Education and Programming</h2>
             <p>

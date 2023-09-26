@@ -2,11 +2,12 @@ use dir::{Files, ResourceRoutes};
 use handles::*;
 use mokareads_core::awesome_lists::AwesomeList;
 use mokareads_core::resources::article::articles_rss;
-use mokareads_core::resources::Cacher;
+use mokareads_core::resources::{Cacher, Searcher, SearchMetadata};
 use rocket::fs::FileServer;
 use rocket::tokio;
 use rocket::{catchers, launch, routes, Build, Rocket};
 use rocket_dyn_templates::Template;
+use tokio::sync::Mutex;
 
 /// Provides the resources file walker and the cacher to load them all
 pub mod dir;
@@ -57,6 +58,8 @@ async fn rocket() -> Rocket<Build> {
 
     let cacher = joined.0.unwrap();
     let awesome_lists = joined.1.unwrap();
+    let searcher = Searcher::new(&cacher);
+    let search_meta: Mutex<Vec<SearchMetadata>> = Mutex::new(Vec::new());
 
     // Runs our web server with the given tera engine, web handles, and catchers
     rocket::build()
@@ -86,7 +89,9 @@ async fn rocket() -> Rocket<Build> {
                 api_awesome,
                 api_lang_map,
                 research, 
-                curr, 
+                curr,
+                search,
+                search_results
             ],
         ) // Mount the routes for the website
         .mount("/assets", FileServer::from("assets")) // Mount the assets folder for static files
@@ -96,4 +101,6 @@ async fn rocket() -> Rocket<Build> {
         .manage(cacher.guides()) // Manage the guides as a global state
         .manage(cacher) // Manage the cacher as a global state
         .manage(awesome_lists) // Manage the awesome lists as a global state
+        .manage(searcher)
+        .manage(search_meta)
 }
