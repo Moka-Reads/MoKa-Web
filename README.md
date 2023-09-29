@@ -37,7 +37,7 @@ project:
 $ git clone https://github.com/Moka-Reads/MoKa-Web.git
 $ cd MoKa-Web
 $ make build_docki
-% make start_container
+$ make start_container
 ```
 
 This will build the project and run it locally. The website will be available at `http://0.0.0.0:8000`.

@@ -11,6 +11,8 @@ use rocket::{catch, fs::NamedFile, post, uri, FromForm, State};
 use rocket::{get, Request};
 use rocket_dyn_templates::{context, Template};
 use std::collections::HashMap;
+use std::path::{Path, PathBuf};
+use crate::cached::CachedNameFile;
 
 use crate::downloader::{Downloader, GitHubTag, Platforms, Version};
 use crate::page::{current_page, Page};
@@ -34,6 +36,16 @@ type SMState = State<Mutex<Vec<SearchMetadata>>>;
 pub fn index() -> Template {
     Template::render("index", context! {})
 }
+
+/// Opens a asset file as cached with max age of 3600
+#[get("/assets/<file..>")]
+pub async fn assets(file: PathBuf) -> Option<CachedNameFile>{
+    NamedFile::open(Path::new("assets/").join(file))
+        .await
+        .ok()
+        .map(|file| CachedNameFile::max_age(file, 3600))
+}
+
 /// Provides the mission of the MoKa Reads platform
 /// We also read the roadmap toml file to present the current roadmap
 #[get("/mission")]
@@ -295,7 +307,7 @@ pub async fn curr(code: &str) -> Template {
 /// Search bar input form
 #[derive(FromForm)]
 pub struct InputForm {
-    pub search: String,
+    search: String,
 }
 
 /// Searches for resources either by their language, title, and resource type

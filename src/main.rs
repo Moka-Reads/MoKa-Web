@@ -1,24 +1,22 @@
-use std::path::Path;
-
 use dir::{Files, ResourceRoutes};
 use handles::*;
 use mokareads_core::awesome_lists::AwesomeList;
 use mokareads_core::resources::article::articles_rss;
 use mokareads_core::resources::{Cacher, SearchMetadata, Searcher};
-use rocket::fs::{FileServer, NamedFile};
 use rocket::tokio;
 use rocket::{catchers, launch, routes, Build, Rocket};
 use rocket_dyn_templates::Template;
 use tokio::sync::Mutex;
-use rocket::get;
+
 /// Cached files for static assets
-mod cached;
+pub mod cached;
 /// Provides the resources file walker and the cacher to load them all
 pub mod dir;
 /// Provides an abstraction for downloading files
 mod downloader;
 /// All of the different route handles for the website
-mod handles;
+#[allow(renamed_and_removed_lints)]
+pub mod handles;
 /// Pagination abstraction
 pub mod page;
 /// The roadmap type for the toml file
@@ -49,13 +47,6 @@ async fn init_al() -> AwesomeList {
     serde_json::from_str(&data).unwrap()
 }
 
-#[get("/assets/<file..>")]
-async fn assets(file: std::path::PathBuf) -> Option<cached::CachedNameFile>{
-    NamedFile::open(Path::new("assets/").join(file))
-    .await
-    .ok()
-    .map(|file| cached::CachedNameFile::max_age(file, 3600))
-}
 #[launch]
 async fn rocket() -> Rocket<Build> {
     // Unwraps are necessary here because if the cacher and resource routes aren't
@@ -106,7 +97,6 @@ async fn rocket() -> Rocket<Build> {
                 search_results
             ],
         ) // Mount the routes for the website
-        //.mount("/assets", FileServer::from("assets")) // Mount the assets folder for static files
         .register("/", catchers![not_found, internal_error]) // Register the catchers for 404 and 500 errors
         .manage(cacher.articles()) // Manage the articles as a global state
         .manage(cacher.cheatsheets()) // Manage the cheatsheets as a global state
