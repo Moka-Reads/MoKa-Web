@@ -61,7 +61,7 @@ $ docker pull ghcr.io/moka-reads/moka-web:beta
   - Scaling issues
 - [ ] Awesome Lists (Mobile)
     - Scaling issues with box and pagination 
-- [ ] Asset Caching instead of `FileServer`
+- [X] Asset Caching instead of `FileServer`
 
 
 ## Contributing

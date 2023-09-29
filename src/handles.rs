@@ -2,15 +2,15 @@ use mokareads_core::awesome_lists::{AwesomeList, Repository};
 use mokareads_core::resources::article::Article;
 use mokareads_core::resources::cheatsheet::{get_lang_map, Cheatsheet, Language};
 use mokareads_core::resources::guide::Guide;
-use mokareads_core::resources::{Cacher, Searcher, SearchMetadata};
+use mokareads_core::resources::{Cacher, SearchMetadata, Searcher};
+use rocket::form::Form;
 use rocket::response::Redirect;
 use rocket::serde::json::Json;
-use rocket::{catch, fs::NamedFile, uri, State, post, FromForm};
+use rocket::tokio::sync::Mutex;
+use rocket::{catch, fs::NamedFile, post, uri, FromForm, State};
 use rocket::{get, Request};
 use rocket_dyn_templates::{context, Template};
 use std::collections::HashMap;
-use rocket::form::Form;
-use rocket::tokio::sync::Mutex;
 
 use crate::downloader::{Downloader, GitHubTag, Platforms, Version};
 use crate::page::{current_page, Page};
@@ -273,32 +273,38 @@ pub async fn api_awesome(awesome_list: &StateAwesome) -> Json<AwesomeList> {
 
 /// Allows a user to download the language map for the cheatsheets
 #[get("/api/lang_map")]
-pub async fn api_lang_map(cheatsheets: &StateCheatsheet) -> Json<HashMap<Language, Vec<Cheatsheet>>> {
+pub async fn api_lang_map(
+    cheatsheets: &StateCheatsheet,
+) -> Json<HashMap<Language, Vec<Cheatsheet>>> {
     Json::from(get_lang_map(cheatsheets))
 }
 
-/// Allows a user to view the MoKa Resarch iniative 
+/// Allows a user to view the MoKa Resarch iniative
 #[get("/research")]
-pub async fn research() -> Template{
-    Template::render("research", context!{})
+pub async fn research() -> Template {
+    Template::render("research", context! {})
 }
 
-/// View for curriculum plan 
+/// View for curriculum plan
 #[get("/research/curr/<code>")]
-pub async fn curr(code: &str) -> Template{
+pub async fn curr(code: &str) -> Template {
     let view = format!("courses/{code}");
-    Template::render(view, context!{})
+    Template::render(view, context! {})
 }
 
 /// Search bar input form
 #[derive(FromForm)]
-pub struct InputForm{
-    pub search: String
+pub struct InputForm {
+    pub search: String,
 }
 
 /// Searches for resources either by their language, title, and resource type
-#[post("/", data="<form>")]
-pub async fn search(form: Form<InputForm>, metadata_state: &SMState, searcher_state: &State<Searcher>) -> Redirect{
+#[post("/", data = "<form>")]
+pub async fn search(
+    form: Form<InputForm>,
+    metadata_state: &SMState,
+    searcher_state: &State<Searcher>,
+) -> Redirect {
     let input = form.search.to_string();
     let result = searcher_state.search(input);
     let mut metadata = metadata_state.inner().lock().await;
@@ -306,12 +312,14 @@ pub async fn search(form: Form<InputForm>, metadata_state: &SMState, searcher_st
     Redirect::to(uri!(search_results))
 }
 
-/// Redirect page to see the search results 
+/// Redirect page to see the search results
 #[get("/search")]
-pub async fn search_results(metadata_state: &SMState) -> Template{
+pub async fn search_results(metadata_state: &SMState) -> Template {
     let metadata = metadata_state.lock().await;
-    Template::render("search_results", context! {
-        results: metadata.clone()
-    })
+    Template::render(
+        "search_results",
+        context! {
+            results: metadata.clone()
+        },
+    )
 }
-
