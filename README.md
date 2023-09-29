@@ -47,30 +47,22 @@ This will build the project and run it locally. The website will be available at
 
 ### Pulling Docker Image 
 
-You may choose to use the official docker image `mustafif/moka-reads` to run the container, to do so you may run 
-the following commands: 
+You may choose to use the official docker image from Github packages to run the container, to do so you may run the following commands: 
 
 ```shell
-$ docker pull mustafif/moka-reads:latest 
-$ docker run -p 8000:8000 mustafif/moka-reads:latest
+$ docker pull ghcr.io/moka-reads/moka-web:beta
 ```
 
+## Improvements 
 
-## Checklist 
+- [X] Homepage (Desktop/Mobile)
+  - [ ] Install notification for PWA Mobile 
+- [ ] Article Home (Mobile) 
+  - Scaling issues
+- [ ] Awesome Lists (Mobile)
+    - Scaling issues with box and pagination 
+- [ ] Asset Caching instead of `FileServer`
 
-- [X] Homepage 
-- [X] Mission Page 
-- [X] Licenses Page
-- [X] Cheatsheet Home & Items 
-- [X] Articles Home & Items
-- [X] Guides Home & Items
-- [ ] Online Courses Redirect
-
-## Improvements
-
-- [X] Create Profiling Tests
-- [ ] Desktop Version for Resources built with `tauri`
-- [ ] Mobile App for Resources 
 
 ## Contributing
 
