@@ -14,7 +14,7 @@ pub mod dir;
 /// Provides an abstraction for downloading files
 mod downloader;
 /// All of the different route handles for the website
-pub mod handles;
+mod handles;
 /// Pagination abstraction 
 pub mod page;
 /// The roadmap type for the toml file
@@ -101,6 +101,6 @@ async fn rocket() -> Rocket<Build> {
         .manage(cacher.guides()) // Manage the guides as a global state
         .manage(cacher) // Manage the cacher as a global state
         .manage(awesome_lists) // Manage the awesome lists as a global state
-        .manage(searcher)
-        .manage(search_meta)
+        .manage(searcher) // Manages the global state of Searcher 
+        .manage(search_meta) // Manages cache for search results with `SearchMetadata`
 }

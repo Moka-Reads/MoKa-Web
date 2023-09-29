@@ -13,8 +13,8 @@
 
     <div class="search-container">
         <form action="/" method="post">
-            <input type="text" placeholder="Search (Lang, Title or Resource Type)..." name="search" class="searcher"> <button type="submit"
-                class="searcher-btn"><i class="fa fa-search"></i></button>
+            <input type="text" placeholder="Search (Lang, Title or Resource Type)..." name="search" class="searcher">
+            <button type="submit" class="searcher-btn"><i class="fa fa-search"></i></button>
         </form>
     </div>
 
@@ -136,6 +136,18 @@
                             Go (or Golang) is a modern, efficient, and statically typed language developed by Google. It
                             is
                             widely used in web services and backend development.
+                        </div>
+                    </a>
+                </div>
+                <div class="language-card">
+                    <a href="https://docs.julialang.org/en/v1/">
+                        <i class="language-icon devicon-julia-plain"></i>
+                        <div class="language-name">Julia</div>
+                        <div class="language-description">
+                            Julia is a high-performance programming language designed for scientific and numerical
+                            computing. It offers exceptional speed and ease of use, making it a top choice for data
+                            scientists, engineers, and researchers working on complex mathematical and computational
+                            tasks.
                         </div>
                     </a>
                 </div>

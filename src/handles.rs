@@ -106,7 +106,7 @@ pub async fn guide_(repo: &str, guides: &StateGuide) -> Redirect {
 /// and any cheatsheet that isn't part of them will be under the `Other` section.
 #[get("/cheatsheets")]
 pub async fn cheatsheet_home(cheatsheets: &StateCheatsheet) -> Template {
-    let lang_map = get_lang_map(&cheatsheets);
+    let lang_map = get_lang_map(cheatsheets);
 
     let kotlin = lang_map
         .get(&Language::Kotlin)
@@ -293,7 +293,7 @@ pub async fn curr(code: &str) -> Template{
 /// Search bar input form
 #[derive(FromForm)]
 pub struct InputForm{
-    search: String
+    pub search: String
 }
 
 /// Searches for resources either by their language, title, and resource type
