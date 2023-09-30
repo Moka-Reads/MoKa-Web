@@ -2,20 +2,22 @@ use dir::{Files, ResourceRoutes};
 use handles::*;
 use mokareads_core::awesome_lists::AwesomeList;
 use mokareads_core::resources::article::articles_rss;
-use mokareads_core::resources::{Cacher, Searcher, SearchMetadata};
-use rocket::fs::FileServer;
+use mokareads_core::resources::{Cacher, SearchMetadata, Searcher};
 use rocket::tokio;
 use rocket::{catchers, launch, routes, Build, Rocket};
 use rocket_dyn_templates::Template;
 use tokio::sync::Mutex;
 
+/// Cached files for static assets
+pub mod cached;
 /// Provides the resources file walker and the cacher to load them all
 pub mod dir;
 /// Provides an abstraction for downloading files
 mod downloader;
 /// All of the different route handles for the website
+#[allow(renamed_and_removed_lints)]
 pub mod handles;
-/// Pagination abstraction 
+/// Pagination abstraction
 pub mod page;
 /// The roadmap type for the toml file
 mod roadmap;
@@ -68,6 +70,7 @@ async fn rocket() -> Rocket<Build> {
             "/",
             routes![
                 index,
+                assets,
                 mission,
                 licenses,
                 license,
@@ -88,19 +91,18 @@ async fn rocket() -> Rocket<Build> {
                 api_articles,
                 api_awesome,
                 api_lang_map,
-                research, 
+                research,
                 curr,
                 search,
                 search_results
             ],
         ) // Mount the routes for the website
-        .mount("/assets", FileServer::from("assets")) // Mount the assets folder for static files
         .register("/", catchers![not_found, internal_error]) // Register the catchers for 404 and 500 errors
         .manage(cacher.articles()) // Manage the articles as a global state
         .manage(cacher.cheatsheets()) // Manage the cheatsheets as a global state
         .manage(cacher.guides()) // Manage the guides as a global state
         .manage(cacher) // Manage the cacher as a global state
         .manage(awesome_lists) // Manage the awesome lists as a global state
-        .manage(searcher)
-        .manage(search_meta)
+        .manage(searcher) // Manages the global state of Searcher
+        .manage(search_meta) // Manages cache for search results with `SearchMetadata`
 }
