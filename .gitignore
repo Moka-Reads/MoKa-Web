@@ -1,4 +1,4 @@
 /target
 .idea
 __pycache__
-*.rss 
+./moka_articles.rss 
