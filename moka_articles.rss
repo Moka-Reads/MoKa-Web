@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Moka Reads</title>
+    <link>https://moka-reads.mkproj.com</link>
+    <description>An Opensource Education Platform</description>
+    <language>en</language>
+    <lastBuildDate>Sun, 1 Oct 2023 22:40:41 +0000</lastBuildDate>
+    <ttl>60</ttl>
+    <item>
+      <title>Understanding Memory Leaks</title>
+      <link>https://moka-reads.mkproj.com/articles/Understanding_Memory_Leaks</link>
+      <description><![CDATA[Lets take a look at memory leaks with Rust, Zig, C/C++]]></description>
+      <guid>https://moka-reads.mkproj.com/articles/Understanding_Memory_Leaks</guid>
+      <pubDate>2023-09-27</pubDate>
+    </item>
+    <item>
+      <title>Translating C into Zig</title>
+      <link>https://moka-reads.mkproj.com/articles/Translating_C_into_Zig</link>
+      <description><![CDATA[Understand how to translate a C program in Zig]]></description>
+      <guid>https://moka-reads.mkproj.com/articles/Translating_C_into_Zig</guid>
+      <pubDate>2023-09-27</pubDate>
+    </item>
+  </channel>
+</rss>
