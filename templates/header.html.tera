@@ -14,5 +14,8 @@
     {% include "analytics" %}
     <title>MoKa Reads {{ title }}</title>
     <meta name="description" content="An Opensource Education Platform">
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="preload" href="/assets/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/style.css">
+    </noscript>
 </head>

@@ -217,6 +217,8 @@ footer {
         border-radius: 10px;
         padding: 10px;
         margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
         width: 40%;
         position: relative;
         transition: box-shadow 0.3s ease;
@@ -460,8 +462,10 @@ h4 {
 }
 
 .articles-container {
-    max-width: 600px;
     margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .article {
@@ -470,8 +474,6 @@ h4 {
     border-radius: 10px;
     padding: 20px;
     margin: 20px;
-    width: 40%;
-    position: relative;
     transition: box-shadow 0.3s ease;
 }
 
@@ -503,7 +505,8 @@ h4 {
 }
 
 .title {
-    font-size: 22px;
+    font-size: 2vw;
+    max-width: 60%;
     margin-bottom: 10px;
     font-family: 'Russo One';
 }
