@@ -475,6 +475,7 @@ h4 {
     border-radius: 10px;
     padding: 20px;
     margin: 20px;
+    width: 45%;
     transition: box-shadow 0.3s ease;
 }
 
