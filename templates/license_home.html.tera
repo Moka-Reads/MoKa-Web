@@ -65,29 +65,10 @@
 
                     <div class="license-type">Publications</div>
                     <p class="license-description">Publications on MoKa Reads
-                        are released under either the Creative Commons
-                        Attribution-ShareAlike 4.0 International License (CC
-                        BY-SA 4.0) with a holding period or the
-                        Creative Commons Attribution-NoDerivatives 4.0
-                        International License (CC BY-ND 4.0) without source
-                        code release.</p>
-                    <p class="license-description"><strong>CC BY-SA 4.0 with
-                            Holding Period:</strong> Publications under
-                        this license have a holding period of 1-2 years before
-                        their source code is made open to the public.
-                        During this time, the content is freely accessible and
-                        can be shared and adapted under the CC BY-SA
-                        4.0 license. After the holding period, the source code
-                        is released, allowing further contributions
-                        and modifications.</p>
-                    <p class="license-description"><a href="/licenses/cc-nd"><strong>CC
-                                BY-ND 4.0:</strong></a> Publications under this
-                        license can be
-                        shared freely, but no derivative works are allowed,
-                        meaning the content cannot be modified or
-                        adapted. The source code may not be released under this
-                        license. It is suitable for cases where the
-                        content needs to be preserved in its original form.</p>
+                        are released under the MoKa Reads Publications License which 
+                        is a modified version of the MIT license. More information 
+                        about the license can be found at our <strong>MRPL</strong> Github 
+                        repository <a href="https://github.com/Moka-Reads/MRPL/blob/main/MRPL-1.0.md">here!</a>
                 </div>
 
                 <div class="license-card w3-mobile">

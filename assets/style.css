@@ -464,13 +464,14 @@ h4 {
 .articles-container {
     margin: 20px auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
 .article {
     background-color: #ffffff;
     border: 1px solid #ccc;
+    width: 33%;
     border-radius: 10px;
     padding: 20px;
     margin: 20px;
@@ -483,7 +484,7 @@ h4 {
 
 .awesome-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     /* Two equal columns */
     gap: 20px;
     /* Adjust the gap between items */
