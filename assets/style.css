@@ -142,6 +142,10 @@ footer {
     visibility: hidden;
 }
 
+.mobile-hidden{
+    visibility: visible;
+}
+
 /* CSS for mobile responsiveness */
 @media (max-width: 810px) {
 
@@ -203,8 +207,8 @@ footer {
         width: 150px;
     }
 
-    .hidden {
-        display: none;
+    .mobile-hidden {
+        visibility: hidden;
     }
 
     .mobile-show {
@@ -464,7 +468,7 @@ h4 {
 .articles-container {
     margin: 20px auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 200px);
     gap: 20px;
 }
 
@@ -485,7 +489,7 @@ h4 {
 
 .awesome-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     /* Two equal columns */
     gap: 20px;
     /* Adjust the gap between items */
@@ -507,7 +511,7 @@ h4 {
 }
 
 .title {
-    font-size: 30px;
+    font-size: 1rem;
     margin-bottom: 10px;
     font-family: 'Russo One';
 }

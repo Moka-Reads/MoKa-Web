@@ -24,7 +24,7 @@
         {% for article in articles%}
 
         <div class="article w3-mobile">
-            <i class="icon-container {{article.metadata.icon}} "></i>
+            <i class="icon-container {{article.metadata.icon}} mobile-hidden"></i>
 
             <div class="title w3-mobile"><a class="link" href="/articles/{{article.slug}}">{{ article.metadata.title }} <br> By:
                     {{article.metadata.author}}</a></div>
