@@ -26,8 +26,8 @@
         <div class="article w3-mobile">
             <i class="icon-container {{article.metadata.icon}} mobile-hidden"></i>
 
-            <div class="title w3-mobile"><a class="link" href="/articles/{{article.slug}}">{{ article.metadata.title }} <br> By:
-                    {{article.metadata.author}}</a></div>
+            <h2><a class="link" href="/articles/{{article.slug}}">{{ article.metadata.title }} <br> By:
+                    {{article.metadata.author}}</a></h2>
             <div class="description w3-mobile">Description: {{article.metadata.description}}</div>
             <div class="publish-date w3-mobile">Published on {{article.metadata.date}}</div>
             <div class="tags w3-mobile">Tags: {{article.metadata.tags}}</div>
