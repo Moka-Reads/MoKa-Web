@@ -1,87 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% set title = "| Licenses" %}
-{%include "header"%}
+    {% set title = "| Licenses" %}
+    {%include "header"%}
 
-<body>
+    <body>
 
-    <header>
-        <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads Licenses</h1>
-        <button class="w3-button  w3-xlarge nav mobile-show" onclick="w3_open()">☰</button>
-    </header>
+        <header>
+            <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads
+                Licenses</h1>
+            <button class="w3-button  w3-xlarge nav mobile-show"
+                onclick="w3_open()">☰</button>
+        </header>
 
-    {% include "nav" %}
+        {% include "nav" %}
 
-    <div class="container">
-        <!-- License Section -->
-        <section class="license-section w3-mobile">
-            <div class="license-card w3-mobile">
-                <h2>License Information</h2>
-                <div class="license-type">Public Software, Code Samples, and Projects</div>
-                <p class="license-description">All public software, code samples, and projects on MoKa Reads are
-                    released under the MIT License or the GPLv2 License, or both in some cases.</p>
-            <p class="license-description"><a href="/licenses/mit"><strong>MIT License:</strong></a> The MIT License is a permissive open-source
-                    license that allows users to freely use, modify, distribute, and sublicense the code, with minimal
-                    restrictions. It is known for its simplicity and is widely used in open-source projects. It grants
-                    users the freedom to integrate the code into their own projects without imposing any significant
-                    requirements.</p>
-                <p class="license-description"><a href="/licenses/gplv2"><strong>GPLv2 License:</strong></a> The GPLv2 License, or GNU General Public
-                    License version 2, is a copyleft license that ensures derivative works must also be released under
-                    the same license. It promotes the free distribution and modification of the software while
-                    preserving the user's freedom to access and modify the source code.</p>
+        <div class="container">
+            <!-- License Section -->
+            <section class="license-section w3-mobile">
+                <div class="license-card w3-mobile">
+                    <h2>License Information</h2>
+                    <div class="license-type">Public Software, Code Samples, and
+                        Projects</div>
+                    <p class="license-description">All public software, code
+                        samples, and projects on MoKa Reads are
+                        released under the MIT License or the GPLv2 License, or
+                        both in some cases.</p>
+                    <p class="license-description"><a href="/licenses/mit"><strong>MIT
+                                License:</strong></a> The MIT License is a
+                        permissive open-source
+                        license that allows users to freely use, modify,
+                        distribute, and sublicense the code, with minimal
+                        restrictions. It is known for its simplicity and is
+                        widely used in open-source projects. It grants
+                        users the freedom to integrate the code into their own
+                        projects without imposing any significant
+                        requirements.</p>
+                    <p class="license-description"><a href="/licenses/gplv2"><strong>GPLv2
+                                License:</strong></a> The GPLv2 License, or GNU
+                        General Public
+                        License version 2, is a copyleft license that ensures
+                        derivative works must also be released under
+                        the same license. It promotes the free distribution and
+                        modification of the software while
+                        preserving the user's freedom to access and modify the
+                        source code.</p>
 
-                <div class="license-type">Resources (How to Guides, Cheatsheets, and Articles)</div>
-                <p class="license-description">All resources such as How to Guides, Cheatsheets, and Articles on MoKa
-                    Reads are licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC
-                    BY-SA 4.0).</p>
-                <p class="license-description"><a href="/licenses/cc-sa"><strong>CC BY-SA 4.0:</strong> </a>This license allows users to share and
-                    adapt the resources, even for commercial purposes, as long as proper attribution is given and any
-                    derivative works are shared under the same license. It encourages collaboration and the sharing of
-                    knowledge within the community while ensuring that subsequent works also benefit from the same open
-                    licensing terms.</p>
+                    <div class="license-type">Resources and Research</div>
+                    <p class="license-description">All resources, including
+                        How-to Guides, Cheat Sheets, Articles, and MoKa Reads
+                        research curriculums and papers, are licensed under the
+                        Creative Commons Attribution-ShareAlike 4.0
+                        International License (CC BY-SA 4.0).</p>
+                    <p class="license-description"><a href="/licenses/cc-sa"><strong>CC
+                                BY-SA 4.0:</strong> </a>This license allows
+                        users to share and
+                        adapt the resources, even for commercial purposes, as
+                        long as proper attribution is given and any
+                        derivative works are shared under the same license. It
+                        encourages collaboration and the sharing of
+                        knowledge within the community while ensuring that
+                        subsequent works also benefit from the same open
+                        licensing terms.</p>
 
-                <div class="license-type">Publications</div>
-                <p class="license-description">Publications on MoKa Reads are released under either the Creative Commons
-                    Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) with a holding period or the
-                    Creative Commons Attribution-NoDerivatives 4.0 International License (CC BY-ND 4.0) without source
-                    code release.</p>
-                <p class="license-description"><strong>CC BY-SA 4.0 with Holding Period:</strong> Publications under
-                    this license have a holding period of 1-2 years before their source code is made open to the public.
-                    During this time, the content is freely accessible and can be shared and adapted under the CC BY-SA
-                    4.0 license. After the holding period, the source code is released, allowing further contributions
-                    and modifications.</p>
-                <p class="license-description"><a href="/licenses/cc-nd"><strong>CC BY-ND 4.0:</strong></a> Publications under this license can be
-                    shared freely, but no derivative works are allowed, meaning the content cannot be modified or
-                    adapted. The source code may not be released under this license. It is suitable for cases where the
-                    content needs to be preserved in its original form.</p>
-            </div>
+                    <div class="license-type">Publications</div>
+                    <p class="license-description">Publications on MoKa Reads
+                        are released under the MoKa Reads Publications License which 
+                        is a modified version of the MIT license. More information 
+                        about the license can be found at our <strong>MRPL</strong> Github 
+                        repository <a href="https://github.com/Moka-Reads/MRPL/blob/main/MRPL-1.0.md">here!</a>
+                </div>
 
-            <div class="license-card w3-mobile">
-                <h2>Disclosure: Generative AI Content</h2>
-                <p>In the evolving world, AI has become a valuable tool that aids us in our mission at MoKa Reads to provide high-quality, informative, and engaging content to our readers.
+                <div class="license-card w3-mobile">
+                    <h2>Disclosure: Generative AI Content</h2>
+                    <p>In the evolving world, AI has become a valuable tool that
+                        aids us in our mission at MoKa Reads to provide
+                        high-quality, informative, and engaging content to our
+                        readers.
                     </p>
 
-                    <p>Some of the content on MoKa Reads has been generated with the assistance of advanced generative artificial intelligence (AI) algorithms. These AI systems are trained on vast datasets of human-written text and are designed to mimic human language. While content is generated algorithmically and without direct human input, we want to assure you that we take careful steps to ensure its accuracy and relevance.
+                    <p>Some of the content on MoKa Reads has been generated with
+                        the assistance of advanced generative artificial
+                        intelligence (AI) algorithms. These AI systems are
+                        trained on vast datasets of human-written text and are
+                        designed to mimic human language. While content is
+                        generated algorithmically and without direct human
+                        input, we want to assure you that we take careful steps
+                        to ensure its accuracy and relevance.
                     </p>
-                    <p>Our team at MoKa Reads meticulously reviews all AI-generated content and makes the necessary modifications to meet our quality standards. Our goal is to provide you with valuable information in a readable and engaging format.
+                    <p>Our team at MoKa Reads meticulously reviews all
+                        AI-generated content and makes the necessary
+                        modifications to meet our quality standards. Our goal is
+                        to provide you with valuable information in a readable
+                        and engaging format.
                     </p>
-                    <p>We believe that AI enhances our ability to deliver content, and we value transparency in this process. This disclosure is meant to inform our readers about the AI's role in content creation.
+                    <p>We believe that AI enhances our ability to deliver
+                        content, and we value transparency in this process. This
+                        disclosure is meant to inform our readers about the AI's
+                        role in content creation.
                     </p>
-                    <p>If you have any questions or concerns about the content on MoKa Reads or our use of generative AI, please don't hesitate to contact us or file an issue in the <a href="https://github.com/Moka-Reads/Moka-Resources">MoKa-Resources</a> repo in the 
-                    case a resource's content has incorrect information. Your feedback is essential and helps us continually improve our content and processes.
+                    <p>If you have any questions or concerns about the content
+                        on MoKa Reads or our use of generative AI, please don't
+                        hesitate to contact us or file an issue in the <a
+                            href="https://github.com/Moka-Reads/Moka-Resources">MoKa-Resources</a>
+                        repo in the
+                        case a resource's content has incorrect information.
+                        Your feedback is essential and helps us continually
+                        improve our content and processes.
                     </p>
-                    <p>Thank you for visiting MoKa Reads. We appreciate your trust and readership.</p>
-            </div>
-        </section>
+                    <p>Thank you for visiting MoKa Reads. We appreciate your
+                        trust and readership.</p>
+                </div>
+            </section>
 
-    </div>
+        </div>
 
+        {%
+        include "footer"
+        %}
 
-    {%
-    include "footer"
-    %}
-
-</body>
+    </body>
 
 </html>

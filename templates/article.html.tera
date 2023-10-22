@@ -18,11 +18,11 @@
 
         <div class="article-content w3-mobile">
             <section class="open-source-section w3-mobile">
-                <i class="language-icon {{article.metadata.icon}}"></i>
-                <h1 class="title">{{article.metadata.title}}</h1>
-                <h2>By: {{article.metadata.author}}</h2>
-                <p class="tags"> Tags: {{article.metadata.tags}}</p>
-                <p class="publish-date">Published On: {{article.metadata.date}}</p>
+                <i class="language-icon {{article.metadata.icon}} w3-mobile"></i>
+                <h1 class="title w3-mobile">{{article.metadata.title}}</h1>
+                <h2 class="w3-mobile">By: {{article.metadata.author}}</h2>
+                <p class="tags w3-mobile"> Tags: {{article.metadata.tags}}</p>
+                <p class="publish-date w3-mobile">Published On: {{article.metadata.date}}</p>
                 <div class="article-content w3-mobile">
                     {{article.content | safe}}
                 </div>

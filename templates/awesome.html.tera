@@ -18,7 +18,7 @@
             <ul class="pagination w3-mobile">
     {% for page in pages %}
         <li>
-            <a href="/awesome/{{page.number}}" {% if page.is_current %}class="active"{% endif %}>
+            <a href="/awesome/{{page.number}}" {% if page.is_current %}class="w3-black"{% endif %}>
                 {{ page.number }}
             </a>
         </li>

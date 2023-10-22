@@ -1,6 +1,6 @@
 [package]
 name = "moka-web"
-version = "0.3.0"
+version = "0.5.0"
 edition = "2021"
 authors = ["Mustafif Khan <mustafif0929@gmail.com>", "MoKa Reads <moka.reads@mkproj.com>"]
 description = "Moka Reads Web Application"
@@ -21,3 +21,9 @@ lazy_static = "1.4.0"
 chrono = "0.4.26"
 futures = "0.3.28"
 reqwest = { version = "0.11.18", features = ["json"] }
+
+[profile.release]
+strip = true  # Automatically strip symbols from the binary.
+lto = true # Enables link time optimizations to optimize at link-stage 
+codegen-units = 1 # allows for maximum size reduction optimizations 
+panic = "abort" # reduces size of panic unwind backtrace 

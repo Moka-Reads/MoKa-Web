@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+        {% set title = "| Kotlin Fundamentals" %}
+        {%include "header"%}
+
+        <body>
+
+                <header>
+                        <h1 style="font-family: 'Russo One', sans-serif;">MoKa
+                                Reads
+                                Research</h1>
+                        <button class="w3-button  w3-xlarge nav mobile-show"
+                                onclick="w3_open()">☰</button>
+                </header>
+                {% include "nav" %}
+
+                <div class="container">
+                        <div class="mission-card w3-mobile">
+                                <h2>Kotlin Fundamentals</h2>
+                                <h4>Description</h4>
+                                <p>
+                                        Join us on a journey through the
+                                        powerful Kotlin programming
+                                        language, utilized in diverse domains
+                                        like web development,
+                                        Android, and data science. Experience
+                                        comprehensive modules
+                                        and hands-on training to master core
+                                        concepts such as data
+                                        types, control flow, variables,
+                                        object-oriented programming,
+                                        and functions. You'll also delve into
+                                        advanced topics,
+                                        including exception handling,
+                                        collections, generics, and
+                                        cutting-edge Kotlin features like null
+                                        safety, coroutines,
+                                        and extension functions. Finally, get a
+                                        deep dive into
+                                        building systems with Gradle and explore
+                                        the inner workings
+                                        of the Kotlin K2 compiler. Let us take
+                                        your programming
+                                        skills to the next level together.
+                                </p>
+                                <h4>Goals</h4>
+                                <ul>
+                                        <li><p><strong>Mastery of Kotlin</strong>:
+                                                        The primary goal
+                                                        is to enable students to
+                                                        become proficient in
+                                                        Kotlin, understanding
+                                                        its syntax, features,
+                                                        and best
+                                                        practices.</p>
+                                        </li>
+                                        <li><p><strong>Practical Problem-Solving</strong>:
+                                                        Equip
+                                                        students with the
+                                                        ability to apply Kotlin
+                                                        effectively to solve
+                                                        real-world software
+                                                        development
+                                                        challenges, preparing
+                                                        them for practical work
+                                                        in
+                                                        various domains.</p>
+                                        </li>
+                                        <li><p><strong>Programming Fundamentals</strong>:
+                                                        Build a
+                                                        strong foundation in
+                                                        programming
+                                                        fundamentals,
+                                                        including data types,
+                                                        variables, control flow,
+                                                        and
+                                                        functions, ensuring
+                                                        students are
+                                                        well-grounded in
+                                                        the basics.</p>
+                                        </li>
+                                        <li><p><strong>Object-Oriented
+                                                                Proficiency</strong>:
+                                                        Foster
+                                                        expertise in
+                                                        object-oriented
+                                                        programming principles
+                                                        and practices, enabling
+                                                        students to design and
+                                                        build
+                                                        software systems using
+                                                        Kotlin.</p>
+                                        </li>
+                                        <li><p><strong>Exception Handling</strong>:
+                                                        Teach students
+                                                        how to handle exceptions
+                                                        gracefully, enhancing
+                                                        the
+                                                        robustness and
+                                                        reliability of their
+                                                        software.</p>
+                                        </li>
+                                        <li><p><strong>Collections and Generics</strong>:
+                                                        Provide
+                                                        in-depth knowledge of
+                                                        working with collections
+                                                        and
+                                                        generics, allowing
+                                                        students to manipulate
+                                                        and manage
+                                                        data structures
+                                                        effectively.</p>
+                                        </li>
+                                        <li><p><strong>Advanced Kotlin Features</strong>:
+                                                        Introduce
+                                                        students to advanced
+                                                        Kotlin features such as
+                                                        null
+                                                        safety, extension
+                                                        functions, and
+                                                        coroutines,
+                                                        enhancing their ability
+                                                        to write efficient and
+                                                        safe
+                                                        code.</p>
+                                        </li>
+                                        <li><p><strong>Build Systems</strong>:
+                                                        Familiarize students
+                                                        with build systems, with
+                                                        a focus on Gradle, to
+                                                        help
+                                                        them manage complex
+                                                        projects efficiently.</p>
+                                        </li>
+                                        <li><p><strong>Compilation Techniques</strong>:
+                                                        Explore
+                                                        compilation techniques
+                                                        and the inner workings
+                                                        of the
+                                                        Kotlin K2 compiler,
+                                                        deepening students&#39;
+                                                        understanding of how
+                                                        code is transformed into
+                                                        executable software.</p>
+                                        </li>
+                                        <li><p><strong>Hands-On Experience</strong>:
+                                                        Ensure that
+                                                        students gain practical,
+                                                        hands-on experience
+                                                        through
+                                                        coding assignments,
+                                                        projects, and exercises
+                                                        to
+                                                        reinforce their
+                                                        learning.</p>
+                                        </li>
+                                        <li><p><strong>Versatility</strong>:
+                                                        Empower students to use
+                                                        Kotlin in a versatile
+                                                        manner, whether for
+                                                        Android
+                                                        app development, web
+                                                        development, data
+                                                        science, or
+                                                        other application
+                                                        domains.</p>
+                                        </li>
+                                        <li><p><strong>Critical Thinking</strong>:
+                                                        Encourage
+                                                        critical thinking and
+                                                        problem-solving skills
+                                                        by
+                                                        presenting students with
+                                                        complex coding
+                                                        challenges
+                                                        and encouraging creative
+                                                        solutions.</p>
+                                        </li>
+                                        <li><p><strong>Self-Reliance</strong>:
+                                                        Foster self-reliance
+                                                        and the ability to
+                                                        explore and adapt to new
+                                                        tools
+                                                        and technologies as they
+                                                        continue their journey
+                                                        in
+                                                        software development.</p>
+                                        </li>
+                                        <li><p><strong>Industry Readiness</strong>:
+                                                        Prepare students
+                                                        to be industry-ready by
+                                                        exposing them to
+                                                        industry-standard
+                                                        practices and coding
+                                                        conventions.</p>
+                                        </li>
+                                        <li><p><strong>Continuous Learning</strong>:
+                                                        Instill a
+                                                        passion for continuous
+                                                        learning, as the field
+                                                        of
+                                                        software development is
+                                                        ever-evolving, and
+                                                        adaptability is key to
+                                                        success.</p>
+                                        </li>
+                                </ul>
+                                <h4>Learning Outcomes</h4>
+                                <ul>
+                                        <li><p>
+                                                        Use the unique features
+                                                        of Kotlin to write
+                                                        readable,
+                                                        optimal and robust code.</p></li>
+                                        <li><p>Use Kotlin to solve practical
+                                                        problems in software
+                                                        development </p></li>
+                                        <li><p>Be able to use and understand the
+                                                        JVM and K2
+                                                        compilers
+                                                </p></li> </ul>
+                                <h3>Syllabus</h3>
+
+                                <button class="collapsible">Prerequisites</button>
+                                <div class="collcontent">
+                                        <h4>Prerequisites</h4>
+                                        <ul>
+                                                <li><p>Introduction to Java</p></li>
+                                                <li><p>Introduction to
+                                                                Programming</p></li>
+                                        </ul>
+                                        <h4>Duration</h4>
+                                        <ul>
+                                                <li><p>1 Semester or 12 Weeks</p></li>
+                                        </ul>
+                                        <h4>Preperations Recommendations</h4>
+                                        <ul>
+                                                <li><p>IntelliJ Idea Community</p></li>
+                                                <li><p>IntelliJ Student and
+                                                                Educator License</p></li>
+                                        </ul>
+                                </div>
+                                
+                                <button class="collapsible">Content</button>
+                                <div class="collcontent">
+                                        <table class="w3-centered">
+                                                <thead>
+                                                        <tr>
+                                                                <th
+                                                                        style="text-align:center">Week
+                                                                        #</th>
+                                                                <th
+                                                                        style="text-align:center">Assignment
+                                                                        #</th>
+                                                                <th
+                                                                        style="text-align:left">Topic</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">1</td>
+                                                                <td
+                                                                        style="text-align:center"></td>
+                                                                <td
+                                                                        style="text-align:left">Introduction
+                                                                        to
+                                                                        Kotlin</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">2</td>
+                                                                <td
+                                                                        style="text-align:center">1</td>
+                                                                <td
+                                                                        style="text-align:left">Object-Oriented
+                                                                        Programming</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">3</td>
+                                                                <td
+                                                                        style="text-align:center"></td>
+                                                                <td
+                                                                        style="text-align:left">Generics</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">4</td>
+                                                                <td
+                                                                        style="text-align:center">2</td>
+                                                                <td
+                                                                        style="text-align:left">Collections</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">5</td>
+                                                                <td
+                                                                        style="text-align:center"></td>
+                                                                <td
+                                                                        style="text-align:left">Functional
+                                                                        Programming</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">6</td>
+                                                                <td
+                                                                        style="text-align:center">Midterm
+                                                                        (1-5)</td>
+                                                                <td
+                                                                        style="text-align:left">Build
+                                                                        Systems</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">7</td>
+                                                                <td
+                                                                        style="text-align:center"></td>
+                                                                <td
+                                                                        style="text-align:left">Parallel
+                                                                        and
+                                                                        Concurrent
+                                                                        Programming</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">8</td>
+                                                                <td
+                                                                        style="text-align:center">3</td>
+                                                                <td
+                                                                        style="text-align:left">Asynchronous
+                                                                        Programming</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">9</td>
+                                                                <td
+                                                                        style="text-align:center"></td>
+                                                                <td
+                                                                        style="text-align:left">JVM
+                                                                        and K2
+                                                                        Compiler</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">10</td>
+                                                                <td
+                                                                        style="text-align:center">4</td>
+                                                                <td
+                                                                        style="text-align:left">Exceptions</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">11</td>
+                                                                <td
+                                                                        style="text-align:center"></td>
+                                                                <td
+                                                                        style="text-align:left">Testing</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td
+                                                                        style="text-align:center">12</td>
+                                                                <td
+                                                                        style="text-align:center">Final
+                                                                        Exam</td>
+                                                                <td></td>
+                                                        </tr>
+                                                </tbody>
+                                        </table>
+                                        <h4>Grade Breakdown</h4>
+                                        <table class="w3-centered">
+                                                <thead>
+                                                        <tr>
+                                                                <th>Type</th>
+                                                                <th>Weight</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr>
+                                                                <td>Assignments
+                                                                        (x4)</td>
+                                                                <td>20%</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td>Quizzes
+                                                                        (each
+                                                                        topic)</td>
+                                                                <td>10%</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td>Midterm</td>
+                                                                <td>30%</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <td>Final Exam</td>
+                                                                <td>40 %</td>
+                                                        </tr>
+                                                </tbody>
+                                        </table>
+                                </div>
+                                <button class="collapsible">Assesment Plan</button>
+                                <div class="collcontent">
+                                        <h4>Quizzes</h4>
+                                        <p>Multiple choice quizzes for each
+                                                topic that will cover the
+                                                theory/keywords of the topic,
+                                                but also test the student's
+                                                knowledge of the in's and out's
+                                                of the topic.</p>
+                                        <h4>Assignments</h4>
+                                        <p><strong>Assignment 1: Kotlin Essentials
+                                                (Topics 1 &amp; 2)</strong></p>
+                                        <p>Description:
+                                                In this assignment, you will
+                                                explore the fundamental features
+                                                of the Kotlin programming
+                                                language. You will write simple
+                                                Kotlin programs to demonstrate
+                                                your understanding of basic
+                                                concepts.</p>
+                                        <p>Tasks:</p>
+                                        <ol>
+                                                <li><p>Write a Kotlin program that
+                                                        prints <code>&quot;Hello,
+                                                                Kotlin!&quot;</code>
+                                                        to the console.</p></li>
+                                                <li><p>Create a Kotlin function
+                                                                that calculates
+                                                                the area of a
+                                                                rectangle given
+                                                                its length and
+                                                                width. Test the
+                                                                function with
+                                                                different
+                                                                values.</p>
+                                                </li>
+                                                <li><p>Define a Kotlin class
+                                                                representing a
+                                                                &#39;Person&#39;
+                                                                with properties
+                                                                for name, age,
+                                                                and email.
+                                                                Create an
+                                                                instance of the
+                                                                class and
+                                                                initialize its
+                                                                properties.</p>
+                                                </li>
+                                        </ol>
+                                        <hr>
+                                        <p><strong>Assignment 2: Building a Task Manager
+                                                (Topics 3 &amp; 4)</strong></p>
+                                        <p>Description:
+                                                In this assignment, you will
+                                                apply your knowledge of Kotlin
+                                                collections to create a simple
+                                                task manager. You will use
+                                                collections like lists and maps
+                                                to manage tasks and their
+                                                properties.</p>
+                                        <p>Tasks:</p>
+                                        <ol>
+                                                <li><p>Create a Kotlin data class
+                                                        called Task with
+                                                        properties for task ID
+                                                        (an integer) and task
+                                                        description (a string).</p></li>
+                                                <li><p>Implement a Kotlin program
+                                                        that manages a list of
+                                                        tasks using a
+                                                        MutableList. Include
+                                                        functions for adding,
+                                                        updating, and deleting
+                                                        tasks.</p></li>
+                                                <li><p>Extend your task manager to
+                                                        categorize tasks by
+                                                        priority using a map.
+                                                        Allow users to set and
+                                                        change task priorities
+                                                        (e.g., High, Medium,
+                                                        Low).</p></li>
+                                                <li><p>Write a function to display
+                                                        all tasks, sorted by
+                                                        priority.</p></li>
+                                        </ol>
+                                        <hr>
+                                        <p><strong>Assignment 3: Parallel Data
+                                                Processing with Kotlin
+                                                Coroutines (Topic 7)</strong></p>
+                                        <p>Description:
+                                                In this assignment, you will
+                                                explore the power of functional
+                                                programming and parallelism in
+                                                Kotlin using coroutines. You
+                                                will work with a dataset and
+                                                leverage Kotlin&#39;s functional
+                                                programming features to process
+                                                data concurrently, improving
+                                                performance.</p>
+                                        <p>Tasks:</p>
+                                        <ol>
+                                                <li><p>Download a sample dataset
+                                                        (e.g., a CSV file)
+                                                        containing a list of
+                                                        records (e.g., sales
+                                                        transactions, sensor
+                                                        readings, or any dataset
+                                                        of your choice).</p></li>
+                                                <li><p>Write a Kotlin program that
+                                                        reads and parses the
+                                                        dataset into a list of
+                                                        data objects.</p></li>
+                                                <li><p>Implement a functional
+                                                        transformation on the
+                                                        dataset, such as
+                                                        filtering, mapping, or
+                                                        aggregating the data
+                                                        using Kotlin&#39;s
+                                                        higher-order functions
+                                                        (e.g., map, filter,
+                                                        reduce).</p></li>
+                                                <li><p>Rewrite the transformation
+                                                        from task 3 using Kotlin
+                                                        coroutines to perform
+                                                        the operation
+                                                        concurrently on multiple
+                                                        records.</p></li>
+                                                <li><p>Measure and compare the
+                                                        execution time of the
+                                                        sequential and
+                                                        concurrent
+                                                        transformations for a
+                                                        significant dataset.
+                                                        Analyze and present the
+                                                        results.</p></li>
+                                        </ol>
+                                        <hr>
+                                        <p><strong>Assignment 4: Asynchronous File
+                                                Processing and Exception
+                                                Handling (Topics 8 &amp; 10)</strong></p>
+                                        <p>Description:
+                                                In this assignment, you will
+                                                explore asynchronous programming
+                                                in Kotlin, delve into the Java
+                                                Virtual Machine (JVM)
+                                                environment, and practice
+                                                exception handling. You will
+                                                create a program that reads and
+                                                processes data from files
+                                                asynchronously while handling
+                                                exceptions gracefully.</p>
+                                        <p>Tasks:</p>
+                                        <ol>
+                                                <li><p>Create a Kotlin program that
+                                                        reads data from multiple
+                                                        text files (at least
+                                                        three) asynchronously.
+                                                        Each file may contain
+                                                        lines of data.</p></li>
+                                                <li><p>Implement asynchronous
+                                                        processing to analyze
+                                                        and transform the data
+                                                        (e.g., counting words,
+                                                        extracting specific
+                                                        information, or any data
+                                                        processing task).</p></li>
+                                                <li><p>Handle exceptions that may
+                                                        occur during file
+                                                        reading, data
+                                                        processing, or
+                                                        asynchronous operations.
+                                                        Use Kotlin&#39;s
+                                                        exception handling
+                                                        mechanisms effectively.</p></li>
+                                                <li><p>Write the processed data to
+                                                        an output file.</p></li>
+                                        </ol>
+                                        <p>Additional Tasks (Optional): </p>
+                                        <ol>
+                                                <li><p>Implement error logging
+                                                                to capture and
+                                                                log exceptions
+                                                                that occur
+                                                                during file
+                                                                processing.</p>
+                                                </li>
+                                                <li><p>Explore and discuss how
+                                                                the Kotlin code
+                                                                is compiled into
+                                                                Java bytecode
+                                                                and executed on
+                                                                the JVM.</p>
+                                                </li>
+                                        </ol>
+
+                                </div>
+                        </div>
+                </div>
+
+                <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                  content.style.maxHeight = null;
+                } else {
+                  content.style.maxHeight = content.scrollHeight + "px";
+                } 
+              });
+            }
+            </script>
+                {% include "footer" %}
+        </body>
+</html>

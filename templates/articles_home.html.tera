@@ -24,13 +24,13 @@
         {% for article in articles%}
 
         <div class="article w3-mobile">
-            <i class="icon-container {{article.metadata.icon}}"></i>
+            <i class="icon-container {{article.metadata.icon}} mobile-hidden"></i>
 
-            <div class="title"><a class="link" href="/articles/{{article.slug}}">{{ article.metadata.title }} by
-                    {{article.metadata.author}}</a></div>
-            <div class="description">Description: {{article.metadata.description}}</div>
-            <div class="publish-date">Published on {{article.metadata.date}}</div>
-            <div class="tags">Tags: {{article.metadata.tags}}</div>
+            <h2><a class="link" href="/articles/{{article.slug}}">{{ article.metadata.title }} <br> By:
+                    {{article.metadata.author}}</a></h2>
+            <div class="description w3-mobile">Description: {{article.metadata.description}}</div>
+            <div class="publish-date w3-mobile">Published on {{article.metadata.date}}</div>
+            <div class="tags w3-mobile">Tags: {{article.metadata.tags}}</div>
         </div>
         {%endfor%}
     </div>

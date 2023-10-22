@@ -1,4 +1,4 @@
-<nav class="w3-bar nav hidden">
+<nav class="w3-bar nav mobile-hidden">
     <a href="/" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-home"></i> Home</a>
     <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-clipboard-check"></i> Mission</a>
     <a href="/licenses" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Licenses/Terms</a>
@@ -28,6 +28,7 @@
                     class="devicon-rust-plain"></i>TexCreate</a>
         </div>
     </div>
+    <a href="/research" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-flask"></i> Research</a>
     <a href="/download" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-download"></i> Downloads</a>
     <a href="https://github.com/Moka-Reads" class="w3-bar-item w3-button w3-mobile"><i
             class="devicon-github-original"></i> Github</a>
@@ -58,7 +59,8 @@
     </div>
     <button class="w3-button w3-block w3-center" onclick="toolsAccFunc()"><i class="fas fa-tools"></i> Tools <i
             class="fas fa-caret-down dropdown-caret"></i></button>
-    <div id="toolsAcc" class="w3-bar-block w3-hide nav w3-card-4">
+    
+         <div id="toolsAcc" class="w3-bar-block w3-hide nav w3-card-4">
         <a href="https://github.com/Moka-Reads/MokaReads-Core" class="w3-bar-item w3-button w3-mobile"><i
                 class="devicon-rust-plain"></i> MoKaReads-Core</a>
         <a href="https://github.com/Moka-Reads/MokaRes" class="w3-bar-item w3-button w3-mobile"><i
@@ -66,6 +68,7 @@
         <a href="https://texcreate.mkproj.com" class="w3-bar-item w3-button w3-mobile"><i
                 class="devicon-rust-plain"></i>TexCreate</a>
     </div>
+    <a href="/research" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-flask"></i> Research</a>
     <a href="https://github.com/Moka-Reads" class="w3-bar-item w3-button w3-mobile"><i
             class="devicon-github-original"></i> Github</a>
     <a href="https://shop.mokareads.org" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-shopping-cart"></i>
