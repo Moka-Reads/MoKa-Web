@@ -1,4 +1,4 @@
-<nav class="w3-bar nav hidden">
+<nav class="w3-bar nav mobile-hidden">
     <a href="/" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-home"></i> Home</a>
     <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-clipboard-check"></i> Mission</a>
     <a href="/licenses" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Licenses/Terms</a>
