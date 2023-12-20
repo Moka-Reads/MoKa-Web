@@ -1,216 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% set title = "" %}
-{%include "header"%}
+    {% set title = "" %}
+    {%include "header"%}
 
-<body>
-    <header>
-        <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads</h1>
-        <button class="w3-button  w3-xlarge nav mobile-show" onclick="w3_open()">☰</button>
-    </header>
-    {% include "nav" %}
+    <style>
+        #gumroad-follow-form-embed {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          min-width: 0;
+          max-width: 100%;
+          vertical-align: bottom;
+          background-clip: padding-box;
+          scrollbar-color: rgba(246, 243, 238, 0.1) rgba(246, 243, 238, 0.5);
+          display: grid;
+          grid-auto-flow: column;
+          gap: 0.75rem;
+          grid-template-columns: 1fr;
+          grid-auto-columns: max-content;
+          align-items: center;
+          background-color: #ad765b; /* Form background color */
+          border-radius: 0.25rem;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+          border: none; /* No border */
+        }
+      
+        #gumroad-follow-form-embed-button {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          min-width: 0;
+          max-width: 100%;
+          vertical-align: bottom;
+          background-clip: padding-box;
+          scrollbar-color: rgba(246, 243, 238, 0.1) rgba(246, 243, 238, 0.5);
+          background: transparent;
+          font-size: 1rem;
+          line-height: 1.5;
+          padding: 0.75rem 1rem;
+          color: #f6f3ee; /* Text color */
+          border-radius: 0.25rem;
+          font-family: 'Mabry Pro', 'Avenir', 'Montserrat', 'Corbel', 'URW Gothic', 'source-sans-pro', sans-serif;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          cursor: pointer;
+          text-decoration: none;
+          transition-timing-function: ease-out;
+          transition-duration: 0.14s;
+          transition-property: all;
+          background-color: #ad765b;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+          border: none; /* No border */
+        }
+      
+        #gumroad-follow-form-embed-button:hover {
+          transform: translate(-0.25rem, -0.25rem);
+          box-shadow: 0.25rem 0.25rem 0rem rgba(246, 243, 238, 0.5);
+          background-color: #f690e8;
+          color: #f6f3ee;
+        }
+      
+        #gumroad-follow-form-embed-input {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          min-width: 0;
+          max-width: 100%;
+          vertical-align: bottom;
+          background-clip: padding-box;
+          scrollbar-color: rgba(246, 243, 238, 0.1) rgba(246, 243, 238, 0.5);
+          font-family: 'Mabry Pro', 'Avenir', 'Montserrat', 'Corbel', 'URW Gothic', 'source-sans-pro', sans-serif;
+          padding: 0.75rem 1rem;
+          font-size: 1rem;
+          font-weight: bold; /* Bold text */
+          line-height: 1.5;
+          border-radius: 0.25rem;
+          display: block;
+          width: 100%;
+          background-color: #ad765b;
+          color: #f6f3ee; /* Text color */
+          border: none; /* No border */
+        }
+      
+        #gumroad-follow-form-embed-input:disabled {
+          cursor: not-allowed;
+          opacity: 0.3;
+        }
+      
+        #gumroad-follow-form-embed-input::placeholder {
+          color: #f6f3ee; /* Placeholder text color */
+        }
+      
+        #gumroad-follow-form-embed-input:focus-within {
+          outline: 0.125rem solid #f690e8;
+        }
+      
+        #gumroad-follow-form-embed-input:read-only {
+          background-color: #242423;
+        }
+      </style>
 
-    <div class="search-container">
-        <form action="/" method="post">
-            <input type="text" placeholder="Search (Lang, Title or Resource Type)..." name="search" class="searcher">
-            <button type="submit" class="searcher-btn"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
+    <body>
+        <header>
+            <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads</h1>
+            <button class="w3-button  w3-xlarge nav mobile-show"
+                onclick="w3_open()">☰</button>
+        </header>
+        {% include "nav" %}
 
-    <div class="container w3-mobile">
-        <!-- Open-Source Education Section -->
-        <section class="open-source-section w3-mobile">
-            <h2>Open-Source Education and Programming</h2>
-            <p>
-                At MoKa Reads, we are passionate about open-source education, especially in the realm of programming.
-                Embracing open-source principles in programming education enables a collaborative learning environment
-                where aspiring developers and seasoned coders alike can learn from, contribute to, and improve each
-                other's work.
-            </p>
-            <p>
-                By supporting open-source programming projects, we believe in empowering educators and learners to
-                explore new technologies, exchange ideas, and build real-world projects together. As a result, our
-                platform fosters innovation, creativity, and a strong sense of community within the programming
-                education landscape.
-            </p>
-            <p>
-                Additionally, our commitment to open-source extends to our publications. By making educational resources
-                open and accessible, we aim to enrich the programming community with high-quality content while
-                providing a platform for aspiring authors to share their knowledge and expertise.
-            </p>
-            <div class="hidden">
-                <h3>Benefits of Open-Source Education in Programming:</h3>
-                <ul>
-                    <li>Enhanced collaboration and knowledge sharing among programmers.</li>
-                    <li>Opportunities to learn from real-world, industry-standard projects.</li>
-                    <li>Exposure to diverse perspectives and problem-solving approaches.</li>
-                    <li>Community-driven support and feedback for continuous improvement.</li>
-                    <li>Empowerment to create and publish educational content for the community.</li>
-                </ul>
-            </div>
-        </section>
-        <div id="mc_embed_shell">
-            <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
-            <style type="text/css">
-                #mc_embed_signup {
-                    background: #f6f3ee;
-                    color: #ad795b;
-                    margin-top: 20px;
-                    margin-bottom: 10px;
-                    margin-left: auto;
-                    margin-right: auto;
-                    border-radius: 8px;
-                    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
-                    clear: left;
-                    font: 14px Helvetica, Arial, sans-serif;
-                    width: 600px;
-                }
+        <div class="container w3-mobile">
+            <!-- Open-Source Education Section -->
+            <section class="open-source-section w3-mobile">
+                <h2>Open-Source Education and Programming</h2>
+                <p>
+                    At MoKa Reads, we are passionate about open-source
+                    education, especially in the realm of programming.
+                    Embracing open-source principles in programming education
+                    enables a collaborative learning environment
+                    where aspiring developers and seasoned coders alike can
+                    learn from, contribute to, and improve each
+                    other's work.
+                </p>
+                <p>
+                    By supporting open-source programming projects, we believe
+                    in empowering educators and learners to
+                    explore new technologies, exchange ideas, and build
+                    real-world projects together. As a result, our
+                    platform fosters innovation, creativity, and a strong sense
+                    of community within the programming
+                    education landscape.
+                </p>
+                <p>
+                    Additionally, our commitment to open-source extends to our
+                    publications. By making educational resources
+                    open and accessible, we aim to enrich the programming
+                    community with high-quality content while
+                    providing a platform for aspiring authors to share their
+                    knowledge and expertise.
+                </p>
+                <div class="hidden">
+                    <h3>Benefits of Open-Source Education in Programming:</h3>
+                    <ul>
+                        <li>Enhanced collaboration and knowledge sharing among
+                            programmers.</li>
+                        <li>Opportunities to learn from real-world,
+                            industry-standard projects.</li>
+                        <li>Exposure to diverse perspectives and problem-solving
+                            approaches.</li>
+                        <li>Community-driven support and feedback for continuous
+                            improvement.</li>
+                        <li>Empowerment to create and publish educational
+                            content for the community.</li>
+                    </ul>
+                </div>
+            </section>
 
-                /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-                 We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-            </style>
-            <div id="mc_embed_signup" st>
-                <form
-                    action="https://mokareads.us21.list-manage.com/subscribe/post?u=068629b5cba54277efb36afb4&amp;id=9a1a2bfdc9&amp;f_id=0038ebe6f0"
-                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-                    target="_blank">
-                    <div id="mc_embed_signup_scroll">
-                        <h2>Subscribe to Our NewsLetter!</h2>
-                        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-                        <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span
-                                    class="asterisk">*</span></label><input type="email" name="EMAIL"
-                                class="required email" id="mce-EMAIL" required="" value=""><span
-                                id="mce-EMAIL-HELPERTEXT" class="helper_text"></span></div>
-                        <div id="mce-responses" class="clear foot">
-                            <div class="response" id="mce-error-response" style="display: none;"></div>
-                            <div class="response" id="mce-success-response" style="display: none;"></div>
-                        </div>
-                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                            /* real people should not fill this in and expect good things - do not remove this or risk
-                            form bot signups */
-                            <input type="text" name="b_068629b5cba54277efb36afb4_9a1a2bfdc9" tabindex="-1" value="">
-                        </div>
-                        <div class="optionalParent">
-                            <div class="clear foot">
-                                <input type="submit" style="background-color: #ad795b;" name="subscribe"
-                                    id="mc-embedded-subscribe" class="button" value="Subscribe">
+            <form
+                class="input-with-button"
+                action="https://app.gumroad.com/follow_from_embed_form"
+                method="post" id="gumroad-follow-form-embed"><input
+                    type="hidden" name="seller_id"
+                    value="6843762831327" />
+                <input
+                    id="gumroad-follow-form-embed-input" type="email"
+                    placeholder="Your email address" name="email"
+                    value /><button id="gumroad-follow-form-embed-button"
+                    class="primary" type="submit">Follow</button></form>
+
+            <section class="supported-languages-section w3-mobile">
+                <h2>Languages in Focus</h2>
+                <div class="supported-languages-container w3-mobile">
+
+                    <div class="language-card">
+                        <a href="https://www.rust-lang.org/">
+                            <i class="language-icon devicon-rust-plain"></i>
+                            <div class="language-name">Rust</div>
+                            <div class="language-description">
+                                Rust is a modern systems programming language
+                                that uniquely combines speed, control, and
+                                safety. It is designed to empower developers to
+                                write efficient and reliable code while
+                                providing them with the flexibility and
+                                low-level control needed to build complex
+                                systems. Rust's safety features, such as its
+                                ownership model and strict compile-time checks,
+                                make it a popular choice for building safe and
+                                reliable high-performance software.
                             </div>
-                        </div>
+                        </a>
                     </div>
-                </form>
-            </div>
-            <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-            <script
-                type="text/javascript">(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
+                    <div class="language-card">
+                        <a href="https://en.cppreference.com/w/">
+                            <i class="language-icon devicon-c-plain"></i>
+                            <i
+                                class="language-icon devicon-cplusplus-plain"></i>
+                            <div class="language-name">C/C++</div>
+                            <div class="language-description">
+                                C and C++ are two dynamic programming languages.
+                                C is a great option for system programming and
+                                embedded systems as it is robust and efficient.
+                                On the other hand, C++ is a modern extension of
+                                C that incorporates object-oriented features,
+                                making it perfect for contemporary software
+                                development. Both languages are excellent at
+                                creating efficient and robust solutions for
+                                system-level tasks, embedded systems, and
+                                high-performance applications. They bridge the
+                                gap between traditional and modern programming
+                                paradigms.
+                            </div>
+                        </a>
+                    </div>
+                    <div class="language-card">
+                        <a href="https://ziglang.org/">
+                            <i class="language-icon devicon-zig-original"></i>
+                            <div class="language-name">Zig</div>
+                            <div class="language-description">
+                                Zig is a cutting-edge programming language that
+                                boasts an effortless and intuitive approach to
+                                coding. It is designed to prioritize
+                                performance, safety, and readability, making it
+                                an excellent choice for systems and game
+                                development. With Zig, you can enjoy a seamless
+                                and streamlined programming experience that
+                                allows you to build complex and robust
+                                applications easily. Its user-friendly interface
+                                and advanced features make Zig a popular choice
+                                among developers who value efficiency and
+                                reliability.
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <section class="supported-languages-section w3-mobile">
-            <h2>Languages in Focus</h2>
-            <div class="supported-languages-container w3-mobile">
-                <div class="language-card">
-                    <a href="https://kotlinlang.org/">
-                        <i class="language-icon devicon-kotlin-plain"></i>
-                        <div class="language-name">Kotlin</div>
-                        <div class="language-description">
-                            Kotlin is a modern, concise, and expressive language used for Android app development and
-                            other
-                            backend applications.
-                        </div>
-                    </a>
-                </div>
-                <div class="language-card">
-                    <a href="https://www.rust-lang.org/">
-                        <i class="language-icon devicon-rust-plain"></i>
-                        <div class="language-name">Rust</div>
-                        <div class="language-description">
-                            Rust is a systems programming language known for its safety features, low-level control, and
-                            high performance.
-                        </div>
-                    </a>
-                </div>
-                <div class="language-card">
-                    <a href="https://en.cppreference.com/w/c">
-                        <i class="language-icon devicon-c-plain"></i>
-                        <div class="language-name">C</div>
-                        <div class="language-description">
-                            C is a versatile and powerful language widely used for system programming, embedded systems,
-                            and
-                            high-performance applications.
-                        </div>
-                    </a>
-                </div>
-                <div class="language-card">
-                    <a href="https://en.cppreference.com/w/cpp">
-                        <i class="language-icon devicon-cplusplus-plain"></i>
-                        <div class="language-name">C++</div>
-                        <div class="language-description">
-                            C++ is an extension of C with additional object-oriented features, widely used for game
-                            development and high-performance applications.
-                        </div>
-                    </a>
-                </div>
-                <div class="language-card">
-                    <a href="https://ziglang.org/">
-                        <i class="language-icon devicon-zig-original"></i>
-                        <div class="language-name">Zig</div>
-                        <div class="language-description">
-                            Zig is a modern and easy-to-use language designed for performance, safety, and readability,
-                            suitable for systems and game development.
-                        </div>
-                    </a>
-                </div>
-                <div class="language-card">
-                    <a href="https://www.python.org/">
-                        <i class="language-icon devicon-python-plain"></i>
-                        <div class="language-name">Python</div>
-                        <div class="language-description">
-                            Python is a powerful, high-level programming language known for its simplicity and
-                            readability.
-                            It is widely used in web development, data science, automation, and more.
-                        </div>
-                    </a>
-                </div>
-                <div class="language-card">
-                    <a href="https://www.swift.org/">
-                        <i class="language-icon devicon-swift-plain"></i>
-                        <div class="language-name">Swift</div>
-                        <div class="language-description">
-                            Swift is Apple's programming language used for iOS, macOS, watchOS, and tvOS app
-                            development. It
-                            is designed for safety, performance, and ease of use.
-                        </div>
-                    </a>
-                </div>
-                <div class="language-card">
-                    <a href="https://go.dev/">
-                        <i class="language-icon devicon-go-original-wordmark"></i>
-                        <div class="language-name">Go</div>
-                        <div class="language-description">
-                            Go (or Golang) is a modern, efficient, and statically typed language developed by Google. It
-                            is
-                            widely used in web services and backend development.
-                        </div>
-                    </a>
-                </div>
-                <div class="language-card">
-                    <a href="https://docs.julialang.org/en/v1/">
-                        <i class="language-icon devicon-julia-plain"></i>
-                        <div class="language-name">Julia</div>
-                        <div class="language-description">
-                            Julia is a high-performance programming language designed for scientific and numerical
-                            computing. It offers exceptional speed and ease of use, making it a top choice for data
-                            scientists, engineers, and researchers working on complex mathematical and computational
-                            tasks.
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-
-    {% include "footer" %}
-</body>
+        {% include "footer" %}
+    </body>
 
 </html>

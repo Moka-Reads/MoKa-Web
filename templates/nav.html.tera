@@ -1,40 +1,15 @@
 <nav class="w3-bar nav mobile-hidden">
     <a href="/" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-home"></i> Home</a>
     <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-clipboard-check"></i> Mission</a>
-    <a href="/licenses" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Licenses/Terms</a>
-    <div class="w3-dropdown-click w3-mobile">
-        <button class="w3-button w3-mobile" onclick="dropdown_click()"><i class="fas fa-book"></i> Resources <i
-                class="fas fa-caret-down dropdown-caret"></i></button>
-        <div id="dropper" class="w3-dropdown-content w3-bar-block w3-card-4">
-            <a href="/cheatsheets" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-list-alt"></i>
-                Cheatsheets</a>
-            <a href="/articles" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-newspaper"></i>
-                Articles</a>
-            <a href="/guides" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-info-circle"></i> How to
-                Guides</a>
-            <a href="/awesome" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-list"></i> Awesome Lists
-            </a>
-        </div>
-    </div>
-    <div class="w3-dropdown-click w3-mobile">
-        <button class="w3-button w3-mobile" onclick="dropdown_click2()"><i class="fas fa-tools"></i> Tools <i
-                class="fas fa-caret-down dropdown-caret"></i></button>
-        <div class="w3-dropdown-content w3-bar-block w3-card-4" id="dropper2">
-            <a href="https://github.com/Moka-Reads/MokaReads-Core" class="w3-bar-item w3-button w3-mobile"><i
-                    class="devicon-rust-plain"></i> MoKaReads-Core</a>
-            <a href="https://github.com/Moka-Reads/MokaRes" class="w3-bar-item w3-button w3-mobile"><i
-                                class="devicon-rust-plain"></i> MoKaRes</a>
-            <a href="https://texcreate.mkproj.com" class="w3-bar-item w3-button w3-mobile"><i
-                    class="devicon-rust-plain"></i>TexCreate</a>
-        </div>
-    </div>
+    <a href="/policies" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Policies</a>
     <a href="/research" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-flask"></i> Research</a>
-    <a href="/download" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-download"></i> Downloads</a>
+    <a href="/download" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-book"></i> Curriculums</a>
     <a href="https://github.com/Moka-Reads" class="w3-bar-item w3-button w3-mobile"><i
             class="devicon-github-original"></i> Github</a>
     <a href="https://shop.mokareads.org" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-shopping-cart"></i>
         Shop</a>
-    <a href="/rss" class="w3-bar-item w3-button w3-right w3-mobile"><i class="fa fa-rss"></i></a>
+        <a href="https://opencollective.com/mokareads" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-hands-helping"></i>
+            Foundation</a>
     <a href="https://instagram.com/moka.reads" class="w3-bar-item w3-button w3-right w3-mobile"><i
             class="fab fa-instagram"></i></a>
 </nav>
