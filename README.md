@@ -53,17 +53,6 @@ You may choose to use the official docker image from Github packages to run the 
 $ docker pull ghcr.io/moka-reads/moka-web:beta
 ```
 
-## Improvements 
-
-- [X] Homepage (Desktop/Mobile)
-  - [ ] Install notification for PWA Mobile 
-- [ ] Article Home (Mobile) 
-  - Scaling issues
-- [ ] Awesome Lists (Mobile)
-    - Scaling issues with box and pagination 
-- [X] Asset Caching instead of `FileServer`
-
-
 ## Contributing
 
 If you would like to contribute to the project, please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for more
