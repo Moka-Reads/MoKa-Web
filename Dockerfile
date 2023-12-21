@@ -1,14 +1,9 @@
 # Use the Rust base image
 FROM lukemathwalker/cargo-chef:latest-rust-latest AS chef 
 
-RUN apt-get update && apt-get install git
-
 WORKDIR home
 
 COPY . .
-RUN rm -rf resources
-RUN git clone https://github.com/Moka-Reads/Moka-Resources.git resources
-
 
 # Build your Rust application
 RUN cargo build --release
