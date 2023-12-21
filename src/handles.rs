@@ -7,11 +7,15 @@ use crate::cached::CachedNameFile;
 
 use crate::roadmap::Roadmap;
 
+const VERSION: &str = env!("CARGO_PKG_VERSION");
+
 
 /// The homepage of the website to present the idea of MoKa Reads and Opensource Education
 #[get("/")]
 pub fn index() -> Template {
-    Template::render("index", context! {})
+    Template::render("index", context! {
+        version: VERSION.to_string(), 
+    })
 }
 
 /// Opens a asset file as cached with max age of 3600
@@ -20,7 +24,7 @@ pub async fn assets(file: PathBuf) -> Option<CachedNameFile>{
     NamedFile::open(Path::new("assets/").join(file))
         .await
         .ok()
-        .map(|file| CachedNameFile::max_age(file, 3600))
+        .map(|file| CachedNameFile::max_age(file, 31536000        ))
 }
 
 /// Provides the mission of the MoKa Reads platform
@@ -32,7 +36,8 @@ pub async fn mission() -> Template {
     Template::render(
         "mission",
         context! {
-            roadmap: rmap.map_items
+            roadmap: rmap.map_items,
+            version: VERSION.to_string()
         },
     )
 }
@@ -46,14 +51,16 @@ pub async fn policies() -> Template{
 
 
     Template::render("policies", context!{
-        opencode: html
+        opencode: html, 
+        version: VERSION.to_string(), 
     })
 }
 
 #[get("/licenses/<lic>")]
 pub async fn licenses(lic: &str) -> Template{
     Template::render("license", context!{
-        license: lic
+        license: lic, 
+        version: VERSION.to_string(), 
     })
 }
 
