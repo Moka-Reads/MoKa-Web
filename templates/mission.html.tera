@@ -1,177 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% set title = "| Mission" %}
-{%include "header"%}
+    {% set title = "| Mission" %}
+    {%include "header"%}
 
-<body>
+    <body>
 
-    <header>
-        <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads Mission</h1>
-        <button class="w3-button  w3-xlarge nav mobile-show" onclick="w3_open()">☰</button>
-    </header>
-    {% include "nav" %}
+        <header>
+            <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads
+                Mission</h1>
+            <button class="w3-button  w3-xlarge nav mobile-show"
+                onclick="w3_open()">☰</button>
+        </header>
+        {% include "nav" %}
 
-    <div class="container">
-        <!-- Mission and About sections -->
+        <div class="container">
+            <!-- Mission and About sections -->
 
-
-        <div class="mission-card w3-mobile">
-            <h2>Mission</h2>
-            <p>At MoKa Reads, our mission is to provide accessible and high-quality education to everyone, making
-                learning new skills and technologies a delightful experience. We believe in the power of open-source
-                education and its potential to transform lives. By embracing open-source principles, we can
-                contribute to and benefit from the collective knowledge of the community, fostering innovation and
-                growth.</p>
-            <p>We draw inspiration from the late Aaron Swartz, a visionary technologist, and open access activist.
-                Aaron's passionate advocacy for making knowledge available to all has had a profound impact on the
-                world of information sharing and open education. His dedication to open access and information
-                freedom continues to fuel our mission at MoKa Reads.</p>
-            <p>Education is not meant to be confined; it should be preserved and open, with the doors wide open for
-                exploration and learning. At MoKa Reads, we envision a future where education knows no boundaries,
-                where knowledge is accessible to learners from all walks of life, empowering them to pursue their
-                passions and reach their full potential.</p>
-            <p>We believe that building a vibrant community and fostering collaboration can make a tremendous impact
-                on innovation and positively transform people's lives. MoKa Reads is more than just an educational
-                platform; it is a collaborative space where learners from diverse backgrounds can come together,
-                share their knowledge, and empower others to grow.</p>
-            <p>Open education, to us, is not just about access to resources; it's about the spirit of sharing,
-                connecting, and empowering one another. Through MoKa Reads, we aspire to open doors to a world of
-                knowledge, where learners can explore new horizons, expand their skillsets, and embark on a journey
-                of continuous growth and self-discovery.</p>
-            <p class="mission-meaning"><strong>MKR:</strong> MKR stands for "Mustafif Khan Reference Library." MKR
-                is a tribute to my first programming project, which aimed to centralize STEM materials for students.
-                The MKR project was built on the principles of openness and sharing knowledge, which now serve as
-                the foundation for MoKa Reads.</p>
-            <p class="mission-meaning">As an avid espresso enthusiast, I also find inspiration in my favorite
-                espresso drink, the Mocha. Just like the harmonious blend of coffee and chocolate in a Mocha, MoKa
-                Reads aims to blend the joy of learning with the rich flavors of knowledge.</p>
-        </div>
-
-        <div class="mission-about w3-mobile">
             <div class="mission-card w3-mobile">
-                <h2>About the Founder</h2>
-                <div class="w3-center">
-                    <img src="/assets/headshot.jpg" alt="Founder Image">
-                </div>
-                <p>Hello there; it's a pleasure to introduce myself to you. My name is Mustafif Khan, and I am the
-                    founder of MoKa Reads, of which I am extremely proud. I was initially drawn to programming due
-                    to my
-                    fascination with web development. However, as time has passed, my interest has evolved, and I
-                    have
-                    expanded my knowledge to include systems programming. I am excited about the challenges
-                    presented by
-                    Rust, C, C++, and Zig.</p>
-
-                <p>I am passionate about creating efficient and elegant code, which has culminated in the
-                    publication
-                    of my latest book, "Rust for C++ Programmers." This book is designed to bridge the gap between
-                    two
-                    powerful programming languages and introduce fellow programmers to Rust's unique capabilities
-                    and
-                    paradigms.</p>
-
-                <p>I firmly believe that education can transform lives and foster innovation. As an independent
-                    publisher and author based in Canada, I am delighted to be working on MoKa Reads. This
-                    open-source
-                    education platform enables me to share my knowledge and expertise with a broad audience.</p>
-
-                <p>My pursuits in both programming and poetry allow me to explore the complexities of life and human
-                    experiences. I hope my work will inspire others to embark on their own journeys of
-                    self-discovery
-                    and growth. Thank you for taking the time to get to know me a little better.</p>
-            </div>
-        </div>
-
-        <div class="mission-card w3-mobile">
-            <h2>Sponsorship</h2>
-            <p>
-                At MoKa Reads, we are on a transformative journey towards creating the MoKa Reads Foundation, a
-                distinguished 501(c)(3) non-profit organization dedicated to advancing literacy and education among
-                young readers. Our mission is to provide the gift of knowledge and foster a lifelong love of
-                learning, and we invite you to be an integral part of this noble endeavor.
-            </p>
-            <h2>Our Vision</h2>
-            <p>The MoKa Reads Foundation stands as a guiding light for countless children, a haven where the
-                enchantment of learning springs to life. With the attainment of 501(c)(3) status, we open new doors
-                to forge enduring transformations in education, literacy, and the future of our youth.</p>
-
-            <h2>Tiers</h2>
-            <div class="w3-container w3-mobile">
-                <h3>Contributor</h3>
-                <ul>
-                    <li>Contribute in the MoKa Reads GitHub</li>
-                    <li>Recognition in a GitHub README</li>
-                </ul>
-                <h3>Bronze Sponsor: $10/month</h3>
-                <ul>
-                    <li>Mention in the project's README file as a Bronze Sponsor.</li>
-                    <li>Recognition on the project's GitHub repository or website with your name and a link to your
-                        website or social media profile.</li>
-                </ul>
-                <h3>Silver Sponsor: $25/month</h3>
-                <ul>
-                    <li>All the benefits of the Bronze Sponsor tier. </li>
-                    <li>Your logo displayed on the project's website with a link to your website.</li>
-                    <li>Access to a private community forum or chat where you can interact with the project's
-                        developers
-                        and provide feedback.</li>
-                </ul>
-
-                <h3>Gold Sponsor: $50/month</h3>
-                <ul>
-                    <li>All the benefits of the Silver Sponsor tier.</li>
-                    <li>10% discount on project-related merchandise or books (if applicable).</li>
-                    <li>A quarterly shout-out on the project's social media channels, acknowledging your support.
-                    </li>
-                </ul>
-
-                <h2>Your Impact</h2>
-                <p>Your sponsorship is not just a financial contribution; it is an investment in the future of
-                    education
-                    and the empowerment of young minds. Your support brings us closer to realizing the MoKa Reads
-                    Foundation and elevating our commitment to literacy.</p>
-                <h2>Join Our Journey</h2>
-                <p>
-                    Together, we can create a world where every child has access to quality education and the
-                    enchanting
-                    world of books. Help us achieve our fundraising goal, and once we reach $3,500 per month,
-                    Mustafif
-                    Khan will be able to devote his full-time dedication to MoKa Reads, accelerating our mission and
-                    the
-                    establishment of the MoKa Reads Foundation.
-                </p>
-
-                <p><strong>Note:</strong> All contributions are greatly appreciated and will play an instrumental
-                    role in
-                    our quest to achieve 501(c)(3) status and beyond.</p>
-
-                <p>To become a sponsor please visit the MoKa Reads Shop or view the item directly <a
-                        href="https://shop.mokareads.org/product/sponsorship?info=terms">here!</a></p>
+                <h2>Mission</h2>
+                <p>At MoKa Reads, our mission is to provide accessible and
+                    high-quality education to everyone, making
+                    learning new skills and technologies a delightful
+                    experience. We believe in the power of open-source
+                    education and its potential to transform lives. By embracing
+                    open-source principles, we can
+                    contribute to and benefit from the collective knowledge of
+                    the community, fostering innovation and
+                    growth.</p>
+                <p>We draw inspiration from the late Aaron Swartz, a visionary
+                    technologist, and open access activist.
+                    Aaron's passionate advocacy for making knowledge available
+                    to all has had a profound impact on the
+                    world of information sharing and open education. His
+                    dedication to open access and information
+                    freedom continues to fuel our mission at MoKa Reads.</p>
+                <p>Education is not meant to be confined; it should be preserved
+                    and open, with the doors wide open for
+                    exploration and learning. At MoKa Reads, we envision a
+                    future where education knows no boundaries,
+                    where knowledge is accessible to learners from all walks of
+                    life, empowering them to pursue their
+                    passions and reach their full potential.</p>
+                <p>We believe that building a vibrant community and fostering
+                    collaboration can make a tremendous impact
+                    on innovation and positively transform people's lives. MoKa
+                    Reads is more than just an educational
+                    platform; it is a collaborative space where learners from
+                    diverse backgrounds can come together,
+                    share their knowledge, and empower others to grow.</p>
+                <p>Open education, to us, is not just about access to resources;
+                    it's about the spirit of sharing,
+                    connecting, and empowering one another. Through MoKa Reads,
+                    we aspire to open doors to a world of
+                    knowledge, where learners can explore new horizons, expand
+                    their skillsets, and embark on a journey
+                    of continuous growth and self-discovery.</p>
+                <p class="mission-meaning"><strong>MKR:</strong> MKR stands for
+                    "Mustafif Khan Reference Library." MKR
+                    is a tribute to my first programming project, which aimed to
+                    centralize STEM materials for students.
+                    The MKR project was built on the principles of openness and
+                    sharing knowledge, which now serve as
+                    the foundation for MoKa Reads.</p>
+                <p class="mission-meaning">As an avid espresso enthusiast, I
+                    also find inspiration in my favorite
+                    espresso drink, the Mocha. Just like the harmonious blend of
+                    coffee and chocolate in a Mocha, MoKa
+                    Reads aims to blend the joy of learning with the rich
+                    flavors of knowledge.</p>
             </div>
 
-        </div>
-
-
-        <!-- Fancier Roadmap Section -->
-        <section class="roadmap-section w3-mobile">
-            <h2>Roadmap</h2>
-            <div class="timeline">
-                {% for item in roadmap %}
-
-                <div class="timeline-item">
-                    <div class="date">{{item.period}} {{item.year}}</div>
-                    <div class="content">
-                        <p>{{item.description}}</p>
+            <div class="mission-about w3-mobile">
+                <div class="mission-card w3-mobile">
+                    <h2>About the Founder</h2>
+                    <div class="w3-center">
+                        <img src="/assets/headshot.jpg" alt="Founder Image">
                     </div>
-                </div>
+                    <p>Hello there; it's a pleasure to introduce myself to you.
+                        My name is Mustafif Khan, and I am the
+                        founder of MoKa Reads, of which I am extremely proud. I
+                        was initially drawn to programming due
+                        to my
+                        fascination with web development. However, as time has
+                        passed, my interest has evolved, and I
+                        have
+                        expanded my knowledge to include systems programming. I
+                        am excited about the challenges
+                        presented by
+                        Rust, C, C++, and Zig.</p>
 
-                {%endfor%}
+                    <p>I am passionate about creating efficient and elegant
+                        code, which has culminated in the
+                        publication
+                        of my latest book, "Rust for C++ Programmers." This book
+                        is designed to bridge the gap between
+                        two
+                        powerful programming languages and introduce fellow
+                        programmers to Rust's unique capabilities
+                        and
+                        paradigms.</p>
+
+                    <p>I firmly believe that education can transform lives and
+                        foster innovation. As an independent
+                        publisher and author based in Canada, I am delighted to
+                        be working on MoKa Reads. This
+                        open-source
+                        education platform enables me to share my knowledge and
+                        expertise with a broad audience.</p>
+
+                    <p>My pursuits in both programming and poetry allow me to
+                        explore the complexities of life and human
+                        experiences. I hope my work will inspire others to
+                        embark on their own journeys of
+                        self-discovery
+                        and growth. Thank you for taking the time to get to know
+                        me a little better.</p>
+                </div>
+            </div>
+
+            <div class="mission-card w3-mobile">
+                <h2>Sponsorship</h2>
+                <p>
+                    At MoKa Reads, we are on a transformative journey towards
+                    creating the MoKa Reads Foundation, a
+                    distinguished 501(c)(3) non-profit organization dedicated to
+                    advancing literacy and education among
+                    young readers. Our mission is to provide the gift of
+                    knowledge and foster a lifelong love of
+                    learning, and we invite you to be an integral part of this
+                    noble endeavor.
+                </p>
+                <h2>Our Vision</h2>
+                <p>The MoKa Reads Foundation has a mission to
+                    "Build a better tomorrow today" by providing accessible and
+                    engaging learning opportunities. We are proud to have
+                    achieved 501(c)(3) status, which allows us to actively
+                    support, research, and contribute to open education. This
+                    designation opens doors for us to create lasting changes in
+                    education, literacy, and the future of our youth. The
+                    foundation is dedicated to fostering an environment where
+                    knowledge thrives, and we strive to ensure that empowering
+                    education today leads to a brighter future for everyone.</p>
+
+                <h2>Tiers</h2>
+                <div class="w3-container w3-mobile">
+                    <h3>Contributor</h3>
+                    <ul>
+                        <li>Contribute in the MoKa Reads GitHub</li>
+                        <li>Recognition in a GitHub README</li>
+                    </ul>
+                    <h3>Bronze Sponsor: $10/month</h3>
+                    <ul>
+                        <li>Mention in the project's README file as a Bronze
+                            Sponsor.</li>
+                        <li>Recognition on the project's GitHub repository or
+                            website with your name and a link to your
+                            website or social media profile.</li>
+                    </ul>
+                    <h3>Silver Sponsor: $25/month</h3>
+                    <ul>
+                        <li>All the benefits of the Bronze Sponsor tier. </li>
+                        <li>Your logo displayed on the project's website with a
+                            link to your website.</li>
+                        <li>Access to a private community forum or chat where
+                            you can interact with the project's
+                            developers
+                            and provide feedback.</li>
+                    </ul>
+
+                    <h3>Gold Sponsor: $50/month</h3>
+                    <ul>
+                        <li>All the benefits of the Silver Sponsor tier.</li>
+                        <li>10% discount on project-related merchandise or books
+                            (if applicable).</li>
+                        <li>A quarterly shout-out on the project's social media
+                            channels, acknowledging your support.
+                        </li>
+                    </ul>
+
+                    <h2>Your Impact</h2>
+                    <p>Your sponsorship is not just a financial contribution; it
+                        is an investment in the future of
+                        education
+                        and the empowerment of young minds. Your support brings
+                        us closer to realizing the MoKa Reads
+                        Foundation and elevating our commitment to literacy.</p>
+                    <h2>Join Our Journey</h2>
+                    <p>
+                        Together, we can create a world where every child has
+                        access to quality education and the
+                        enchanting
+                        world of books. Help us achieve our fundraising goal,
+                        and once we reach $3,500 per month,
+                        Mustafif
+                        Khan will be able to devote his full-time dedication to
+                        MoKa Reads, accelerating our mission and
+                        the
+                        establishment of the MoKa Reads Foundation.
+                    </p>
+
+                    <p><strong>Note:</strong> All contributions are greatly
+                        appreciated and will play an instrumental
+                        role in
+                        our quest to achieve 501(c)(3) status and beyond.</p>
+
+                    <p>To become a sponsor you may either support us on <a href="https://shop.mokareads.org/l/rrcgh">MoKa Reads Shop</a> or through <a href="https://opencollective.com/mokareads">OpenCollective</a></p>
+                </div>
 
             </div>
 
-        </section>
-        <script>
+            <!-- Fancier Roadmap Section -->
+            <section class="roadmap-section w3-mobile">
+                <h2>Roadmap</h2>
+                <div class="timeline">
+                    {% for item in roadmap %}
+
+                    <div class="timeline-item">
+                        <div class="date">{{item.period}} {{item.year}}</div>
+                        <div class="content">
+                            <p>{{item.description}}</p>
+                        </div>
+                    </div>
+
+                    {%endfor%}
+
+                </div>
+
+            </section>
+            <script>
             const timelineItems = document.querySelectorAll('.timeline-item');
 
             timelineItems.forEach((item) => {
@@ -180,13 +237,9 @@
                 });
             });
         </script>
-    </div>
+        </div>
 
-
-
-
-
-    {% include "footer" %}
-</body>
+        {% include "footer" %}
+    </body>
 
 </html>

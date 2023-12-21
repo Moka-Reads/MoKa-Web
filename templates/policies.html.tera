@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    {% set title = "| Licenses" %}
+    {% set title = "| Policies" %}
     {%include "header"%}
 
     <body>
@@ -26,7 +26,8 @@
                         samples, and projects on MoKa Reads are
                         released under the MIT License or the GPLv2 License, or
                         both in some cases.</p>
-                    <p class="license-description"><a href="/licenses/mit"><strong>MIT
+                    <p class="license-description"><a
+                            href="/licenses/mit"><strong>MIT
                                 License:</strong></a> The MIT License is a
                         permissive open-source
                         license that allows users to freely use, modify,
@@ -36,7 +37,8 @@
                         users the freedom to integrate the code into their own
                         projects without imposing any significant
                         requirements.</p>
-                    <p class="license-description"><a href="/licenses/gplv2"><strong>GPLv2
+                    <p class="license-description"><a
+                            href="/licenses/gplv2"><strong>GPLv2
                                 License:</strong></a> The GPLv2 License, or GNU
                         General Public
                         License version 2, is a copyleft license that ensures
@@ -46,13 +48,14 @@
                         preserving the user's freedom to access and modify the
                         source code.</p>
 
-                    <div class="license-type">Resources and Research</div>
+                    <div class="license-type">Research and Curriculums</div>
                     <p class="license-description">All resources, including
                         How-to Guides, Cheat Sheets, Articles, and MoKa Reads
                         research curriculums and papers, are licensed under the
                         Creative Commons Attribution-ShareAlike 4.0
                         International License (CC BY-SA 4.0).</p>
-                    <p class="license-description"><a href="/licenses/cc-sa"><strong>CC
+                    <p class="license-description"><a
+                            href="/licenses/cc-sa"><strong>CC
                                 BY-SA 4.0:</strong> </a>This license allows
                         users to share and
                         adapt the resources, even for commercial purposes, as
@@ -62,13 +65,10 @@
                         knowledge within the community while ensuring that
                         subsequent works also benefit from the same open
                         licensing terms.</p>
+                </div>
 
-                    <div class="license-type">Publications</div>
-                    <p class="license-description">Publications on MoKa Reads
-                        are released under the MoKa Reads Publications License which 
-                        is a modified version of the MIT license. More information 
-                        about the license can be found at our <strong>MRPL</strong> Github 
-                        repository <a href="https://github.com/Moka-Reads/MRPL/blob/main/MRPL-1.0.md">here!</a>
+                <div class="license-card w3-mobile">
+                    {{ opencode | safe }}
                 </div>
 
                 <div class="license-card w3-mobile">
@@ -101,10 +101,9 @@
                     </p>
                     <p>If you have any questions or concerns about the content
                         on MoKa Reads or our use of generative AI, please don't
-                        hesitate to contact us or file an issue in the <a
-                            href="https://github.com/Moka-Reads/Moka-Resources">MoKa-Resources</a>
+                        hesitate to contact us or file an issue in the
                         repo in the
-                        case a resource's content has incorrect information.
+                        case the content has incorrect information.
                         Your feedback is essential and helps us continually
                         improve our content and processes.
                     </p>
