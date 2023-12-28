@@ -3,4 +3,4 @@
     Powered by <a href="https://github.com/Moka-Reads">Moka-Web v{{version}}</a></p>
 </footer>
 
-<script src="/assets/prism.js"></script>
+{# <script src="/assets/prism.js"></script> #}

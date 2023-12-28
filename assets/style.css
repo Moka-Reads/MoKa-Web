@@ -1,222 +1,223 @@
-/* CSS for general layout and styles */
+.license-section,
+.mission-card h2,
+.open-source-section,
+.open-source-section ul,
+.roadmap-section,
+.section,
+footer,
+header {
+    text-align: center
+}
+
+.guide-card a,
+.language-card a,
+.language-group li a,
+.link,
+.pagination a,
+.resource-card a,
+.search-btn a,
+td a {
+    text-decoration: none
+}
+
+.collapsible,
+.language-card,
+.search-btn,
+.timeline-item,
+td a {
+    cursor: pointer
+}
+
 body {
     font-family: Forum, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #f6f3ee;
-    color: #333;
+    color: #333
 }
 
 header {
     background-color: #ad795b;
     color: #fff;
-    text-align: center;
-    padding: 5px 0;
+    padding: 5px 0
+}
+
+.nav,
+.w3-dropdown-content,
+footer {
+    color: #f6f3ee;
+    background-color: #ad795b
 }
 
 header h1 {
     padding-top: 10px;
     padding-bottom: 0;
-    font-size: 2.5vw;
+    font-size: 2.5vw
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px
 }
 
 .section {
-    padding: 40px 0;
-    text-align: center;
+    padding: 40px 0
 }
 
-/* Style for the footer */
 footer {
-    background-color: #ad795b;
-    /* Choose a suitable background color */
-    color: #f6f3ee;
-    /* Text color */
     padding: 20px 0;
-    /* Add vertical padding for spacing */
-    text-align: center;
-    /* Center-align text */
     bottom: 0;
     width: 100%;
-    position: inherit;
+    position: inherit
 }
 
-.nav {
-    background-color: #ad795b;
-    color: #f6f3ee;
-}
-
-.w3-dropdown-content {
-    background-color: #ad795b;
-    color: #f6f3ee;
-}
-
-.resources-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-
+.language-card,
 .resource-card {
     background-color: #f6f3ee;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1)
+}
+
+.resources-container,
+.supported-languages-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px
+}
+
+.resource-card {
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.6
 }
 
 .resource-card a {
     color: #ad795b;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-weight: 700;
+    transition: color .3s
 }
 
 .resource-card a:hover {
-    color: #874c28;
+    color: #874c28
 }
 
-/* CSS for the supported languages section */
 .supported-languages-section {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 40px
 }
 
+.open-source-section h2,
 .supported-languages-section h2 {
     font-size: 28px;
     color: #ad795b;
     margin-bottom: 20px;
-    font-family: Forum;
-}
-
-.supported-languages-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    font-family: Forum
 }
 
 .language-card {
-    background-color: #f6f3ee;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    cursor: pointer;
-    padding: 15px;
-}
-
-.language-card a {
-    text-decoration: none;
+    transition: transform .3s;
+    padding: 15px
 }
 
 .language-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px)
 }
 
 .language-icon {
     font-size: 50px;
     color: #ad795b;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .language-name {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .language-description {
     font-size: 16px;
-    color: #666;
+    color: #666
 }
 
 .mobile-show {
-    visibility: hidden;
+    visibility: hidden
 }
 
-.mobile-hidden{
-    visibility: visible;
+.mobile-hidden {
+    visibility: visible
 }
 
-/* CSS for mobile responsiveness */
-@media (max-width: 810px) {
+@media (max-width:810px) {
+
+    .license-description,
+    .license-type {
+        font-size: 10px
+    }
 
     .license-card p {
         font-size: 8px;
         line-height: 1.6;
         color: #4a4a4a;
-        margin: 20px;
+        margin: 20px
     }
 
     .license-card h2 {
-        font-size: 12px;
+        font-size: 12px
     }
 
-    /* Style for license titles */
     .license-type {
-        font-size: 10px;
         color: #ad795b;
-        font-weight: bold;
-    }
-
-    /* Style for license descriptions */
-    .license-description {
-        font-size: 10px;
+        font-weight: 700
     }
 
     header h1 {
-        font-size: 2rem;
+        font-size: 2rem
     }
 
     section {
-        width: 78%;
+        width: 78%
     }
 
     .section {
-        padding: 20px 0;
+        padding: 20px 0
     }
 
     .menu-icon {
-        display: block;
+        display: block
     }
 
     nav ul {
         display: none;
         flex-direction: column;
-        align-items: center;
+        align-items: center
     }
 
     nav li {
-        margin: 10px 0;
+        margin: 10px 0
     }
 
-    /* Show the nav links when the hamburger menu is clicked */
     #menu-toggle:checked+ul {
-        display: flex;
+        display: flex
     }
 
     .mission-card img {
-        width: 150px;
+        width: 150px
     }
 
     .mobile-hidden {
-        visibility: hidden;
+        visibility: hidden
     }
 
     .mobile-show {
-        visibility: visible;
+        visibility: visible
     }
 
     .article {
-        background-color: #ffffff;
+        background-color: #fff;
         border: 1px solid #ccc;
         border-radius: 10px;
         padding: 10px;
@@ -225,98 +226,91 @@ footer {
         margin-right: auto;
         width: 40%;
         position: relative;
-        transition: box-shadow 0.3s ease;
+        transition: box-shadow .3s
     }
 }
 
 .open-source-section {
     background-color: #fff;
     padding: 40px;
-    text-align: center;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.open-source-section h2 {
-    font-size: 28px;
-    color: #ad795b;
-    margin-bottom: 20px;
-    font-family: Forum;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+    margin-bottom: 20px
 }
 
 .open-source-section h3 {
     font-size: 20px;
     color: #ad795b;
     margin-bottom: 20px;
-    font-family: Forum;
+    font-family: Forum
 }
 
 .open-source-section p {
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 1.6
+}
+
+.license-card h2,
+.mission-card h2,
+.roadmap-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ad795b;
+    font-family: Forum
 }
 
 .open-source-section ul {
-    text-align: center;
     margin-top: 20px;
-    padding-left: 0;
+    padding-left: 0
 }
 
 .open-source-section ul li {
     list-style: none;
     position: relative;
     margin-bottom: 15px;
-    font-size: medium;
+    font-size: medium
 }
 
 .open-source-section ul li:before {
     content: "\f138";
-    /* Font Awesome arrow icon (fa-arrow-right) */
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    color: #ad795b;
+    color: #ad795b
 }
 
-/* CSS for the fancier roadmap design */
 .roadmap-section {
     background-color: #f6f3ee;
-    padding: 50px;
-    text-align: center;
+    padding: 50px
 }
-
-.roadmap-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #ad795b;
-    font-family: Forum;
-}
-
-/* Updated CSS with hover focus effect and improved shadow box */
 
 .timeline {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px
+}
+
+.license-card,
+.mission-card {
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1)
 }
 
 .timeline-item {
     position: relative;
     padding-left: 30px;
     margin-bottom: 40px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    outline: none;
+    transition: transform .2s, box-shadow .2s;
+    outline: 0
 }
 
 .timeline-item:hover {
-    transform: scale(1.10);
-    box-shadow: 15px 10px 10px rgba(0.2, 0, 0, 0.2);
-    border-radius: 10px;
+    transform: scale(1.1);
+    box-shadow: 15px 10px 10px rgba(.2, 0, 0, .2);
+    border-radius: 10px
 }
 
 .timeline-item:before {
@@ -329,112 +323,104 @@ footer {
     background-color: #ad795b;
     border-radius: 50%;
     transform: translateY(-50%);
-    z-index: 1;
+    z-index: 1
+}
+
+.license-card,
+.mission-card,
+.timeline-item .content {
+    background-color: #fff;
+    border-radius: 8px
 }
 
 .timeline-item .date {
     font-size: 20.5px;
-    font-weight: bold;
+    font-weight: 700;
     color: #ad795b;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .timeline-item .content {
-    background-color: #fff;
     color: #333;
     padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    transition: background-color .2s
 }
 
 .timeline-item .content h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #ad795b;
+    color: #ad795b
 }
 
 .timeline-item .content p {
     margin: 10px 0;
     font-size: 18px;
-    font-family: Forum;
-}
-
-.mission-card h2 {
-    font-family: Forum;
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #ad795b;
+    font-family: Forum
 }
 
 .mission-card ul {
     margin: 0;
     padding: 0;
     list-style-type: circle;
-    text-align: left;
+    text-align: left
 }
 
 .mission-card h3,
 h4 {
     color: #ad795b;
     text-align: left;
-    font-family: Forum;
+    font-family: Forum
 }
 
 .mission-card {
     max-width: 90%;
-    margin: 25px auto;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 25px auto
+}
+
+.license-section,
+blockquote,
+tr {
+    background-color: #f6f3ee
 }
 
 .mission-card p {
     font-size: 1.2rem;
     line-height: 1.6;
     color: #4a4a4a;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .mission-about {
-    margin-top: 50px;
+    margin-top: 50px
 }
 
 .mission-about img {
     max-width: 200px;
     border-radius: 10px;
-    margin-bottom: 20px;
-
+    margin-bottom: 20px
 }
 
 .license-section {
-    text-align: center;
-    background-color: #f6f3ee;
-    margin: 20px;
+    margin: 20px
 }
 
 .license-card {
-    margin: 20px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto
 }
 
-.license-card h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #ad795b;
-    font-family: Forum;
+.article,
+.awesome {
+    border: 1px solid #ccc;
+    padding: 20px;
+    transition: box-shadow .3s;
+    background-color: #fff
 }
 
 .license-card h3 {
     font-size: 1.9rem;
     margin-bottom: 20px;
-    color: #ad795b;
+    color: #ad795b
 }
 
 .license-card p {
@@ -442,107 +428,88 @@ h4 {
     line-height: 1.6;
     color: #4a4a4a;
     margin-bottom: 20px;
-    text-align: left;
+    text-align: left
 }
 
-/* Style for license titles */
 .license-type {
     font-size: 1.3rem;
     color: #ad795b;
-    font-weight: bold;
+    font-weight: 700
 }
 
-/* Style for license descriptions */
 .license-description {
-    font-size: 1.1rem;
+    font-size: 1.1rem
 }
 
 .center-container {
     display: flex;
     justify-content: center;
-    /* Horizontally center the content */
-    align-items: center;
-    /* Vertically center the content */
+    align-items: center
 }
 
 .articles-container {
     margin: 20px auto;
     display: grid;
     grid-template-columns: repeat(2, 200px);
-    gap: 20px;
+    gap: 20px
 }
 
 .article {
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    width: 40%;
     border-radius: 10px;
-    padding: 20px;
     margin: 20px;
-    width: 45%;
-    transition: box-shadow 0.3s ease;
+    width: 45%
 }
 
-.article:hover {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+.article:hover,
+.awesome:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2)
 }
 
 .awesome-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* Two equal columns */
     gap: 20px;
-    /* Adjust the gap between items */
-    margin: 20px auto;
+    margin: 20px auto
 }
 
 .awesome {
-    background-color: #ffffff;
-    border: 1px solid #ccc;
     border-radius: 10px;
-    padding: 20px;
     margin: 20px;
-    position: relative;
-    transition: box-shadow 0.3s ease;
-}
-
-.awesome:hover {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    position: relative
 }
 
 .title {
     font-size: 1rem;
     margin-bottom: 10px;
-    font-family: 'Russo One';
+    font-family: 'Russo One'
+}
+
+.description,
+.tags {
+    margin-bottom: 5px
+}
+
+.description,
+.publish-date,
+.tags {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px
 }
 
 .tags {
-    color: #888;
-    font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
-    margin-bottom: 5px;
-}
-
-.description {
-    font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
-    margin-bottom: 5px;
-
+    color: #888
 }
 
 .publish-date {
-    color: #555;
-    font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
+    color: #555
 }
 
 .link {
-    color: #ad795b;
-    text-decoration: none;
+    color: #ad795b
 }
 
 .link:hover {
-    text-decoration: underline;
+    text-decoration: underline
 }
 
 .icon-container {
@@ -550,13 +517,13 @@ h4 {
     top: 10px;
     right: 10px;
     font-size: 65px;
-    color: #ad795b;
+    color: #ad795b
 }
 
 .search-container {
     max-width: 400px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 10px
 }
 
 #searchInput {
@@ -564,98 +531,106 @@ h4 {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 4px
 }
 
 .cheatsheet-section {
     background-color: #fff;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
     margin-bottom: 40px;
-    font-family: "Montserrat", sans-serif;
+    font-family: Montserrat, sans-serif
+}
+
+.guide-card,
+.language-group {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1)
 }
 
 .article-content {
     margin-top: 20px;
-    text-align: left;
-
+    text-align: left
 }
 
 .article-content h1 {
     font-size: 32px;
     font-family: Forum;
     color: #ad795b;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .article-content h2 {
     font-size: 22px;
     font-family: Forum;
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: 700;
+    margin-bottom: 5px
 }
 
 .article-content h3 {
     color: #ad795b;
-    font-family: Forum;
+    font-family: Forum
 }
 
 .article-content p {
     font-size: 16px;
     margin-bottom: 20px;
-    font-family: Forum;
+    font-family: Forum
 }
 
 .article-content ul {
     margin: 0;
     padding: 0 20px;
-    list-style-type: disc;
+    list-style-type: disc
 }
 
 .article-content .language-icon {
-    font-size: 100px;
+    font-size: 100px
 }
 
 .article-content li {
-    font-family: Forum;
+    font-family: Forum
 }
 
 .cheatsheets-container {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 20px auto
 }
 
 .language-group {
     margin-bottom: 30px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px
 }
 
 .language-group h2 {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 15px
+}
+
+.pagination li,
+blockquote p {
+    display: inline
 }
 
 .language-group i {
     font-size: 28px;
     margin-right: 10px;
-    color: #ad795b;
+    color: #ad795b
 }
 
 .language-group ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin: 0
 }
 
 .language-group li {
-    margin-bottom: 5px;
+    margin-bottom: 5px
 }
 
 .language-group li a {
@@ -663,87 +638,69 @@ h4 {
     padding: 5px 10px;
     background-color: #ad795b;
     color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
+    border-radius: 4px
 }
 
 .language-group li a:hover {
-    background-color: #923d15;
+    background-color: #923d15
 }
 
-/* Horizontal grid layout for cheatsheets */
 .cheatsheets-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap
 }
 
 .cheatsheets-grid li {
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 18px
 }
 
 .guides-container {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center
 }
 
 .guide-card {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
+    border-radius: 4px;
     width: 200px;
-    text-align: center;
-}
-
-.guide-card a {
-    text-decoration: none;
+    text-align: center
 }
 
 .guide-card i {
     font-size: 48px;
-    color: #ad795b;
+    color: #ad795b
 }
 
 .guide-card h2 {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     color: #ad795b;
-    margin-top: 10px;
+    margin-top: 10px
 }
 
 .guide-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
     transform: translateY(-2px);
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: box-shadow .3s, transform .3s
 }
 
 .pagination-container {
     background-color: #f2f2f2;
-    /* Background for the container */
     padding: 10px;
-    /* Add padding to the container */
     display: flex;
-    justify-content: center;
+    justify-content: center
 }
 
 .pagination-box {
     border: 1px solid #ccc;
-    /* Border around the box */
     border-radius: 5px;
-    /* Rounded corners for the box */
     background-color: #fff;
-    /* Background for the box */
     padding: 10px;
-    /* Add padding inside the box */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Optional box shadow */
-    display: inline-block;
-    /* Ensure it wraps tightly around the content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    display: inline-block
 }
 
 .pagination {
@@ -753,17 +710,12 @@ h4 {
     align-items: center;
     gap: 5px;
     margin: 0;
-    /* Reset margin */
-    padding: 0;
-    /* Reset padding */
+    padding: 0
 }
 
 .pagination li {
-    display: inline;
     margin: 0;
-    /* Reset margin */
-    padding: 0;
-    /* Reset padding */
+    padding: 0
 }
 
 .pagination a {
@@ -771,136 +723,115 @@ h4 {
     padding: 8px 12px;
     background-color: #ad795b;
     color: #fff;
-    text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color .3s
 }
 
+.active,
+.collapsible:hover,
+.pagination a.active,
 .pagination a:hover {
-    background-color: #000000;
-}
-
-.pagination a.active {
-    background-color: #000000;
+    background-color: #000
 }
 
 table {
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    width: 75%
 }
 
 table,
-th,
-td {
+td,
+th {
     text-align: center;
-    padding: 10px;
+    padding: 10px
 }
 
 td {
-    border: 0.5px solid #ad795b;
+    border: .5px solid #ad795b
 }
 
 td a {
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 600;
+    font-weight: 600
 }
 
 th {
     border: 2.5px solid #ad795b;
     background-color: #ad795b;
-    color: white;
+    color: #fff
 }
 
 tr {
-    background-color: #f6f3ee;
-    color: #000000;
+    color: #000
 }
 
 blockquote {
-    background-color: #f6f3ee;
     border-left: 10px solid #ad795b;
     padding: 10px;
     margin-left: 0;
-    quotes: "\201C" "\201D" "\2018" "\2019";
-}
-
-blockquote p {
-    display: inline;
+    quotes: "\201C" "\201D" "\2018" "\2019"
 }
 
 .collapsible {
     background-color: #ad765b;
-    color: white;
-    cursor: pointer;
+    color: #fff;
     padding: 18px;
     width: 100%;
     border: none;
     text-align: left;
-    outline: none;
+    outline: 0;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 700;
     border-radius: 10px;
-    margin: 10px;
+    margin: 10px
 }
 
-.active,
-.collapsible:hover {
-    background-color: #000;
+.collcontent,
+.search-btn {
+    background-color: #f6f3ee;
+    border-radius: 10px
 }
 
 .collapsible:after {
     content: '\002B';
-    color: white;
-    font-weight: bold;
+    color: #fff;
+    font-weight: 700;
     float: right;
-    margin-left: 5px;
+    margin-left: 5px
 }
 
 .active:after {
-    content: "\2212";
+    content: "\2212"
 }
 
 .collcontent {
     padding: 0 18px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    background-color: #f6f3ee;
-    border-radius: 10px;
+    transition: max-height .2s ease-out
+}
+
+.search-btn,
+.searcher,
+.searcher-btn {
+    padding: 10px
 }
 
 .searcher {
-    padding: 10px;
-    width: 275px;
-}
-
-.searcher-btn {
-    padding: 10px;
+    width: 275px
 }
 
 .search-btn {
-    padding: 10px;
-    background-color: #f6f3ee;
-    margin: 10px;
-    border-radius: 10px;
+    margin: 10px auto;
     border: 1px solid #ad765b;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-    cursor: pointer;
+    width: 75%
 }
 
 .search-btn :hover {
-    color: #000;
-}
-
-.search-btn a {
-    text-decoration: none;
+    color: #000
 }
 
 .open-source-section .search-btn {
     grid-row: 2;
-    display: grid;
+    display: grid
 }
