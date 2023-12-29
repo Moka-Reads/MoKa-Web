@@ -9,10 +9,10 @@ description = "Moka Reads Web Application"
 
 [dependencies]
 rocket = { version = "0.5.0", features = ["json"] }
-rocket_dyn_templates = { version = "0.1.0-rc.3", features = ["tera"] }
+rocket_dyn_templates = { version = "0.1.0", features = ["tera"] }
 serde = { version = "1", features = ["derive"] }
 serde_yaml = "0.9"
-toml = "0.7.6"
+toml = "0.8.8"
 walkdir = "2.3.3"
 mokareads-core = {git = "https://github.com/Moka-Reads/MokaReads-Core"}
 serde_json = "1.0.104"

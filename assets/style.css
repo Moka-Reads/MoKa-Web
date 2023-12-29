@@ -1,3 +1,16 @@
+@font-face {
+    font-family: Forum;
+    src: url('Forum-Regular.ttf');
+    fallback: 'Times New Roman';
+    font-display: auto;
+}
+
+@font-face {
+    font-family: 'Russo One';
+    src: url('RussoOne-Regular.ttf');
+    font-display: auto;
+}
+
 .license-section,
 .mission-card h2,
 .open-source-section,
@@ -57,9 +70,9 @@ header h1 {
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px
+    max-width: 95%;
+    margin: 10px auto;
+    padding: 10px
 }
 
 .section {
@@ -209,7 +222,7 @@ footer {
     }
 
     .mobile-hidden {
-        visibility: hidden
+        display: none;
     }
 
     .mobile-show {
