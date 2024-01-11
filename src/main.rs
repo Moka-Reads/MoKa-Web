@@ -1,7 +1,7 @@
 use handles::*;
 use rocket::{catchers, launch, routes, Build, Rocket};
 use rocket_dyn_templates::Template;
-use rocket_async_compression::Compression;
+use rocket_async_compression::CachedCompression;
 
 
 /// Cached files for static assets
@@ -23,7 +23,7 @@ async fn rocket() -> Rocket<Build> {
     // Runs our web server with the given tera engine, web handles, and catchers
     rocket::build()
         .attach(Template::fairing()) // Attach the tera engine to the web server
-        .attach(Compression::fairing()) // Attach compression fairing 
+        .attach(CachedCompression::path_suffix_fairing(vec![".js".to_string(), ".css".to_string(), ".html".to_string()]))
         .mount(
             "/",
             routes![

@@ -1159,7 +1159,7 @@ dependencies = [
 
 [[package]]
 name = "moka-web"
-version = "1.0.0-beta.1"
+version = "1.0.0-beta.2"
 dependencies = [
  "chrono",
  "flate2",

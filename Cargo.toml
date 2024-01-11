@@ -1,6 +1,6 @@
 [package]
 name = "moka-web"
-version = "1.0.0-beta.1"
+version = "1.0.0-beta.2"
 edition = "2021"
 authors = ["Mustafif Khan <mustafif0929@gmail.com>", "MoKa Reads <moka.reads@mkproj.com>"]
 description = "Moka Reads Web Application"
