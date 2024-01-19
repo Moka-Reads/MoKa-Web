@@ -64,6 +64,13 @@ pub async fn licenses(lic: &str) -> Template{
     })
 }
 
+#[get("/research")]
+pub async fn research() -> Template{
+    Template::render("research", context!{
+        version: VERSION.to_string()
+    })
+}
+
 
 /// Redirects any page not found errors to homepage
 /// This will help prevent any strange behaviour trying to happen with requests

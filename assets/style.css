@@ -70,9 +70,9 @@ header h1 {
 }
 
 .container {
-    max-width: 95%;
-    margin: 10px auto;
-    padding: 10px
+    max-width: 50%;
+     margin: 10px auto; 
+     padding: 10px 
 }
 
 .section {
@@ -162,85 +162,6 @@ footer {
 
 .mobile-hidden {
     visibility: visible
-}
-
-@media (max-width:810px) {
-
-    .license-description,
-    .license-type {
-        font-size: 10px
-    }
-
-    .license-card p {
-        font-size: 8px;
-        line-height: 1.6;
-        color: #4a4a4a;
-        margin: 20px
-    }
-
-    .license-card h2 {
-        font-size: 12px
-    }
-
-    .license-type {
-        color: #ad795b;
-        font-weight: 700
-    }
-
-    header h1 {
-        font-size: 2rem
-    }
-
-    section {
-        width: 78%
-    }
-
-    .section {
-        padding: 20px 0
-    }
-
-    .menu-icon {
-        display: block
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        align-items: center
-    }
-
-    nav li {
-        margin: 10px 0
-    }
-
-    #menu-toggle:checked+ul {
-        display: flex
-    }
-
-    .mission-card img {
-        width: 150px
-    }
-
-    .mobile-hidden {
-        display: none;
-    }
-
-    .mobile-show {
-        visibility: visible
-    }
-
-    .article {
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 10px;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 40%;
-        position: relative;
-        transition: box-shadow .3s
-    }
 }
 
 .open-source-section {
@@ -414,13 +335,13 @@ tr {
     margin-bottom: 20px
 }
 
-.license-section {
-    margin: 20px
+ .license-section {
+    max-width: 50%;
 }
 
 .license-card {
-    margin: 20px auto
-}
+    max-width: 50%;
+} 
 
 .article,
 .awesome {
@@ -847,4 +768,84 @@ blockquote {
 .open-source-section .search-btn {
     grid-row: 2;
     display: grid
+}
+
+
+@media (max-width:810px) {
+
+    .license-description,
+    .license-type {
+        font-size: 10px
+    }
+
+    .license-card p {
+        font-size: 8px;
+        line-height: 1.6;
+        color: #4a4a4a;
+        /* margin: 20px */
+    }
+
+    .license-card h2 {
+        font-size: 12px
+    }
+
+    .license-type {
+        color: #ad795b;
+        font-weight: 700
+    }
+
+    header h1 {
+        font-size: 2rem
+    }
+
+    section {
+        width: 78%
+    }
+
+    .section {
+        padding: 20px 0
+    }
+
+    .menu-icon {
+        display: block
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center
+    }
+
+    nav li {
+        margin: 10px 0
+    }
+
+    #menu-toggle:checked+ul {
+        display: flex
+    }
+
+    .mission-card img {
+        width: 150px
+    }
+
+    .mobile-hidden {
+        display: none;
+    }
+
+    .mobile-show {
+        visibility: visible
+    }
+
+    .article {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        position: relative;
+        transition: box-shadow .3s
+    }
 }

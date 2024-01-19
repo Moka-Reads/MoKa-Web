@@ -1,34 +1,67 @@
 <nav class="w3-bar nav mobile-hidden">
-    <a href="/" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-home"></i> Home</a>
-    <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-clipboard-check"></i> Mission</a>
-    <a href="/policies" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Policies</a>
-    <a href="/research" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-flask"></i> Research</a>
-    <a href="/download" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-book"></i> Curriculums</a>
-    <a href="https://github.com/Moka-Reads" class="w3-bar-item w3-button w3-mobile"><i
+    <a href="/" class="w3-bar-item w3-button w3-mobile"><i
+            class="fas fa-home"></i> Home</a>
+    <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i
+            class="fas fa-clipboard-check"></i> Mission</a>
+    <a href="/policies" class="w3-bar-item w3-button w3-mobile"><i
+            class="fas fa-certificate"></i> Policies</a>
+    <a href="/research" class="w3-bar-item w3-button w3-mobile"><i
+            class="fa-solid fa-flask"></i> Research</a>
+    <a href="/download" class="w3-bar-item w3-button w3-mobile"><i
+            class="fa-solid fa-book"></i> Curriculums</a>
+    <a href="https://github.com/Moka-Reads"
+        class="w3-bar-item w3-button w3-mobile"><i
             class="devicon-github-original"></i> Github</a>
-    <a href="https://shop.mokareads.org" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-shopping-cart"></i>
+    <a href="https://shop.mokareads.org"
+        class="w3-bar-item w3-button w3-mobile"><i
+            class="fas fa-shopping-cart"></i>
         Shop</a>
-        <a href="https://opencollective.com/mokareads" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-hands-helping"></i>
-            Foundation</a>
-    <a href="https://instagram.com/moka.reads" class="w3-bar-item w3-button w3-right w3-mobile"><i
+    <a href="https://blog.mokareads.org"
+        class="w3-bar-item w3-button w3-mobile"><i
+            class="fa-brands fa-hashnode"></i>
+        Blog</a>
+    <a href="https://opencollective.com/mokareads"
+        class="w3-bar-item w3-button w3-mobile"><i
+            class="fas fa-hands-helping"></i>
+        Foundation</a>
+    <a href="https://instagram.com/moka.reads"
+        class="w3-bar-item w3-button w3-right w3-mobile"><i
             class="fab fa-instagram"></i></a>
 </nav>
 
 <!--- Mobile Sidebar -->
 
-<div class="w3-sidebar w3-bar-block w3-border-right mobile-show" style="display:none; background-color: #f6f3ee;" id="mySidebar">
-    <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-    <a href="/" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-home"></i> Home</a>
-    <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-clipboard-check"></i> Mission</a>
-    <a href="/policies" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-certificate"></i> Policies</a>
-    <a href="/research" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-flask"></i> Research</a>
-    <a href="/download" class="w3-bar-item w3-button w3-mobile"><i class="fa-solid fa-book"></i> Curriculums</a>
-    <a href="https://github.com/Moka-Reads" class="w3-bar-item w3-button w3-mobile"><i class="devicon-github-original"></i> Github</a>
-    <a href="https://shop.mokareads.org" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-shopping-cart"></i> Shop</a>
-    <a href="https://opencollective.com/mokareads" class="w3-bar-item w3-button w3-mobile"><i class="fas fa-hands-helping"></i> Foundation</a>
-    <a href="https://instagram.com/moka.reads" class="w3-bar-item w3-button w3-right w3-mobile"><i class="fab fa-instagram"></i></a>
+<div class="w3-sidebar w3-bar-block w3-border-right mobile-show"
+    style="display:none; background-color: #f6f3ee;" id="mySidebar">
+    <button onclick="w3_close()" class="w3-bar-item w3-large">Close
+        &times;</button>
+    <a href="/" class="w3-bar-item w3-button w3-mobile"><i
+            class="fas fa-home"></i> Home</a>
+    <a href="/mission" class="w3-bar-item w3-button w3-mobile"><i
+            class="fas fa-clipboard-check"></i> Mission</a>
+    <a href="/policies" class="w3-bar-item w3-button w3-mobile"><i
+            class="fas fa-certificate"></i> Policies</a>
+    <a href="/research" class="w3-bar-item w3-button w3-mobile"><i
+            class="fa-solid fa-flask"></i> Research</a>
+    <a href="/download" class="w3-bar-item w3-button w3-mobile"><i
+            class="fa-solid fa-book"></i> Curriculums</a>
+    <a href="https://github.com/Moka-Reads"
+        class="w3-bar-item w3-button w3-mobile"><i
+            class="devicon-github-original"></i> Github</a>
+    <a href="https://shop.mokareads.org"
+        class="w3-bar-item w3-button w3-mobile"><i
+            class="fas fa-shopping-cart"></i> Shop</a>
+    <a href="https://blog.mokareads.org"
+        class="w3-bar-item w3-button w3-mobile"><i
+            class="fa-brands fa-hashnode"></i>
+        Blog</a>
+    <a href="https://opencollective.com/mokareads"
+        class="w3-bar-item w3-button w3-mobile"><i
+            class="fas fa-hands-helping"></i> Foundation</a>
+    <a href="https://instagram.com/moka.reads"
+        class="w3-bar-item w3-button w3-right w3-mobile"><i
+            class="fab fa-instagram"></i></a>
 </div>
-
 
 <script>
     function w3_open() {

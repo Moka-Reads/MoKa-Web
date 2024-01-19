@@ -15,10 +15,10 @@
 
         {% include "nav" %}
 
-        <div class="container">
+        <div class="container w3-center w3-mobile">
             <!-- License Section -->
-            <section class="license-section w3-mobile">
-                <div class="license-card w3-mobile">
+            <section class="mission-section w3-mobile w3-center">
+                <div class="mission-card w3-mobile w3-center">
                     <h2>License Information</h2>
                     <div class="license-type">Public Software, Code Samples, and
                         Projects</div>
@@ -67,11 +67,11 @@
                         licensing terms.</p>
                 </div>
 
-                <div class="license-card w3-mobile">
+                <div class="mission-card w3-mobile w3-center">
                     {{ opencode | safe }}
                 </div>
 
-                <div class="license-card w3-mobile">
+                <div class="mission-card w3-mobile w3-center">
                     <h2>Disclosure: Generative AI Content</h2>
                     <p>In the evolving world, AI has become a valuable tool that
                         aids us in our mission at MoKa Reads to provide

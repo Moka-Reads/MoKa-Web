@@ -32,6 +32,7 @@ async fn rocket() -> Rocket<Build> {
                 mission,
                 policies, 
                 licenses, 
+                research, 
             ],
         ) // Mount the routes for the website
         .register("/", catchers![not_found, internal_error]) // Register the catchers for 404 and 500 errors

@@ -1,6 +1,7 @@
 <footer>
-  <p>&copy; 2023 MoKa Reads | All rights reserved. The MoKa Reads Foundation |
-    Powered by <a href="https://github.com/Moka-Reads">Moka-Web v{{version}}</a></p>
+  <p>&copy; 2023 MoKa Reads | All rights reserved. <a
+      href="https://opencollective.com/mokareads">The MoKa Reads Foundation</a>
+    |
+    Powered by <a href="https://github.com/Moka-Reads">Moka-Web
+      v{{version}}</a></p>
 </footer>
-
-{# <script src="/assets/prism.js"></script> #}

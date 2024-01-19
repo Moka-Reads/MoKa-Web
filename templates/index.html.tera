@@ -105,7 +105,7 @@
 
     <body>
         <header>
-            <h1>MoKa Reads</h1>
+            <h1 style="font-family: 'Russo One', sans-serif;">MoKa Reads</h1>
             <button class="w3-button w3-xlarge nav mobile-show"
                 onclick="w3_open()">☰</button>
         </header>
